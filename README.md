@@ -1,0 +1,54 @@
+# Gigantes de MDF - CARRO-PIZZA! 🚗
+
+## Introdução
+Bem-vindo à documentação técnica do projeto de **Carrinho-Pizza**. 
+Este firmware foi desenvolvido para a arquitetura AVR (ATmega328P) utilizando manipulação direta de registradores ("Bare Metal") para garantir a máxima eficiência no tempo de resposta dos motores.
+
+### 🎯 Objetivos
+* Demonstrar controle PWM via Timers de Hardware (Timer0 e Timer2).
+* Implementar protocolo de comunicação sem fio robusto.
+* Gerenciar estados de segurança (parada de emergência).
+
+---
+
+## 🛠️ Hardware Utilizado
+
+| Componente | Especificação | Função |
+| :--- | :--- | :--- |
+| **MCU** | ATmega328P (16MHz) | Cérebro do sistema |
+| **Rádio** | NRF24L01+ | Comunicação 2.4GHz |
+| **Driver** | Ponte H (L298N/Mini) | Controle de potência dos motores |
+| **Sensores** | Ultrassônico / LDR | Detecção de ambiente |
+
+---
+
+## 🔌 Pinagem (Pinout)
+
+Abaixo está o mapeamento físico dos pinos do microcontrolador para os periféricos:
+
+* **Motores:**
+    * `PD6 (OC0A)`: PWM Motor Esquerdo
+    * `PD3 (OC2B)`: PWM Motor Direito
+    * `PD1/PD2/PD4/PD5`: Controle de Direção (Ponte H)
+* **Comunicação:**
+    * `PB1/PB2`: Controle do Rádio (CE/CSN)
+    * `SPI`: Padrão do ATmega
+* **Interface:**
+    * `PD7`: Botão de Start/Stop (Pull-up)
+    * `PC1-PC3`: LEDs de Status
+
+---
+
+## 🚀 Como Compilar
+
+1.  Configure o `F_CPU` para 16000000UL.
+2.  Compile utilizando `avr-gcc`.
+3.  Faça o upload via `avrdude`.
+
+> **Nota:** Certifique-se de que a biblioteca `nrf24_avr.h` esteja no mesmo diretório.
+
+---
+
+**Autores:** Bruno Garcia Carvalho, Pedro Henrique Brito, Pedro Henrique Cretella  
+**Disciplina:** Programação de Hardware / Microcontroladores  
+**Data:** Novembro 2025

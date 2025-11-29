@@ -1,0 +1,6 @@
+<map id="motor" name="motor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,66,57"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="12,29,8,20,11,11,21,5,36,3,51,5,61,13,56,14,49,10,35,8,22,10,15,14,14,20,17,28"/>
+<area shape="rect" id="Node000002" href="$carrinho_8c.html#ac7c0935e24e573b2929d0df7f9e6b82f" title=" " alt="" coords="114,29,219,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="66,41,101,43,95,44,66,46"/>
+</map>

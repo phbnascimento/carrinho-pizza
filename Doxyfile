@@ -1,0 +1,40 @@
+# --- Informações do Projeto ---
+PROJECT_NAME           = "Carrinho Pizza - Sem azeitona"
+PROJECT_NUMBER         = "(Com azeitona) 1.0"
+OUTPUT_DIRECTORY       = docs
+OUTPUT_LANGUAGE        = Portuguese
+
+# --- Onde está o código? ---
+# Coloque "." se o Doxyfile estiver na mesma pasta dos arquivos .c/.py
+INPUT                  = . README.md
+RECURSIVE              = YES
+
+# --- O Segredo para o Professor "Ver Tudo" ---
+# Isso força o Doxygen a documentar tudo, mesmo o que não tem comentários
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+
+# --- Otimização para Linguagem ---
+# Se estiver usando Arduino/C++, deixe YES. Se for Python, mude para NO.
+OPTIMIZE_OUTPUT_FOR_C  = YES
+# Se for Java ou Python, ative esta linha abaixo removendo o #:
+# OPTIMIZE_OUTPUT_JAVA   = YES
+
+# --- Diagramas e Gráficos (O "Uau" da apresentação) ---
+# Requer a instalação do Graphviz
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+GRAPHICAL_HIERARCHY    = YES
+DIRECTORY_GRAPH        = YES
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+
+# --- Aparência ---
+GENERATE_TREEVIEW      = YES
+DISABLE_INDEX          = NO
+FULL_SIDEBAR           = NO
+
+USE_MDFILE_AS_MAINPAGE = README.md

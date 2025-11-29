@@ -1,0 +1,146 @@
+\doxysection{Referência ao ficheiro controle/controle.c}
+\hypertarget{controle_8c}{}\label{controle_8c}\index{controle/controle.c@{controle/controle.c}}
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+{\ttfamily \#include $<$n\+RF24\+L01.\+h$>$}\newline
+{\ttfamily \#include $<$RF24.\+h$>$}\newline
+Diagrama de dependências de inclusão para controle.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{controle_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structControls}{Controls}}
+\begin{DoxyCompactList}\small\item\em Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{controle_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{LED1}}~3
+\item 
+\#define \mbox{\hyperlink{controle_8c_ad09fe5bf321b9a2de26bd5e5b9af6424}{LED2}}~5
+\item 
+\#define \mbox{\hyperlink{controle_8c_a08ee2643fc201d0aa439a4bef60a8890}{JX}}~A0
+\item 
+\#define \mbox{\hyperlink{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab}{JY}}~A1
+\item 
+\#define \mbox{\hyperlink{controle_8c_aea65463ec80bbae979a30002d5aa8558}{JS}}~A2
+\item 
+\#define \mbox{\hyperlink{controle_8c_a86de85f5177dabb5ff712bf180db43aa}{TRIGGER}}~A3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+RF24 \mbox{\hyperlink{controle_8c_a53cdd46f95419ffdcd44d3f0d6147b54}{radio}} (9, 10)
+\item 
+void \mbox{\hyperlink{controle_8c_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{controle_8c_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+const byte \mbox{\hyperlink{controle_8c_ae0c0431bfc31dc095fb3215eaebf79ea}{address}} \mbox{[}6\mbox{]} = "{}00001"{}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{controle_8c_doc-define-members}
+\doxysubsection{Documentação das macros}
+\Hypertarget{controle_8c_aea65463ec80bbae979a30002d5aa8558}\index{controle.c@{controle.c}!JS@{JS}}
+\index{JS@{JS}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{JS}{JS}}
+{\footnotesize\ttfamily \label{controle_8c_aea65463ec80bbae979a30002d5aa8558} 
+\#define JS~A2}
+
+\Hypertarget{controle_8c_a08ee2643fc201d0aa439a4bef60a8890}\index{controle.c@{controle.c}!JX@{JX}}
+\index{JX@{JX}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{JX}{JX}}
+{\footnotesize\ttfamily \label{controle_8c_a08ee2643fc201d0aa439a4bef60a8890} 
+\#define JX~A0}
+
+\Hypertarget{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab}\index{controle.c@{controle.c}!JY@{JY}}
+\index{JY@{JY}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{JY}{JY}}
+{\footnotesize\ttfamily \label{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab} 
+\#define JY~A1}
+
+\Hypertarget{controle_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}\index{controle.c@{controle.c}!LED1@{LED1}}
+\index{LED1@{LED1}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{LED1}{LED1}}
+{\footnotesize\ttfamily \label{controle_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9} 
+\#define LED1~3}
+
+\Hypertarget{controle_8c_ad09fe5bf321b9a2de26bd5e5b9af6424}\index{controle.c@{controle.c}!LED2@{LED2}}
+\index{LED2@{LED2}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{LED2}{LED2}}
+{\footnotesize\ttfamily \label{controle_8c_ad09fe5bf321b9a2de26bd5e5b9af6424} 
+\#define LED2~5}
+
+\Hypertarget{controle_8c_a86de85f5177dabb5ff712bf180db43aa}\index{controle.c@{controle.c}!TRIGGER@{TRIGGER}}
+\index{TRIGGER@{TRIGGER}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{TRIGGER}{TRIGGER}}
+{\footnotesize\ttfamily \label{controle_8c_a86de85f5177dabb5ff712bf180db43aa} 
+\#define TRIGGER~A3}
+
+
+
+\label{doc-func-members}
+\Hypertarget{controle_8c_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{controle_8c_afe461d27b9c48d5921c00d521181f12f}\index{controle.c@{controle.c}!loop@{loop}}
+\index{loop@{loop}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{controle_8c_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{controle_8c_afe461d27b9c48d5921c00d521181f12f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_a53cdd46f95419ffdcd44d3f0d6147b54}\index{controle.c@{controle.c}!radio@{radio}}
+\index{radio@{radio}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{radio()}{radio()}}
+{\footnotesize\ttfamily \label{controle_8c_a53cdd46f95419ffdcd44d3f0d6147b54} 
+RF24 radio (\begin{DoxyParamCaption}\item[{9}]{}{, }\item[{10}]{}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{controle_8c_a53cdd46f95419ffdcd44d3f0d6147b54_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_a4fc01d736fe50cf5b977f755b675f11d}\index{controle.c@{controle.c}!setup@{setup}}
+\index{setup@{setup}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{controle_8c_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{controle_8c_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{controle_8c_doc-var-members}
+\doxysubsection{Documentação das variáveis}
+\Hypertarget{controle_8c_ae0c0431bfc31dc095fb3215eaebf79ea}\index{controle.c@{controle.c}!address@{address}}
+\index{address@{address}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily \label{controle_8c_ae0c0431bfc31dc095fb3215eaebf79ea} 
+const byte address\mbox{[}6\mbox{]} = "{}00001"{}}
+

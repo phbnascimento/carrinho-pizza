@@ -1,0 +1,5 @@
+<map id="motor" name="motor">
+<area shape="rect" id="Node000001" title="Controla a direção e velocidade de um motor DC." alt="" coords="143,5,203,33"/>
+<area shape="rect" id="Node000002" href="$codigo_8c.html#a026d019671eda0cfe729200fc24d23ba" title="Executa a rotina de &quot;Game Over&quot;." alt="" coords="5,5,95,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,19,95,22,95,17,130,19"/>
+</map>

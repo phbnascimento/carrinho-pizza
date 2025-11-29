@@ -1,0 +1,134 @@
+\doxysection{n\+RF24\+L01.\+h}
+\hypertarget{nRF24L01_8h_source}{}\label{nRF24L01_8h_source}\index{carrinho/nRF24L01.h@{carrinho/nRF24L01.h}}
+\mbox{\hyperlink{nRF24L01_8h}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Copyright\ (c)\ 2007\ Stefan\ Engelke\ <mbox@stefanengelke.de>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Portions\ Copyright\ (C)\ 2011\ Greg\ Copeland}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ files\ (the\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ \ \ \ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell\ copies}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ \ \ \ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ \ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/*\ Memory\ Map\ */}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ NRF\_CONFIG\ \ 0x00}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ EN\_AA\ \ \ \ \ \ \ 0x01}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ EN\_RXADDR\ \ \ 0x02}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ SETUP\_AW\ \ \ \ 0x03}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ SETUP\_RETR\ \ 0x04}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ RF\_CH\ \ \ \ \ \ \ 0x05}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ RF\_SETUP\ \ \ \ 0x06}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ NRF\_STATUS\ \ 0x07}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ OBSERVE\_TX\ \ 0x08}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ CD\ \ \ \ \ \ \ \ \ \ 0x09}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ RX\_ADDR\_P0\ \ 0x0A}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ RX\_ADDR\_P1\ \ 0x0B}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ RX\_ADDR\_P2\ \ 0x0C}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ RX\_ADDR\_P3\ \ 0x0D}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ RX\_ADDR\_P4\ \ 0x0E}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ RX\_ADDR\_P5\ \ 0x0F}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ TX\_ADDR\ \ \ \ \ 0x10}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ RX\_PW\_P0\ \ \ \ 0x11}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ RX\_PW\_P1\ \ \ \ 0x12}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ RX\_PW\_P2\ \ \ \ 0x13}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ RX\_PW\_P3\ \ \ \ 0x14}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ RX\_PW\_P4\ \ \ \ 0x15}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ RX\_PW\_P5\ \ \ \ 0x16}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ FIFO\_STATUS\ 0x17}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ DYNPD\ \ \ \ \ \ \ 0x1C}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ FEATURE\ \ \ \ \ 0x1D}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{/*\ Bit\ Mnemonics\ */}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ MASK\_RX\_DR\ \ 6}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ MASK\_TX\_DS\ \ 5}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ MASK\_MAX\_RT\ 4}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ EN\_CRC\ \ \ \ \ \ 3}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ CRCO\ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ PWR\_UP\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ PRIM\_RX\ \ \ \ \ 0}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ ENAA\_P5\ \ \ \ \ 5}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ ENAA\_P4\ \ \ \ \ 4}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ ENAA\_P3\ \ \ \ \ 3}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ ENAA\_P2\ \ \ \ \ 2}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ ENAA\_P1\ \ \ \ \ 1}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ ENAA\_P0\ \ \ \ \ 0}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ ERX\_P5\ \ \ \ \ \ 5}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ ERX\_P4\ \ \ \ \ \ 4}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ ERX\_P3\ \ \ \ \ \ 3}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ ERX\_P2\ \ \ \ \ \ 2}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ ERX\_P1\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ ERX\_P0\ \ \ \ \ \ 0}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ AW\ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ ARD\ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ ARC\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ PLL\_LOCK\ \ \ \ 4}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ CONT\_WAVE\ \ \ 7}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ RF\_DR\ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ RF\_PWR\ \ \ \ \ \ 6}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ RX\_DR\ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ TX\_DS\ \ \ \ \ \ \ 5}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ MAX\_RT\ \ \ \ \ \ 4}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ RX\_P\_NO\ \ \ \ \ 1}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ TX\_FULL\ \ \ \ \ 0}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ PLOS\_CNT\ \ \ \ 4}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ ARC\_CNT\ \ \ \ \ 0}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ TX\_REUSE\ \ \ \ 6}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ FIFO\_FULL\ \ \ 5}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ TX\_EMPTY\ \ \ \ 4}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ RX\_FULL\ \ \ \ \ 1}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ RX\_EMPTY\ \ \ \ 0}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ DPL\_P5\ \ \ \ \ \ 5}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ DPL\_P4\ \ \ \ \ \ 4}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ DPL\_P3\ \ \ \ \ \ 3}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ DPL\_P2\ \ \ \ \ \ 2}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ DPL\_P1\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ DPL\_P0\ \ \ \ \ \ 0}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ EN\_DPL\ \ \ \ \ \ 2}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ EN\_ACK\_PAY\ \ 1}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ EN\_DYN\_ACK\ \ 0}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{comment}{/*\ Instruction\ Mnemonics\ */}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ R\_REGISTER\ \ \ \ 0x00}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ W\_REGISTER\ \ \ \ 0x20}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ REGISTER\_MASK\ 0x1F}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ ACTIVATE\ \ \ \ \ \ 0x50}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ R\_RX\_PL\_WID\ \ \ 0x60}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ R\_RX\_PAYLOAD\ \ 0x61}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ W\_TX\_PAYLOAD\ \ 0xA0}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ W\_ACK\_PAYLOAD\ 0xA8}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ FLUSH\_TX\ \ \ \ \ \ 0xE1}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ FLUSH\_RX\ \ \ \ \ \ 0xE2}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ REUSE\_TX\_PL\ \ \ 0xE3}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ RF24\_NOP\ \ \ \ \ \ 0xFF}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{comment}{/*\ Non-\/P\ omissions\ */}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ LNA\_HCURR\ 0}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{comment}{/*\ P\ model\ memory\ Map\ */}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ RPD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x09}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ W\_TX\_PAYLOAD\_NO\_ACK\ 0xB0}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{comment}{/*\ P\ model\ bit\ Mnemonics\ */}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ RF\_DR\_LOW\ \ \ 5}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ RF\_DR\_HIGH\ \ 3}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ RF\_PWR\_LOW\ \ 1}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ RF\_PWR\_HIGH\ 2}}
+
+\end{DoxyCode}

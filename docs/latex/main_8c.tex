@@ -1,0 +1,85 @@
+\doxysection{Referência ao ficheiro main.\+c}
+\hypertarget{main_8c}{}\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+{\ttfamily \#include "{}nrf24\+\_\+avr.\+h"{}}\newline
+Diagrama de dependências de inclusão para main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~16000000\+UL
+\item 
+\#define \mbox{\hyperlink{main_8c_abb388c9dfbdca89b280a12c4af1a030f}{CE\+\_\+\+PIN}}~8
+\item 
+\#define \mbox{\hyperlink{main_8c_a6c4d73944fe1bd2ff7ceee867c315ac1}{CSN\+\_\+\+PIN}}~10
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_adfa69aeede6b90a7fb8c211a9cf16858}{rxaddr}} \mbox{[}5\mbox{]} = \{\textquotesingle{}N\textquotesingle{},\textquotesingle{}O\textquotesingle{},\textquotesingle{}D\textquotesingle{},\textquotesingle{}E\textquotesingle{},\textquotesingle{}1\textquotesingle{}\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{main_8c_doc-define-members}
+\doxysubsection{Documentação das macros}
+\Hypertarget{main_8c_abb388c9dfbdca89b280a12c4af1a030f}\index{main.c@{main.c}!CE\_PIN@{CE\_PIN}}
+\index{CE\_PIN@{CE\_PIN}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{CE\_PIN}{CE\_PIN}}
+{\footnotesize\ttfamily \label{main_8c_abb388c9dfbdca89b280a12c4af1a030f} 
+\#define CE\+\_\+\+PIN~8}
+
+\Hypertarget{main_8c_a6c4d73944fe1bd2ff7ceee867c315ac1}\index{main.c@{main.c}!CSN\_PIN@{CSN\_PIN}}
+\index{CSN\_PIN@{CSN\_PIN}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{CSN\_PIN}{CSN\_PIN}}
+{\footnotesize\ttfamily \label{main_8c_a6c4d73944fe1bd2ff7ceee867c315ac1} 
+\#define CSN\+\_\+\+PIN~10}
+
+\Hypertarget{main_8c_a43bafb28b29491ec7f871319b5a3b2f8}\index{main.c@{main.c}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \label{main_8c_a43bafb28b29491ec7f871319b5a3b2f8} 
+\#define F\+\_\+\+CPU~16000000\+UL}
+
+
+
+\label{doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{main_8c_doc-var-members}
+\doxysubsection{Documentação das variáveis}
+\Hypertarget{main_8c_adfa69aeede6b90a7fb8c211a9cf16858}\index{main.c@{main.c}!rxaddr@{rxaddr}}
+\index{rxaddr@{rxaddr}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rxaddr}{rxaddr}}
+{\footnotesize\ttfamily \label{main_8c_adfa69aeede6b90a7fb8c211a9cf16858} 
+uint8\+\_\+t rxaddr\mbox{[}5\mbox{]} = \{\textquotesingle{}N\textquotesingle{},\textquotesingle{}O\textquotesingle{},\textquotesingle{}D\textquotesingle{},\textquotesingle{}E\textquotesingle{},\textquotesingle{}1\textquotesingle{}\}}
+

@@ -1,0 +1,12 @@
+<map id="read_reg_buf" name="read_reg_buf">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,57,112,85"/>
+<area shape="rect" id="Node000002" href="$nrf24__avr_8c.html#adaef88bc02a8e805de3b3a82bf317549" title=" " alt="" coords="170,5,248,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,54,157,36,153,39,102,59"/>
+<area shape="rect" id="Node000004" href="$nrf24__avr_8c.html#a42f8c1120431b7c37e116a4e1eac1cc2" title=" " alt="" coords="172,57,246,85"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="112,69,159,70,154,72,113,74"/>
+<area shape="rect" id="Node000005" href="$nrf24__avr_8c.html#a8d161d483c095113df5b69798e9cd725" title=" " alt="" coords="160,109,258,137"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="101,83,155,103,150,105,101,88"/>
+<area shape="rect" id="Node000003" href="$nrf24__avr_8c.html#a019970fc17b6b18fa4e45e0baf22c93f" title=" " alt="" coords="306,32,418,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="248,23,293,33,288,34,249,29"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="245,63,293,57,288,58,246,68"/>
+</map>

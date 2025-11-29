@@ -1,0 +1,68 @@
+\chapter{Gigantes de MDF -\/ CARRO-\/\+PIZZA! 🚗 }
+\hypertarget{index}{}\label{index}\index{Gigantes de MDF -\/ CARRO-\/PIZZA"! 🚗@{Gigantes de MDF -\/ CARRO-\/PIZZA"! 🚗}}
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Introdução}{Introdução}}\label{index_autotoc_md1}
+Bem-\/vindo à documentação técnica do projeto de {\bfseries{Carrinho-\/\+Pizza}}. Este firmware foi desenvolvido para a arquitetura AVR (ATmega328P) utilizando manipulação direta de registradores ("{}\+Bare Metal"{}) para garantir a máxima eficiência no tempo de resposta dos motores.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{🎯 Objetivos}{🎯 Objetivos}}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Demonstrar controle PWM via Timers de Hardware (Timer0 e Timer2).
+\item Implementar protocolo de comunicação sem fio robusto.
+\item Gerenciar estados de segurança (parada de emergência).
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{🛠️ Hardware Utilizado}{🛠️ Hardware Utilizado}}\label{index_autotoc_md4}
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{bg=\tableheadbgcolor,font=\bfseries}Componente  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Especificação  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Função  \\
+{\bfseries{MCU}}  &ATmega328P (16MHz)  &Cérebro do sistema  \\
+{\bfseries{Rádio}}  &NRF24\+L01+  &Comunicação 2.\+4\+GHz  \\
+{\bfseries{Driver}}  &Ponte H (L298\+N/\+Mini)  &Controle de potência dos motores  \\
+{\bfseries{Sensores}}  &Ultrassônico / LDR  &Detecção de ambiente  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{🔌 Pinagem (Pinout)}{🔌 Pinagem (Pinout)}}\label{index_autotoc_md6}
+Abaixo está o mapeamento físico dos pinos do microcontrolador para os periféricos\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Motores\+:}}
+\begin{DoxyItemize}
+\item {\ttfamily PD6 (OC0A)}\+: PWM \doxylink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} Esquerdo
+\item {\ttfamily PD3 (OC2B)}\+: PWM \doxylink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} Direito
+\item {\ttfamily PD1/\+PD2/\+PD4/\+PD5}\+: Controle de Direção (Ponte H)
+\end{DoxyItemize}
+\item {\bfseries{Comunicação\+:}}
+\begin{DoxyItemize}
+\item {\ttfamily PB1/\+PB2}\+: Controle do Rádio (CE/\+CSN)
+\item {\ttfamily SPI}\+: Padrão do ATmega
+\end{DoxyItemize}
+\item {\bfseries{Interface\+:}}
+\begin{DoxyItemize}
+\item {\ttfamily PD7}\+: Botão de Start/\+Stop (Pull-\/up)
+\item {\ttfamily PC1-\/\+PC3}\+: LEDs de Status
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{🚀 Como Compilar}{🚀 Como Compilar}}\label{index_autotoc_md8}
+
+\begin{DoxyEnumerate}
+\item Configure o {\ttfamily \doxylink{carrinho_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}} para 16000000UL.
+\item Compile utilizando {\ttfamily avr-\/gcc}.
+\item Faça o upload via {\ttfamily avrdude}.
+\end{DoxyEnumerate}
+
+\begin{quote}
+{\bfseries{Nota\+:}} Certifique-\/se de que a biblioteca {\ttfamily \doxylink{nrf24__avr_8h}{nrf24\+\_\+avr.\+h}} esteja no mesmo diretório. \end{quote}
+
+
+\DoxyHorRuler{0}
+
+
+{\bfseries{Autores\+:}} Bruno Garcia Carvalho, Pedro Henrique Brito, Pedro Henrique Cretella ~\newline
+ {\bfseries{Disciplina\+:}} Programação de Hardware / Microcontroladores ~\newline
+ {\bfseries{Data\+:}} Novembro 2025 

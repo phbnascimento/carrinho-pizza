@@ -147,20 +147,18 @@ void loop() {
   // LED(LED1, gamepad.sw);
   // motor(LEFT,  gamepad.x > 0 ? FORWARD : BACKWARDS, abs(gamepad.x));
   // motor(RIGHT, gamepad.x > 0 ? FORWARD : BACKWARDS, abs(gamepad.x));
-  PORTD |= (1<<IN1);
-  PORTD &= ~(1<<IN2);
-  analog_write(ENA, 200);
+  motor(LEFT, FORWARD, 150);
 }
 
 int main() {
+  analog_setup();
+
   // Preferi fazer assim pela facilidade
   DDRB |= 0b00000001;
   DDRC |= 0b00001110;
   DDRD |= 0b01111110;
 
-  PORTD |= (1 << 7); // Botão em pullup
-
-  analog_setup();
+  PORTD |= (1<<7); // Botão em pullup
 
   // Rádio
   nrf24_begin(9, 10, RF24_SPI_SPEED);

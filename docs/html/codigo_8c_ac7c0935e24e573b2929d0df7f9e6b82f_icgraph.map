@@ -1,0 +1,11 @@
+<map id="analog_write" name="analog_write">
+<area shape="rect" id="Node000001" title="Escreve um valor PWM em um pino específico." alt="" coords="251,32,356,60"/>
+<area shape="rect" id="Node000002" href="$codigo_8c.html#afe461d27b9c48d5921c00d521181f12f" title="Loop principal de lógica do sistema." alt="" coords="148,5,198,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,32,198,27,198,21,239,32"/>
+<area shape="rect" id="Node000004" href="$codigo_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39" title="Controla a direção e velocidade de um motor DC." alt="" coords="143,57,203,85"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="238,59,204,68,203,63,233,59"/>
+<area shape="rect" id="Node000003" href="$codigo_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Ponto de entrada do programa (Setup e Loop Infinito)." alt="" coords="23,5,77,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,21,78,22,77,17,135,18"/>
+<area shape="rect" id="Node000005" href="$codigo_8c.html#a026d019671eda0cfe729200fc24d23ba" title="Executa a rotina de &quot;Game Over&quot;." alt="" coords="5,57,95,85"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="125,71,95,74,95,69,130,71"/>
+</map>

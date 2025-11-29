@@ -1,0 +1,598 @@
+\doxysection{Referência ao ficheiro codigo.\+c}
+\hypertarget{codigo_8c}{}\label{codigo_8c}\index{codigo.c@{codigo.c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+{\ttfamily \#include "{}nrf24\+\_\+avr.\+h"{}}\newline
+Diagrama de dependências de inclusão para codigo.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{codigo_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structControls}{Controls}}
+\begin{DoxyCompactList}\small\item\em Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{codigo_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~16000000\+UL
+\begin{DoxyCompactList}\small\item\em Define a frequência da CPU para 16MHz se não definida pelo compilador. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_a5bb885982ff66a2e0a0a45a8ee9c35e2}{HIGH}}~1
+\begin{DoxyCompactList}\small\item\em Nível lógico alto (1). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_ab811d8c6ff3a505312d3276590444289}{LOW}}~0
+\begin{DoxyCompactList}\small\item\em Nível lógico baixo (0). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_a9fa6f083fd9b05ac8a6b94f34322661e}{LDR}}~0
+\begin{DoxyCompactList}\small\item\em Canal ADC para o sensor de luz (Analog 0). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_a94180201817e497ad4f773021adf385b}{LED}}(LEDNUM,  STATE)
+\begin{DoxyCompactList}\small\item\em Macro funcional para controlar LEDs no PORTC. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{LED1}}~1
+\begin{DoxyCompactList}\small\item\em Pino do LED indicativo 1 (PC1 / A1). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_ad09fe5bf321b9a2de26bd5e5b9af6424}{LED2}}~2
+\begin{DoxyCompactList}\small\item\em Pino do LED indicativo 2 (PC2 / A2). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_a4b7ff8e253a7412f83deba3a447028a8}{LED3}}~3
+\begin{DoxyCompactList}\small\item\em Pino do LED indicativo 3 (PC3 / A3). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_ac2c663eb7de5a963911af77b65451fb6}{IN2}}~1
+\begin{DoxyCompactList}\small\item\em Controle de direção \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} A (PD1). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_aa118db89564189dcf8c48ecbd79937d8}{IN1}}~2
+\begin{DoxyCompactList}\small\item\em Controle de direção \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} A (PD2). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_afb4da94c34e8eeb6ebb83676d92ea36b}{ENB}}~3
+\begin{DoxyCompactList}\small\item\em Enable/\+PWM do \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} B (PD3 -\/ OC2B). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_a38caa48612155e36696b60d2aabc25ff}{IN4}}~4
+\begin{DoxyCompactList}\small\item\em Controle de direção \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} B (PD4). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_ae24e8a55f5b9660a35dc5cf8a5e8ba4a}{IN3}}~5
+\begin{DoxyCompactList}\small\item\em Controle de direção \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} B (PD5). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_ac20176fb102e81762b5bb8a08b65a206}{ENA}}~6
+\begin{DoxyCompactList}\small\item\em Enable/\+PWM do \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} A (PD6 -\/ OC0A). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_a60858d59aa9fd54683018c3023970db5}{IS\+\_\+\+PRESSED}}~(!(PIND \& (1$<$$<$7)))
+\begin{DoxyCompactList}\small\item\em Verifica se o botão foi pressionado (Lógica Invertida/\+Pull-\/up). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_ad475217c28645ec178b59c745f3fc3ba}{BTN}}~7
+\begin{DoxyCompactList}\small\item\em Pino do Botão de usuário (PD7). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{codigo_8c_a7ec8393e9445109104fd54119e06fc08}{LASER}}~0
+\begin{DoxyCompactList}\small\item\em Pino de controle do Laser (PB0). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerações}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} \{ \mbox{\hyperlink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065}{LEFT}}
+, \mbox{\hyperlink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ceaec8379af7490bb9eaaf579cf17876f38}{RIGHT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Seleção do motor esquerdo ou direito. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} \{ \mbox{\hyperlink{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36}{BACKWARDS}} =0
+, \mbox{\hyperlink{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4aa26736999186daf8146f809e863712a1}{FORWARD}} =1
+ \}
+\begin{DoxyCompactList}\small\item\em Direção de rotação do motor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{codigo_8c_a1fc0a8f5b026eb5e606e738ca5434d2d}{analog\+\_\+setup}} (void)
+\begin{DoxyCompactList}\small\item\em Configura o ADC e os Timers para PWM. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{codigo_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}{analog\+\_\+read}} (uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Realiza a leitura analógica de um canal específico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codigo_8c_ac7c0935e24e573b2929d0df7f9e6b82f}{analog\+\_\+write}} (uint8\+\_\+t pin, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Escreve um valor PWM em um pino específico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39}{motor}} (\mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} motor, \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} dir, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Controla a direção e velocidade de um motor DC. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codigo_8c_a026d019671eda0cfe729200fc24d23ba}{game\+Over}} ()
+\begin{DoxyCompactList}\small\item\em Executa a rotina de "{}\+Game Over"{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{codigo_8c_aaa87dddb1e62142fd07ee17db1b5d673}{abs}} (int num)
+\begin{DoxyCompactList}\small\item\em Função auxiliar para calcular valor absoluto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{codigo_8c_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Loop principal de lógica do sistema. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{codigo_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Ponto de entrada do programa (Setup e Loop Infinito). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{codigo_8c_a0d5aeb028158bc168b01ed3bf2a385be}{addr}} \mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}1\textquotesingle{}\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{codigo_8c_a5694338c1bcb4455072af4179913d44d}{life}} = 0b1110
+\begin{DoxyCompactList}\small\item\em Vida atual do jogador (representação binária para LEDs). Inicial\+: 0b1110. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{codigo_8c_aaa928c9a62449f7946da1e32f66c70d2}{on}} =false
+\begin{DoxyCompactList}\small\item\em Estado de funcionamento do sistema (Ligado/\+Desligado). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{codigo_8c_a132ba96da5ba28448b61e42c019312a9}{pressed}} =false
+\begin{DoxyCompactList}\small\item\em Estado atual de leitura do botão (para debounce). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{codigo_8c_af2f56090dc8a3b112529c55e98dd04a7}{prev}} =false
+\begin{DoxyCompactList}\small\item\em Estado anterior de leitura do botão (para detecção de borda). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{codigo_8c_doc-define-members}
+\doxysubsection{Documentação das macros}
+\Hypertarget{codigo_8c_ad475217c28645ec178b59c745f3fc3ba}\index{codigo.c@{codigo.c}!BTN@{BTN}}
+\index{BTN@{BTN}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{BTN}{BTN}}
+{\footnotesize\ttfamily \label{codigo_8c_ad475217c28645ec178b59c745f3fc3ba} 
+\#define BTN~7}
+
+
+
+Pino do Botão de usuário (PD7). 
+
+\Hypertarget{codigo_8c_ac20176fb102e81762b5bb8a08b65a206}\index{codigo.c@{codigo.c}!ENA@{ENA}}
+\index{ENA@{ENA}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{ENA}{ENA}}
+{\footnotesize\ttfamily \label{codigo_8c_ac20176fb102e81762b5bb8a08b65a206} 
+\#define ENA~6}
+
+
+
+Enable/\+PWM do \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} A (PD6 -\/ OC0A). 
+
+\Hypertarget{codigo_8c_afb4da94c34e8eeb6ebb83676d92ea36b}\index{codigo.c@{codigo.c}!ENB@{ENB}}
+\index{ENB@{ENB}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{ENB}{ENB}}
+{\footnotesize\ttfamily \label{codigo_8c_afb4da94c34e8eeb6ebb83676d92ea36b} 
+\#define ENB~3}
+
+
+
+Enable/\+PWM do \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} B (PD3 -\/ OC2B). 
+
+\Hypertarget{codigo_8c_a43bafb28b29491ec7f871319b5a3b2f8}\index{codigo.c@{codigo.c}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \label{codigo_8c_a43bafb28b29491ec7f871319b5a3b2f8} 
+\#define F\+\_\+\+CPU~16000000\+UL}
+
+
+
+Define a frequência da CPU para 16MHz se não definida pelo compilador. 
+
+\Hypertarget{codigo_8c_a5bb885982ff66a2e0a0a45a8ee9c35e2}\index{codigo.c@{codigo.c}!HIGH@{HIGH}}
+\index{HIGH@{HIGH}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{HIGH}{HIGH}}
+{\footnotesize\ttfamily \label{codigo_8c_a5bb885982ff66a2e0a0a45a8ee9c35e2} 
+\#define HIGH~1}
+
+
+
+Nível lógico alto (1). 
+
+\Hypertarget{codigo_8c_aa118db89564189dcf8c48ecbd79937d8}\index{codigo.c@{codigo.c}!IN1@{IN1}}
+\index{IN1@{IN1}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{IN1}{IN1}}
+{\footnotesize\ttfamily \label{codigo_8c_aa118db89564189dcf8c48ecbd79937d8} 
+\#define IN1~2}
+
+
+
+Controle de direção \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} A (PD2). 
+
+\Hypertarget{codigo_8c_ac2c663eb7de5a963911af77b65451fb6}\index{codigo.c@{codigo.c}!IN2@{IN2}}
+\index{IN2@{IN2}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{IN2}{IN2}}
+{\footnotesize\ttfamily \label{codigo_8c_ac2c663eb7de5a963911af77b65451fb6} 
+\#define IN2~1}
+
+
+
+Controle de direção \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} A (PD1). 
+
+\Hypertarget{codigo_8c_ae24e8a55f5b9660a35dc5cf8a5e8ba4a}\index{codigo.c@{codigo.c}!IN3@{IN3}}
+\index{IN3@{IN3}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{IN3}{IN3}}
+{\footnotesize\ttfamily \label{codigo_8c_ae24e8a55f5b9660a35dc5cf8a5e8ba4a} 
+\#define IN3~5}
+
+
+
+Controle de direção \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} B (PD5). 
+
+\Hypertarget{codigo_8c_a38caa48612155e36696b60d2aabc25ff}\index{codigo.c@{codigo.c}!IN4@{IN4}}
+\index{IN4@{IN4}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{IN4}{IN4}}
+{\footnotesize\ttfamily \label{codigo_8c_a38caa48612155e36696b60d2aabc25ff} 
+\#define IN4~4}
+
+
+
+Controle de direção \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} B (PD4). 
+
+\Hypertarget{codigo_8c_a60858d59aa9fd54683018c3023970db5}\index{codigo.c@{codigo.c}!IS\_PRESSED@{IS\_PRESSED}}
+\index{IS\_PRESSED@{IS\_PRESSED}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{IS\_PRESSED}{IS\_PRESSED}}
+{\footnotesize\ttfamily \label{codigo_8c_a60858d59aa9fd54683018c3023970db5} 
+\#define IS\+\_\+\+PRESSED~(!(PIND \& (1$<$$<$7)))}
+
+
+
+Verifica se o botão foi pressionado (Lógica Invertida/\+Pull-\/up). 
+
+Como o botão está em pull-\/up, PIND \& (1\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}7) retorna 0 quando pressionado. O operador \textquotesingle{}!\textquotesingle{} inverte para retornar TRUE. \begin{DoxyReturn}{Retorna}
+1 se pressionado, 0 se solto. 
+\end{DoxyReturn}
+\Hypertarget{codigo_8c_a7ec8393e9445109104fd54119e06fc08}\index{codigo.c@{codigo.c}!LASER@{LASER}}
+\index{LASER@{LASER}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{LASER}{LASER}}
+{\footnotesize\ttfamily \label{codigo_8c_a7ec8393e9445109104fd54119e06fc08} 
+\#define LASER~0}
+
+
+
+Pino de controle do Laser (PB0). 
+
+\Hypertarget{codigo_8c_a9fa6f083fd9b05ac8a6b94f34322661e}\index{codigo.c@{codigo.c}!LDR@{LDR}}
+\index{LDR@{LDR}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{LDR}{LDR}}
+{\footnotesize\ttfamily \label{codigo_8c_a9fa6f083fd9b05ac8a6b94f34322661e} 
+\#define LDR~0}
+
+
+
+Canal ADC para o sensor de luz (Analog 0). 
+
+\Hypertarget{codigo_8c_a94180201817e497ad4f773021adf385b}\index{codigo.c@{codigo.c}!LED@{LED}}
+\index{LED@{LED}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{LED}{LED}}
+{\footnotesize\ttfamily \label{codigo_8c_a94180201817e497ad4f773021adf385b} 
+\#define LED(\begin{DoxyParamCaption}\item[{}]{LEDNUM}{, }\item[{}]{STATE}{}\end{DoxyParamCaption})}
+
+{\bfseries Valor\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(STATE\ ?\ (PORTC\ |=\ \ (1\ <<\ (LEDNUM)))\ :\ (PORTC\ \&=\ \string~(1\ <<\ (LEDNUM))))}
+
+\end{DoxyCode}
+
+
+Macro funcional para controlar LEDs no PORTC. 
+
+Utiliza operações bitwise para setar (\texorpdfstring{$\vert$}{|}=) ou limpar (\&= \texorpdfstring{$\sim$}{\string~}) o bit correspondente. 
+\begin{DoxyParams}{Parâmetros}
+{\em LEDNUM} & O índice do pino no PORTC (ex\+: 1, 2, 3). \\
+\hline
+{\em STATE} & Estado desejado\+: HIGH (1) ou LOW (0). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{codigo_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}\index{codigo.c@{codigo.c}!LED1@{LED1}}
+\index{LED1@{LED1}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{LED1}{LED1}}
+{\footnotesize\ttfamily \label{codigo_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9} 
+\#define LED1~1}
+
+
+
+Pino do LED indicativo 1 (PC1 / A1). 
+
+\Hypertarget{codigo_8c_ad09fe5bf321b9a2de26bd5e5b9af6424}\index{codigo.c@{codigo.c}!LED2@{LED2}}
+\index{LED2@{LED2}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{LED2}{LED2}}
+{\footnotesize\ttfamily \label{codigo_8c_ad09fe5bf321b9a2de26bd5e5b9af6424} 
+\#define LED2~2}
+
+
+
+Pino do LED indicativo 2 (PC2 / A2). 
+
+\Hypertarget{codigo_8c_a4b7ff8e253a7412f83deba3a447028a8}\index{codigo.c@{codigo.c}!LED3@{LED3}}
+\index{LED3@{LED3}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{LED3}{LED3}}
+{\footnotesize\ttfamily \label{codigo_8c_a4b7ff8e253a7412f83deba3a447028a8} 
+\#define LED3~3}
+
+
+
+Pino do LED indicativo 3 (PC3 / A3). 
+
+\Hypertarget{codigo_8c_ab811d8c6ff3a505312d3276590444289}\index{codigo.c@{codigo.c}!LOW@{LOW}}
+\index{LOW@{LOW}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{LOW}{LOW}}
+{\footnotesize\ttfamily \label{codigo_8c_ab811d8c6ff3a505312d3276590444289} 
+\#define LOW~0}
+
+
+
+Nível lógico baixo (0). 
+
+
+
+\label{doc-enum-members}
+\Hypertarget{codigo_8c_doc-enum-members}
+\doxysubsection{Documentação dos valores da enumeração}
+\Hypertarget{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}\index{codigo.c@{codigo.c}!Dir@{Dir}}
+\index{Dir@{Dir}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{Dir}{Dir}}
+{\footnotesize\ttfamily \label{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4} 
+enum \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}
+
+
+
+Direção de rotação do motor. 
+
+\begin{DoxyEnumFields}[2]{Valores de enumerações}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BACKWARDS@{BACKWARDS}!codigo.c@{codigo.c}}\index{codigo.c@{codigo.c}!BACKWARDS@{BACKWARDS}}}\Hypertarget{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36}\label{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36} 
+BACKWARDS&Ré. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FORWARD@{FORWARD}!codigo.c@{codigo.c}}\index{codigo.c@{codigo.c}!FORWARD@{FORWARD}}}\Hypertarget{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4aa26736999186daf8146f809e863712a1}\label{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4aa26736999186daf8146f809e863712a1} 
+FORWARD&Frente. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}\index{codigo.c@{codigo.c}!Motor@{Motor}}
+\index{Motor@{Motor}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{Motor}{Motor}}
+{\footnotesize\ttfamily \label{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce} 
+enum \mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}
+
+
+
+Seleção do motor esquerdo ou direito. 
+
+\begin{DoxyEnumFields}[2]{Valores de enumerações}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!codigo.c@{codigo.c}}\index{codigo.c@{codigo.c}!LEFT@{LEFT}}}\Hypertarget{codigo_8c_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065}\label{codigo_8c_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065} 
+LEFT&\doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} Esquerdo (Controlado por IN1/\+IN2/\+ENA). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!codigo.c@{codigo.c}}\index{codigo.c@{codigo.c}!RIGHT@{RIGHT}}}\Hypertarget{codigo_8c_a3bc45ff9023afee0cc287274e972d7ceaec8379af7490bb9eaaf579cf17876f38}\label{codigo_8c_a3bc45ff9023afee0cc287274e972d7ceaec8379af7490bb9eaaf579cf17876f38} 
+RIGHT&\doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} Direito (Controlado por IN3/\+IN4/\+ENB). \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{codigo_8c_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{codigo_8c_aaa87dddb1e62142fd07ee17db1b5d673}\index{codigo.c@{codigo.c}!abs@{abs}}
+\index{abs@{abs}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{abs()}{abs()}}
+{\footnotesize\ttfamily \label{codigo_8c_aaa87dddb1e62142fd07ee17db1b5d673} 
+int abs (\begin{DoxyParamCaption}\item[{int}]{num}{}\end{DoxyParamCaption})}
+
+
+
+Função auxiliar para calcular valor absoluto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em num} & Inteiro com sinal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int Valor absoluto (positivo). 
+\end{DoxyReturn}
+\Hypertarget{codigo_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}\index{codigo.c@{codigo.c}!analog\_read@{analog\_read}}
+\index{analog\_read@{analog\_read}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{analog\_read()}{analog\_read()}}
+{\footnotesize\ttfamily \label{codigo_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9} 
+uint16\+\_\+t analog\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Realiza a leitura analógica de um canal específico. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em channel} & Canal ADC a ser lido (0 a 7). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+uint16\+\_\+t Valor convertido (0 a 1023). 
+\end{DoxyReturn}
+\begin{DoxyNote}{Nota}
+Esta função é bloqueante (aguarda o fim da conversão). 
+\end{DoxyNote}
+\Hypertarget{codigo_8c_a1fc0a8f5b026eb5e606e738ca5434d2d}\index{codigo.c@{codigo.c}!analog\_setup@{analog\_setup}}
+\index{analog\_setup@{analog\_setup}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{analog\_setup()}{analog\_setup()}}
+{\footnotesize\ttfamily \label{codigo_8c_a1fc0a8f5b026eb5e606e738ca5434d2d} 
+void analog\+\_\+setup (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Configura o ADC e os Timers para PWM. 
+
+Configurações detalhadas\+:
+\begin{DoxyItemize}
+\item {\bfseries{ADC}}\+: Referência AVCC, Prescaler 128 (para clock de 16MHz).
+\item {\bfseries{Timer0 (PD6)}}\+: Fast PWM, Non-\/\+Inverting, Prescaler 8.
+\item {\bfseries{Timer2 (PD3)}}\+: Fast PWM, Non-\/\+Inverting, Prescaler 8. 
+\end{DoxyItemize}Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{codigo_8c_a1fc0a8f5b026eb5e606e738ca5434d2d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{codigo_8c_ac7c0935e24e573b2929d0df7f9e6b82f}\index{codigo.c@{codigo.c}!analog\_write@{analog\_write}}
+\index{analog\_write@{analog\_write}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{analog\_write()}{analog\_write()}}
+{\footnotesize\ttfamily \label{codigo_8c_ac7c0935e24e573b2929d0df7f9e6b82f} 
+void analog\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Escreve um valor PWM em um pino específico. 
+
+Abstrai a escrita nos registradores de comparação (OCR0A e OCR2B). 
+\begin{DoxyParams}{Parâmetros}
+{\em pin} & Pino de destino (6 ou 3). \\
+\hline
+{\em value} & Valor do Duty Cycle (0 a 255). \\
+\hline
+\end{DoxyParams}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{codigo_8c_ac7c0935e24e573b2929d0df7f9e6b82f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{codigo_8c_a026d019671eda0cfe729200fc24d23ba}\index{codigo.c@{codigo.c}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{gameOver()}{gameOver()}}
+{\footnotesize\ttfamily \label{codigo_8c_a026d019671eda0cfe729200fc24d23ba} 
+void game\+Over (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Executa a rotina de "{}\+Game Over"{}. 
+
+Faz o carrinho girar no próprio eixo (um motor para frente, outro para trás) e reseta a variável de vida. Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{codigo_8c_a026d019671eda0cfe729200fc24d23ba_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{codigo_8c_afe461d27b9c48d5921c00d521181f12f}\index{codigo.c@{codigo.c}!loop@{loop}}
+\index{loop@{loop}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{codigo_8c_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Loop principal de lógica do sistema. 
+
+Realiza as seguintes tarefas\+:
+\begin{DoxyEnumerate}
+\item Leitura e debounce do botão de start.
+\item Verificação de dados disponíveis no rádio NRF24.
+\item Processamento do pacote de dados (Struct \doxylink{structControls}{Controls}).
+\item Atuação nos motores.
+\end{DoxyEnumerate}
+
+\begin{DoxyWarning}{Aviso}
+Atualmente contém código de teste (hardcoded) sobrescrevendo a entrada de rádio. 
+\end{DoxyWarning}
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{codigo_8c_afe461d27b9c48d5921c00d521181f12f_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{codigo_8c_afe461d27b9c48d5921c00d521181f12f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{codigo_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{codigo.c@{codigo.c}!main@{main}}
+\index{main@{main}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{codigo_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Ponto de entrada do programa (Setup e Loop Infinito). 
+
+Configurações de Hardware\+:
+\begin{DoxyItemize}
+\item DDRB\+: PB0 como Saída.
+\item DDRC\+: PC1, PC2, PC3 como Saída (LEDs).
+\item DDRD\+: Pinos da Ponte H como Saída, Botão como Entrada.
+\item Pull-\/up ativado no pino do botão.
+\item Inicialização do Rádio NRF24\+L01.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Retorna}
+int Retorno padrão (nunca alcançado em sistemas embarcados). 
+\end{DoxyReturn}
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{codigo_8c_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39}\index{codigo.c@{codigo.c}!motor@{motor}}
+\index{motor@{motor}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{motor()}{motor()}}
+{\footnotesize\ttfamily \label{codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39} 
+void motor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}]{motor}{, }\item[{\mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}]{dir}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Controla a direção e velocidade de um motor DC. 
+
+Gerencia a lógica da Ponte H setando os pinos INx e o pino de Enable.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em motor} & Enum \doxylink{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} (LEFT ou RIGHT). \\
+\hline
+{\em dir} & Enum \doxylink{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir} (FORWARD ou BACKWARDS). \\
+\hline
+{\em value} & Velocidade PWM (0-\/255). \\
+\hline
+\end{DoxyParams}
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{codigo_8c_doc-var-members}
+\doxysubsection{Documentação das variáveis}
+\Hypertarget{codigo_8c_a0d5aeb028158bc168b01ed3bf2a385be}\index{codigo.c@{codigo.c}!addr@{addr}}
+\index{addr@{addr}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{addr}{addr}}
+{\footnotesize\ttfamily \label{codigo_8c_a0d5aeb028158bc168b01ed3bf2a385be} 
+const uint8\+\_\+t addr\mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}1\textquotesingle{}\}}
+
+\Hypertarget{codigo_8c_a5694338c1bcb4455072af4179913d44d}\index{codigo.c@{codigo.c}!life@{life}}
+\index{life@{life}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{life}{life}}
+{\footnotesize\ttfamily \label{codigo_8c_a5694338c1bcb4455072af4179913d44d} 
+uint8\+\_\+t life = 0b1110}
+
+
+
+Vida atual do jogador (representação binária para LEDs). Inicial\+: 0b1110. 
+
+\Hypertarget{codigo_8c_aaa928c9a62449f7946da1e32f66c70d2}\index{codigo.c@{codigo.c}!on@{on}}
+\index{on@{on}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{on}{on}}
+{\footnotesize\ttfamily \label{codigo_8c_aaa928c9a62449f7946da1e32f66c70d2} 
+bool on =false}
+
+
+
+Estado de funcionamento do sistema (Ligado/\+Desligado). 
+
+\Hypertarget{codigo_8c_a132ba96da5ba28448b61e42c019312a9}\index{codigo.c@{codigo.c}!pressed@{pressed}}
+\index{pressed@{pressed}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{pressed}{pressed}}
+{\footnotesize\ttfamily \label{codigo_8c_a132ba96da5ba28448b61e42c019312a9} 
+bool pressed =false}
+
+
+
+Estado atual de leitura do botão (para debounce). 
+
+\Hypertarget{codigo_8c_af2f56090dc8a3b112529c55e98dd04a7}\index{codigo.c@{codigo.c}!prev@{prev}}
+\index{prev@{prev}!codigo.c@{codigo.c}}
+\doxysubsubsection{\texorpdfstring{prev}{prev}}
+{\footnotesize\ttfamily \label{codigo_8c_af2f56090dc8a3b112529c55e98dd04a7} 
+bool prev =false}
+
+
+
+Estado anterior de leitura do botão (para detecção de borda). 
+

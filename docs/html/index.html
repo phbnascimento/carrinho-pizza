@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Carrinho Pizza - Sem azeitona: Gigantes de MDF - CARRO-PIZZA! 🚗</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Carrinho Pizza - Sem azeitona<span id="projectnumber">&#160;(Com azeitona) 1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('index.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Gigantes de MDF - CARRO-PIZZA! 🚗 </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Introdução</h1>
+<p>Bem-vindo à documentação técnica do projeto de <b>Carrinho-Pizza</b>. Este firmware foi desenvolvido para a arquitetura AVR (ATmega328P) utilizando manipulação direta de registradores ("Bare Metal") para garantir a máxima eficiência no tempo de resposta dos motores.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+🎯 Objetivos</h2>
+<ul>
+<li>Demonstrar controle PWM via Timers de Hardware (Timer0 e Timer2).</li>
+<li>Implementar protocolo de comunicação sem fio robusto.</li>
+<li>Gerenciar estados de segurança (parada de emergência).</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+🛠️ Hardware Utilizado</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Componente  </th><th class="markdownTableHeadLeft">Especificação  </th><th class="markdownTableHeadLeft">Função  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>MCU</b>  </td><td class="markdownTableBodyLeft">ATmega328P (16MHz)  </td><td class="markdownTableBodyLeft">Cérebro do sistema  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>Rádio</b>  </td><td class="markdownTableBodyLeft">NRF24L01+  </td><td class="markdownTableBodyLeft">Comunicação 2.4GHz  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><b>Driver</b>  </td><td class="markdownTableBodyLeft">Ponte H (L298N/Mini)  </td><td class="markdownTableBodyLeft">Controle de potência dos motores  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><b>Sensores</b>  </td><td class="markdownTableBodyLeft">Ultrassônico / LDR  </td><td class="markdownTableBodyLeft">Detecção de ambiente  </td></tr>
+</table>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+🔌 Pinagem (Pinout)</h1>
+<p>Abaixo está o mapeamento físico dos pinos do microcontrolador para os periféricos:</p>
+<ul>
+<li><b>Motores:</b><ul>
+<li><span class="tt">PD6 (OC0A)</span>: PWM <a class="el" href="carrinho_8c.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a> Esquerdo</li>
+<li><span class="tt">PD3 (OC2B)</span>: PWM <a class="el" href="carrinho_8c.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a> Direito</li>
+<li><span class="tt">PD1/PD2/PD4/PD5</span>: Controle de Direção (Ponte H)</li>
+</ul>
+</li>
+<li><b>Comunicação:</b><ul>
+<li><span class="tt">PB1/PB2</span>: Controle do Rádio (CE/CSN)</li>
+<li><span class="tt">SPI</span>: Padrão do ATmega</li>
+</ul>
+</li>
+<li><b>Interface:</b><ul>
+<li><span class="tt">PD7</span>: Botão de Start/Stop (Pull-up)</li>
+<li><span class="tt">PC1-PC3</span>: LEDs de Status</li>
+</ul>
+</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+🚀 Como Compilar</h1>
+<ol type="1">
+<li>Configure o <span class="tt"><a class="el" href="carrinho_8c.html#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a></span> para 16000000UL.</li>
+<li>Compile utilizando <span class="tt">avr-gcc</span>.</li>
+<li>Faça o upload via <span class="tt">avrdude</span>.</li>
+</ol>
+<blockquote class="doxtable">
+<p><b>Nota:</b> Certifique-se de que a biblioteca <span class="tt"><a class="el" href="nrf24__avr_8h.html">nrf24_avr.h</a></span> esteja no mesmo diretório. </p>
+</blockquote>
+<hr  />
+<p><b>Autores:</b> Bruno Garcia Carvalho, Pedro Henrique Brito, Pedro Henrique Cretella <br  />
+ <b>Disciplina:</b> Programação de Hardware / Microcontroladores <br  />
+ <b>Data:</b> Novembro 2025 </p>
+</div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

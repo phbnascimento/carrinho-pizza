@@ -1,0 +1,10 @@
+<map id="motor" name="motor">
+<area shape="rect" id="Node000001" title="Controla a direção e velocidade de um motor DC." alt="" coords="5,44,66,72"/>
+<area shape="rect" id="Node000002" href="$codigo_8c.html#ac7c0935e24e573b2929d0df7f9e6b82f" title="Escreve um valor PWM em um pino específico." alt="" coords="114,5,219,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,47,105,36,101,40,67,51"/>
+<area shape="rect" id="Node000003" href="$carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39" title=" " alt="" coords="136,81,196,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="66,64,123,81,119,84,66,69"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="143,80,139,72,142,63,151,57,166,55,182,57,192,66,186,65,180,62,166,60,153,62,146,66,144,72,148,82"/>
+<area shape="rect" id="Node000004" href="$carrinho_8c.html#ac7c0935e24e573b2929d0df7f9e6b82f" title=" " alt="" coords="267,81,372,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="197,93,254,95,249,95,197,98"/>
+</map>
