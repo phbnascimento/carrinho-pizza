@@ -139,7 +139,7 @@ void loop() {
   PORTC |= (1 << LED2);
 
   if (available) {
-    nrf24_read(&gamepad, sizeof(gamepad));
+   nrf24_read(&gamepad, sizeof(gamepad));
   }
 
   gamepad.x = 100;
