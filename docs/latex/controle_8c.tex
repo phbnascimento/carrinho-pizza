@@ -3,8 +3,7 @@
 {\ttfamily \#include $<$avr/io.\+h$>$}\newline
 {\ttfamily \#include $<$util/delay.\+h$>$}\newline
 {\ttfamily \#include "{}nrf24\+\_\+avr.\+h"{}}\newline
-Diagrama de dependências de inclusão para controle.\+c\+:
-\nopagebreak
+Diagrama de dependências de inclusão para controle.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,7 +20,11 @@ struct \mbox{\hyperlink{structControls}{Controls}}
 \item 
 \#define \mbox{\hyperlink{controle_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~16000000\+UL
 \item 
+\#define \mbox{\hyperlink{controle_8c_a94180201817e497ad4f773021adf385b}{LED}}(LEDNUM,  STATE)
+\item 
 \#define \mbox{\hyperlink{controle_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{LED1}}~3
+\item 
+\#define \mbox{\hyperlink{controle_8c_a4d7a42500434ec6947ccb8ac9ae931e6}{BUZZ}}~4
 \item 
 \#define \mbox{\hyperlink{controle_8c_ad09fe5bf321b9a2de26bd5e5b9af6424}{LED2}}~5
 \item 
@@ -36,9 +39,19 @@ struct \mbox{\hyperlink{structControls}{Controls}}
 \doxysubsubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{controle_8c_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+int \mbox{\hyperlink{controle_8c_aaa87dddb1e62142fd07ee17db1b5d673}{abs}} (int num)
+\item 
+int \mbox{\hyperlink{controle_8c_ab66e88e73e935433d27613e6b65139dd}{map}} (int x, int in\+\_\+min, int in\+\_\+max, int out\+\_\+min, int out\+\_\+max)
+\item 
+void \mbox{\hyperlink{controle_8c_a1fc0a8f5b026eb5e606e738ca5434d2d}{analog\+\_\+setup}} (void)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{controle_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}{analog\+\_\+read}} (uint8\+\_\+t channel)
+\item 
+void \mbox{\hyperlink{controle_8c_ac7c0935e24e573b2929d0df7f9e6b82f}{analog\+\_\+write}} (uint8\+\_\+t pin, uint8\+\_\+t value)
 \item 
 void \mbox{\hyperlink{controle_8c_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\item 
+int \mbox{\hyperlink{controle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variáveis}
 \begin{DoxyCompactItemize}
@@ -50,6 +63,12 @@ const uint8\+\_\+t \mbox{\hyperlink{controle_8c_a0d5aeb028158bc168b01ed3bf2a385b
 \label{doc-define-members}
 \Hypertarget{controle_8c_doc-define-members}
 \doxysubsection{Documentação das macros}
+\Hypertarget{controle_8c_a4d7a42500434ec6947ccb8ac9ae931e6}\index{controle.c@{controle.c}!BUZZ@{BUZZ}}
+\index{BUZZ@{BUZZ}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{BUZZ}{BUZZ}}
+{\footnotesize\ttfamily \label{controle_8c_a4d7a42500434ec6947ccb8ac9ae931e6} 
+\#define BUZZ~4}
+
 \Hypertarget{controle_8c_a43bafb28b29491ec7f871319b5a3b2f8}\index{controle.c@{controle.c}!F\_CPU@{F\_CPU}}
 \index{F\_CPU@{F\_CPU}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
@@ -74,6 +93,17 @@ const uint8\+\_\+t \mbox{\hyperlink{controle_8c_a0d5aeb028158bc168b01ed3bf2a385b
 {\footnotesize\ttfamily \label{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab} 
 \#define JY~1}
 
+\Hypertarget{controle_8c_a94180201817e497ad4f773021adf385b}\index{controle.c@{controle.c}!LED@{LED}}
+\index{LED@{LED}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{LED}{LED}}
+{\footnotesize\ttfamily \label{controle_8c_a94180201817e497ad4f773021adf385b} 
+\#define LED(\begin{DoxyParamCaption}\item[{}]{LEDNUM}{, }\item[{}]{STATE}{}\end{DoxyParamCaption})}
+
+{\bfseries Valor\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(STATE\ ?\ (PORTD\ |=\ \ (1\ <<\ (LEDNUM)))\ :\ (PORTD\ \&=\ \string~(1\ <<\ (LEDNUM))))}
+
+\end{DoxyCode}
 \Hypertarget{controle_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}\index{controle.c@{controle.c}!LED1@{LED1}}
 \index{LED1@{LED1}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{LED1}{LED1}}
@@ -97,24 +127,110 @@ const uint8\+\_\+t \mbox{\hyperlink{controle_8c_a0d5aeb028158bc168b01ed3bf2a385b
 \label{doc-func-members}
 \Hypertarget{controle_8c_doc-func-members}
 \doxysubsection{Documentação das funções}
+\Hypertarget{controle_8c_aaa87dddb1e62142fd07ee17db1b5d673}\index{controle.c@{controle.c}!abs@{abs}}
+\index{abs@{abs}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{abs()}{abs()}}
+{\footnotesize\ttfamily \label{controle_8c_aaa87dddb1e62142fd07ee17db1b5d673} 
+int abs (\begin{DoxyParamCaption}\item[{int}]{num}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{controle_8c_aaa87dddb1e62142fd07ee17db1b5d673_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}\index{controle.c@{controle.c}!analog\_read@{analog\_read}}
+\index{analog\_read@{analog\_read}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{analog\_read()}{analog\_read()}}
+{\footnotesize\ttfamily \label{controle_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9} 
+uint16\+\_\+t analog\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{controle_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_a1fc0a8f5b026eb5e606e738ca5434d2d}\index{controle.c@{controle.c}!analog\_setup@{analog\_setup}}
+\index{analog\_setup@{analog\_setup}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{analog\_setup()}{analog\_setup()}}
+{\footnotesize\ttfamily \label{controle_8c_a1fc0a8f5b026eb5e606e738ca5434d2d} 
+void analog\+\_\+setup (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{controle_8c_a1fc0a8f5b026eb5e606e738ca5434d2d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_ac7c0935e24e573b2929d0df7f9e6b82f}\index{controle.c@{controle.c}!analog\_write@{analog\_write}}
+\index{analog\_write@{analog\_write}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{analog\_write()}{analog\_write()}}
+{\footnotesize\ttfamily \label{controle_8c_ac7c0935e24e573b2929d0df7f9e6b82f} 
+void analog\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{controle_8c_ac7c0935e24e573b2929d0df7f9e6b82f_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{controle_8c_afe461d27b9c48d5921c00d521181f12f}\index{controle.c@{controle.c}!loop@{loop}}
 \index{loop@{loop}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{loop()}{loop()}}
 {\footnotesize\ttfamily \label{controle_8c_afe461d27b9c48d5921c00d521181f12f} 
 void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{controle_8c_a4fc01d736fe50cf5b977f755b675f11d}\index{controle.c@{controle.c}!setup@{setup}}
-\index{setup@{setup}!controle.c@{controle.c}}
-\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
-{\footnotesize\ttfamily \label{controle_8c_a4fc01d736fe50cf5b977f755b675f11d} 
-void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{controle_8c_afe461d27b9c48d5921c00d521181f12f_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{controle_8c_afe461d27b9c48d5921c00d521181f12f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{controle.c@{controle.c}!main@{main}}
+\index{main@{main}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{controle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
 Grafo de chamadas desta função\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{controle_8c_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\includegraphics[width=350pt]{controle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_ab66e88e73e935433d27613e6b65139dd}\index{controle.c@{controle.c}!map@{map}}
+\index{map@{map}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{map()}{map()}}
+{\footnotesize\ttfamily \label{controle_8c_ab66e88e73e935433d27613e6b65139dd} 
+int map (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{in\+\_\+min}{, }\item[{int}]{in\+\_\+max}{, }\item[{int}]{out\+\_\+min}{, }\item[{int}]{out\+\_\+max}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{controle_8c_ab66e88e73e935433d27613e6b65139dd_icgraph}
 \end{center}
 \end{figure}
 

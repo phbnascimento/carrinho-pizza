@@ -1,12 +1,13 @@
 <map id="analog_write" name="analog_write">
-<area shape="rect" id="Node000001" title=" " alt="" coords="353,32,459,60"/>
-<area shape="rect" id="Node000002" href="$carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39" title=" " alt="" coords="245,32,305,60"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="335,46,306,48,306,43,340,46"/>
-<area shape="poly" id="edge5_Node000002_Node000002" title=" " alt="" coords="294,16,288,13,275,11,263,13,257,17,255,23,258,33,253,30,249,23,252,14,261,8,275,5,290,8,299,17"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="353,57,459,85"/>
+<area shape="rect" id="Node000002" href="$carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39" title=" " alt="" coords="245,57,305,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="335,71,306,74,306,69,340,71"/>
+<area shape="poly" id="edge6_Node000002_Node000002" title=" " alt="" coords="294,41,288,38,275,36,263,38,257,42,255,48,258,58,253,56,249,48,252,39,261,33,275,31,290,33,299,42"/>
 <area shape="rect" id="Node000003" href="$carrinho_8c.html#a026d019671eda0cfe729200fc24d23ba" title=" " alt="" coords="108,5,197,33"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="227,36,197,32,198,26,233,36"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,53,187,36,188,31,234,52"/>
 <area shape="rect" id="Node000004" href="$carrinho_8c.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="128,57,177,85"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="233,55,178,69,177,63,227,55"/>
-<area shape="rect" id="Node000005" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,57,60,85"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="110,73,60,74,60,69,114,69"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="227,72,178,74,177,69,233,71"/>
+<area shape="rect" id="Node000005" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,83,60,110"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="233,88,197,99,123,104,60,102,60,96,123,99,197,94,227,89"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="110,81,61,93,59,88,114,78"/>
 </map>

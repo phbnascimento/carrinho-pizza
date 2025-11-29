@@ -1,9 +1,7 @@
 <map id="nrf24_setChannel" name="nrf24_setChannel">
-<area shape="rect" id="Node000001" title=" " alt="" coords="111,57,246,85"/>
-<area shape="rect" id="Node000002" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="7,5,61,33"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,53,62,31,62,26,126,50"/>
-<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="7,57,61,85"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="93,73,62,74,61,69,97,70"/>
-<area shape="rect" id="Node000004" href="$controle_8c.html#a4fc01d736fe50cf5b977f755b675f11d" title=" " alt="" coords="5,109,63,137"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="123,93,64,116,62,111,124,88"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="108,32,243,60"/>
+<area shape="rect" id="Node000002" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,32,61,27,60,22,95,29"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,57,60,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="90,61,61,69,60,64,95,60"/>
 </map>
