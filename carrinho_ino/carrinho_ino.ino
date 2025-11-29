@@ -132,6 +132,7 @@ void loop() {
   };
   prev = pressed;
 
+  // Leitura LDR
   bool ldr = analogRead(LDR) > 800;
   if (ldr && ! ldr_prev) {
     hit();
@@ -151,8 +152,10 @@ void loop() {
     radio.read(&gamepad, sizeof(gamepad));
   }
 
-  digitalWrite(LED2, gamepad.x);
+  // Vida
+  PORTC = life;
 
+  // Controle do Motor
   if (gamepad.x < -100) {
     motor(LEFT,  FORWARD, 0);
   } else {
