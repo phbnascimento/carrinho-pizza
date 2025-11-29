@@ -5,9 +5,9 @@ Bem-vindo à documentação técnica do projeto de **Carrinho-Pizza**.
 Este firmware foi desenvolvido para a arquitetura AVR (ATmega328P) utilizando manipulação direta de registradores ("Bare Metal") para garantir a máxima eficiência no tempo de resposta dos motores.
 
 ### 🎯 Objetivos
-* Demonstrar controle PWM via Timers de Hardware (Timer0 e Timer2).
-* Implementar protocolo de comunicação sem fio robusto.
-* Gerenciar estados de segurança (parada de emergência).
+* Fazer controle PWM e temporizadores via Timers de Hardware (Timer0 e Timer2).
+* Implementar protocolo de comunicação sem fio com o módulo de rádio NRF24L01.
+* Demonstrar conhecimentos no desenvolvimento com microcontroladores.
 
 ---
 
@@ -15,10 +15,10 @@ Este firmware foi desenvolvido para a arquitetura AVR (ATmega328P) utilizando ma
 
 | Componente | Especificação | Função |
 | :--- | :--- | :--- |
-| **MCU** | ATmega328P (16MHz) | Cérebro do sistema |
+| **MCU** | ATmega328P (16MHz) | "Cérebro" do sistema |
 | **Rádio** | NRF24L01+ | Comunicação 2.4GHz |
-| **Driver** | Ponte H (L298N/Mini) | Controle de potência dos motores |
-| **Sensores** | Ultrassônico / LDR | Detecção de ambiente |
+| **Driver** | Ponte H (L298N) | Controle de potência dos motores |
+| **Sensores** |  LDR | Detecção de luz do ambiente |
 
 ---
 
@@ -34,18 +34,18 @@ Abaixo está o mapeamento físico dos pinos do microcontrolador para os perifér
     * `PB1/PB2`: Controle do Rádio (CE/CSN)
     * `SPI`: Padrão do ATmega
 * **Interface:**
-    * `PD7`: Botão de Start/Stop (Pull-up)
-    * `PC1-PC3`: LEDs de Status
+    * `PD7`: Botão para debug (Pull-up)
+    * `PC1-PC3`: LEDs de "Vida" do carrinho
 
 ---
 
 ## 🚀 Como Compilar
 
-1.  Configure o `F_CPU` para 16000000UL.
-2.  Compile utilizando `avr-gcc`.
-3.  Faça o upload via `avrdude`.
+1.  Abra o arquivo `Makefile`.
+1.  Configure o `PORT` para a porta USB correta onde será feita a transmissão do código.
+2.  Compile apenas utilizando o comando `make DIR=<carrinho/controle>`.
 
-> **Nota:** Certifique-se de que a biblioteca `nrf24_avr.h` esteja no mesmo diretório.
+> **Nota:** Certifique-se de que a biblioteca `nrf24_avr.h` esteja presente nos dois diretórios.
 
 ---
 
