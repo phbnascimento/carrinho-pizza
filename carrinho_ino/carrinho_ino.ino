@@ -76,7 +76,17 @@ void gameOver() {
 
   // Reseta a vida
   life = 0b1110;
-} 
+}
+
+void motor_setup() {
+  DDRD |= (1<<PD3) | (1<<PD6);
+  OCR0A = 0;
+  OCR2B = 0;
+  TCCR0A = (1<<COM0A1) | (1<<COM0A0) | (1<<WGM01) | (1<<WGM00);
+  TCCR2A = (1<<COM2B1) | (1<<COM2B0) | (1<<WGM21) | (1<<WGM20);
+  TCCR0B = (1<<CS01) | (1<<CS00);
+  TCCR2B = (1<<CS22);
+}
 
 void setup() {
   // Rádio
