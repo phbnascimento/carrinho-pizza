@@ -136,19 +136,16 @@ void loop() {
 
   Controls gamepad;
   int available = nrf24_available();
-  // LED(LED2, available);
-  PORTC |= (1 << LED2);
+  LED(LED2, available);
+  LED(LED1, HIGH);
 
   if (available) {
    nrf24_read(&gamepad, sizeof(gamepad));
   }
 
-  gamepad.x = 100;
-
   // LED(LED1, gamepad.sw);
-  // motor(LEFT,  gamepad.x > 0 ? FORWARD : BACKWARDS, abs(gamepad.x));
-  // motor(RIGHT, gamepad.x > 0 ? FORWARD : BACKWARDS, abs(gamepad.x));
-  motor(LEFT, FORWARD, 150);
+  motor(LEFT,  gamepad.x > 0 ? FORWARD : BACKWARDS, 2 * abs(gamepad.x) - 1);
+  motor(RIGHT, gamepad.x > 0 ? FORWARD : BACKWARDS, 2 * abs(gamepad.x) - 1);
 }
 
 int main() {
@@ -168,6 +165,9 @@ int main() {
 	// nrf24_setPayloadSize(4);
 	nrf24_startListening();
 
+  // Garantir que os motores iniciem parados
+  motor(LEFT, FORWARD, 0);
+  motor(RIGHT, FORWARD, 0);
 
   while (1) { loop(); }
 
