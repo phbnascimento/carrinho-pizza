@@ -1,4 +1,5 @@
 var annotated_dup =
 [
-    [ "Controls", "structControls.html", "structControls" ]
+    [ "Controls", "structControls.html", "structControls" ],
+    [ "Timer", "structTimer.html", "structTimer" ]
 ];

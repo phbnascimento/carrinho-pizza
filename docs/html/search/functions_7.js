@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['pinmode_5fd_0',['pinMode_d',['../carrinho_2nrf24__avr_8c.html#aa3db4917fa58896ce0a8027a30795033',1,'pinMode_d(uint8_t dpin, uint8_t mode):&#160;nrf24_avr.c'],['../controle_2nrf24__avr_8c.html#aa3db4917fa58896ce0a8027a30795033',1,'pinMode_d(uint8_t dpin, uint8_t mode):&#160;nrf24_avr.c']]]
+  ['main_0',['main',['../carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;carrinho.c'],['../codigo_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;codigo.c'],['../controle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;controle.c'],['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.c']]],
+  ['map_1',['map',['../controle_8c.html#ab66e88e73e935433d27613e6b65139dd',1,'controle.c']]],
+  ['motor_2',['motor',['../carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;carrinho.c'],['../carrinho__ino_8ino.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;carrinho_ino.ino'],['../codigo_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;codigo.c']]]
 ];

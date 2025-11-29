@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_0',['x',['../structControls.html#a0958b9cae1f60c23a4d0309058b45357',1,'Controls']]]
+  ['trigger_0',['trigger',['../structControls.html#acf3f4cb783a1d6a1acbd0f3656620b7b',1,'Controls']]]
 ];

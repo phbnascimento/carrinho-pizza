@@ -40,3 +40,7 @@ FULL_SIDEBAR           = NO
 USE_MDFILE_AS_MAINPAGE = README.md
 
 HTML_EXTRA_STYLESHEET  = custom.css
+
+# --- Suporte a arquivos .ino (Arduino) ---
+FILE_PATTERNS         += *.ino
+EXTENSION_MAPPING     += ino=C++

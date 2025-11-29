@@ -1,0 +1,412 @@
+\doxysection{Referência ao ficheiro carrinho\+\_\+ino/carrinho\+\_\+ino.ino}
+\hypertarget{carrinho__ino_8ino}{}\label{carrinho__ino_8ino}\index{carrinho\_ino/carrinho\_ino.ino@{carrinho\_ino/carrinho\_ino.ino}}
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+{\ttfamily \#include $<$n\+RF24\+L01.\+h$>$}\newline
+{\ttfamily \#include $<$RF24.\+h$>$}\newline
+Diagrama de dependências de inclusão para carrinho\+\_\+ino.\+ino\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{carrinho__ino_8ino__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTimer}{Timer}}
+\item 
+struct \mbox{\hyperlink{structControls}{Controls}}
+\begin{DoxyCompactList}\small\item\em Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_a9fa6f083fd9b05ac8a6b94f34322661e}{LDR}}~A0
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{LED1}}~A1
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_ad09fe5bf321b9a2de26bd5e5b9af6424}{LED2}}~A2
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_a4b7ff8e253a7412f83deba3a447028a8}{LED3}}~A3
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_ac2c663eb7de5a963911af77b65451fb6}{IN2}}~1
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_aa118db89564189dcf8c48ecbd79937d8}{IN1}}~2
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_afb4da94c34e8eeb6ebb83676d92ea36b}{ENB}}~3
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_a38caa48612155e36696b60d2aabc25ff}{IN4}}~4
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_ae24e8a55f5b9660a35dc5cf8a5e8ba4a}{IN3}}~5
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_ac20176fb102e81762b5bb8a08b65a206}{ENA}}~6
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_ad475217c28645ec178b59c745f3fc3ba}{BTN}}~7
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_a7ec8393e9445109104fd54119e06fc08}{LASER}}~8
+\item 
+\#define \mbox{\hyperlink{carrinho__ino_8ino_a60858d59aa9fd54683018c3023970db5}{IS\+\_\+\+PRESSED}}~(!digital\+Read(\mbox{\hyperlink{carrinho__ino_8ino_ad475217c28645ec178b59c745f3fc3ba}{BTN}}))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerações}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} \{ \mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065}{LEFT}}
+, \mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ceaec8379af7490bb9eaaf579cf17876f38}{RIGHT}}
+ \}
+\item 
+enum \mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} \{ \mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36}{BACKWARDS}} =0
+, \mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4aa26736999186daf8146f809e863712a1}{FORWARD}} =1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+RF24 \mbox{\hyperlink{carrinho__ino_8ino_a53cdd46f95419ffdcd44d3f0d6147b54}{radio}} (9, 10)
+\item 
+bool \mbox{\hyperlink{carrinho__ino_8ino_adf1dfbee680be7fd774683d7c6a1a05c}{is\+Timer\+Over}} (\mbox{\hyperlink{structTimer}{Timer}} timer)
+\item 
+void \mbox{\hyperlink{carrinho__ino_8ino_a28e17ddfc6c506e94ffac4c672837624}{timer\+Reset}} (\mbox{\hyperlink{structTimer}{Timer}} \texorpdfstring{$\ast$}{*}timer)
+\item 
+void \mbox{\hyperlink{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39}{motor}} (\mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} motor, \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} dir, uint8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{carrinho__ino_8ino_a026d019671eda0cfe729200fc24d23ba}{game\+Over}} ()
+\item 
+void \mbox{\hyperlink{carrinho__ino_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{carrinho__ino_8ino_ae85c96d8ab4fe9d1b125421eaaef40e2}{hit}} ()
+\item 
+void \mbox{\hyperlink{carrinho__ino_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+const byte \mbox{\hyperlink{carrinho__ino_8ino_a880eb857daf715410924f1212fe2728a}{addr}} \mbox{[}6\mbox{]} = "{}00001"{}
+\item 
+\mbox{\hyperlink{structTimer}{Timer}} \mbox{\hyperlink{carrinho__ino_8ino_adc42314b62dd12e31a24733e3937e42b}{ldr\+Timer}}
+\item 
+\mbox{\hyperlink{structTimer}{Timer}} \mbox{\hyperlink{carrinho__ino_8ino_aea7da615a218e8633ad839a5d7a6cbb9}{laser\+Timer}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{carrinho__ino_8ino_a5694338c1bcb4455072af4179913d44d}{life}} = 0b1110
+\item 
+bool \mbox{\hyperlink{carrinho__ino_8ino_aaa928c9a62449f7946da1e32f66c70d2}{on}} =false
+\item 
+bool \mbox{\hyperlink{carrinho__ino_8ino_a132ba96da5ba28448b61e42c019312a9}{pressed}} =false
+\item 
+bool \mbox{\hyperlink{carrinho__ino_8ino_af2f56090dc8a3b112529c55e98dd04a7}{prev}} =false
+\item 
+bool \mbox{\hyperlink{carrinho__ino_8ino_a171c692ff21cffa8f4931841654bf8c7}{ldr\+\_\+prev}} = false
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{carrinho__ino_8ino_doc-define-members}
+\doxysubsection{Documentação das macros}
+\Hypertarget{carrinho__ino_8ino_ad475217c28645ec178b59c745f3fc3ba}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!BTN@{BTN}}
+\index{BTN@{BTN}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{BTN}{BTN}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_ad475217c28645ec178b59c745f3fc3ba} 
+\#define BTN~7}
+
+\Hypertarget{carrinho__ino_8ino_ac20176fb102e81762b5bb8a08b65a206}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!ENA@{ENA}}
+\index{ENA@{ENA}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{ENA}{ENA}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_ac20176fb102e81762b5bb8a08b65a206} 
+\#define ENA~6}
+
+\Hypertarget{carrinho__ino_8ino_afb4da94c34e8eeb6ebb83676d92ea36b}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!ENB@{ENB}}
+\index{ENB@{ENB}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{ENB}{ENB}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_afb4da94c34e8eeb6ebb83676d92ea36b} 
+\#define ENB~3}
+
+\Hypertarget{carrinho__ino_8ino_aa118db89564189dcf8c48ecbd79937d8}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!IN1@{IN1}}
+\index{IN1@{IN1}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{IN1}{IN1}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_aa118db89564189dcf8c48ecbd79937d8} 
+\#define IN1~2}
+
+\Hypertarget{carrinho__ino_8ino_ac2c663eb7de5a963911af77b65451fb6}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!IN2@{IN2}}
+\index{IN2@{IN2}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{IN2}{IN2}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_ac2c663eb7de5a963911af77b65451fb6} 
+\#define IN2~1}
+
+\Hypertarget{carrinho__ino_8ino_ae24e8a55f5b9660a35dc5cf8a5e8ba4a}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!IN3@{IN3}}
+\index{IN3@{IN3}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{IN3}{IN3}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_ae24e8a55f5b9660a35dc5cf8a5e8ba4a} 
+\#define IN3~5}
+
+\Hypertarget{carrinho__ino_8ino_a38caa48612155e36696b60d2aabc25ff}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!IN4@{IN4}}
+\index{IN4@{IN4}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{IN4}{IN4}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a38caa48612155e36696b60d2aabc25ff} 
+\#define IN4~4}
+
+\Hypertarget{carrinho__ino_8ino_a60858d59aa9fd54683018c3023970db5}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!IS\_PRESSED@{IS\_PRESSED}}
+\index{IS\_PRESSED@{IS\_PRESSED}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{IS\_PRESSED}{IS\_PRESSED}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a60858d59aa9fd54683018c3023970db5} 
+\#define IS\+\_\+\+PRESSED~(!digital\+Read(\mbox{\hyperlink{carrinho__ino_8ino_ad475217c28645ec178b59c745f3fc3ba}{BTN}}))}
+
+\Hypertarget{carrinho__ino_8ino_a7ec8393e9445109104fd54119e06fc08}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!LASER@{LASER}}
+\index{LASER@{LASER}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{LASER}{LASER}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a7ec8393e9445109104fd54119e06fc08} 
+\#define LASER~8}
+
+\Hypertarget{carrinho__ino_8ino_a9fa6f083fd9b05ac8a6b94f34322661e}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!LDR@{LDR}}
+\index{LDR@{LDR}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{LDR}{LDR}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a9fa6f083fd9b05ac8a6b94f34322661e} 
+\#define LDR~A0}
+
+\Hypertarget{carrinho__ino_8ino_a8aa85ae9867fabf70ec72cd3bf6fb6b9}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!LED1@{LED1}}
+\index{LED1@{LED1}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{LED1}{LED1}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a8aa85ae9867fabf70ec72cd3bf6fb6b9} 
+\#define LED1~A1}
+
+\Hypertarget{carrinho__ino_8ino_ad09fe5bf321b9a2de26bd5e5b9af6424}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!LED2@{LED2}}
+\index{LED2@{LED2}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{LED2}{LED2}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_ad09fe5bf321b9a2de26bd5e5b9af6424} 
+\#define LED2~A2}
+
+\Hypertarget{carrinho__ino_8ino_a4b7ff8e253a7412f83deba3a447028a8}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!LED3@{LED3}}
+\index{LED3@{LED3}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{LED3}{LED3}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a4b7ff8e253a7412f83deba3a447028a8} 
+\#define LED3~A3}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{carrinho__ino_8ino_doc-enum-members}
+\doxysubsection{Documentação dos valores da enumeração}
+\Hypertarget{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!Dir@{Dir}}
+\index{Dir@{Dir}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{Dir}{Dir}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4} 
+enum \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}
+
+\begin{DoxyEnumFields}[2]{Valores de enumerações}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BACKWARDS@{BACKWARDS}!carrinho\_ino.ino@{carrinho\_ino.ino}}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!BACKWARDS@{BACKWARDS}}}\Hypertarget{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36}\label{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36} 
+BACKWARDS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FORWARD@{FORWARD}!carrinho\_ino.ino@{carrinho\_ino.ino}}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!FORWARD@{FORWARD}}}\Hypertarget{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4aa26736999186daf8146f809e863712a1}\label{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4aa26736999186daf8146f809e863712a1} 
+FORWARD&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!Motor@{Motor}}
+\index{Motor@{Motor}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{Motor}{Motor}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce} 
+enum \mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}
+
+\begin{DoxyEnumFields}[2]{Valores de enumerações}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!carrinho\_ino.ino@{carrinho\_ino.ino}}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!LEFT@{LEFT}}}\Hypertarget{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065}\label{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065} 
+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!carrinho\_ino.ino@{carrinho\_ino.ino}}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!RIGHT@{RIGHT}}}\Hypertarget{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ceaec8379af7490bb9eaaf579cf17876f38}\label{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ceaec8379af7490bb9eaaf579cf17876f38} 
+RIGHT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{carrinho__ino_8ino_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{carrinho__ino_8ino_a026d019671eda0cfe729200fc24d23ba}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{gameOver()}{gameOver()}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a026d019671eda0cfe729200fc24d23ba} 
+void game\+Over (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{carrinho__ino_8ino_a026d019671eda0cfe729200fc24d23ba_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{carrinho__ino_8ino_a026d019671eda0cfe729200fc24d23ba_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{carrinho__ino_8ino_ae85c96d8ab4fe9d1b125421eaaef40e2}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!hit@{hit}}
+\index{hit@{hit}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_ae85c96d8ab4fe9d1b125421eaaef40e2} 
+void hit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{carrinho__ino_8ino_ae85c96d8ab4fe9d1b125421eaaef40e2_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{carrinho__ino_8ino_ae85c96d8ab4fe9d1b125421eaaef40e2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{carrinho__ino_8ino_adf1dfbee680be7fd774683d7c6a1a05c}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!isTimerOver@{isTimerOver}}
+\index{isTimerOver@{isTimerOver}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{isTimerOver()}{isTimerOver()}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_adf1dfbee680be7fd774683d7c6a1a05c} 
+bool is\+Timer\+Over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTimer}{Timer}}}]{timer}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{carrinho__ino_8ino_adf1dfbee680be7fd774683d7c6a1a05c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{carrinho__ino_8ino_afe461d27b9c48d5921c00d521181f12f}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!loop@{loop}}
+\index{loop@{loop}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{carrinho__ino_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!motor@{motor}}
+\index{motor@{motor}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{motor()}{motor()}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39} 
+void motor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}]{motor}{, }\item[{\mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}]{dir}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{carrinho__ino_8ino_a53cdd46f95419ffdcd44d3f0d6147b54}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!radio@{radio}}
+\index{radio@{radio}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{radio()}{radio()}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a53cdd46f95419ffdcd44d3f0d6147b54} 
+RF24 radio (\begin{DoxyParamCaption}\item[{9}]{}{, }\item[{10}]{}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{carrinho__ino_8ino_a53cdd46f95419ffdcd44d3f0d6147b54_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{carrinho__ino_8ino_a4fc01d736fe50cf5b977f755b675f11d}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!setup@{setup}}
+\index{setup@{setup}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{carrinho__ino_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{carrinho__ino_8ino_a28e17ddfc6c506e94ffac4c672837624}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!timerReset@{timerReset}}
+\index{timerReset@{timerReset}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{timerReset()}{timerReset()}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a28e17ddfc6c506e94ffac4c672837624} 
+void timer\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTimer}{Timer}} \texorpdfstring{$\ast$}{*}}]{timer}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{carrinho__ino_8ino_a28e17ddfc6c506e94ffac4c672837624_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{carrinho__ino_8ino_doc-var-members}
+\doxysubsection{Documentação das variáveis}
+\Hypertarget{carrinho__ino_8ino_a880eb857daf715410924f1212fe2728a}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!addr@{addr}}
+\index{addr@{addr}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{addr}{addr}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a880eb857daf715410924f1212fe2728a} 
+const byte addr\mbox{[}6\mbox{]} = "{}00001"{}}
+
+\Hypertarget{carrinho__ino_8ino_aea7da615a218e8633ad839a5d7a6cbb9}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!laserTimer@{laserTimer}}
+\index{laserTimer@{laserTimer}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{laserTimer}{laserTimer}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_aea7da615a218e8633ad839a5d7a6cbb9} 
+\mbox{\hyperlink{structTimer}{Timer}} laser\+Timer}
+
+\Hypertarget{carrinho__ino_8ino_a171c692ff21cffa8f4931841654bf8c7}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!ldr\_prev@{ldr\_prev}}
+\index{ldr\_prev@{ldr\_prev}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{ldr\_prev}{ldr\_prev}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a171c692ff21cffa8f4931841654bf8c7} 
+bool ldr\+\_\+prev = false}
+
+\Hypertarget{carrinho__ino_8ino_adc42314b62dd12e31a24733e3937e42b}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!ldrTimer@{ldrTimer}}
+\index{ldrTimer@{ldrTimer}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{ldrTimer}{ldrTimer}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_adc42314b62dd12e31a24733e3937e42b} 
+\mbox{\hyperlink{structTimer}{Timer}} ldr\+Timer}
+
+\Hypertarget{carrinho__ino_8ino_a5694338c1bcb4455072af4179913d44d}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!life@{life}}
+\index{life@{life}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{life}{life}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a5694338c1bcb4455072af4179913d44d} 
+uint8\+\_\+t life = 0b1110}
+
+\Hypertarget{carrinho__ino_8ino_aaa928c9a62449f7946da1e32f66c70d2}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!on@{on}}
+\index{on@{on}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{on}{on}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_aaa928c9a62449f7946da1e32f66c70d2} 
+bool on =false}
+
+\Hypertarget{carrinho__ino_8ino_a132ba96da5ba28448b61e42c019312a9}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!pressed@{pressed}}
+\index{pressed@{pressed}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{pressed}{pressed}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_a132ba96da5ba28448b61e42c019312a9} 
+bool pressed =false}
+
+\Hypertarget{carrinho__ino_8ino_af2f56090dc8a3b112529c55e98dd04a7}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!prev@{prev}}
+\index{prev@{prev}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{prev}{prev}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_af2f56090dc8a3b112529c55e98dd04a7} 
+bool prev =false}
+

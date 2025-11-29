@@ -1,0 +1,9 @@
+<map id="loop" name="loop">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,57,55,85"/>
+<area shape="rect" id="Node000002" href="$carrinho_8c.html#aaa87dddb1e62142fd07ee17db1b5d673" title=" " alt="" coords="108,5,152,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,56,95,36,92,40,56,61"/>
+<area shape="rect" id="Node000003" href="$controle_8c.html#ab66e88e73e935433d27613e6b65139dd" title=" " alt="" coords="105,57,155,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="54,69,91,70,87,73,56,74"/>
+<area shape="rect" id="Node000004" href="$carrinho__ino_8ino.html#a53cdd46f95419ffdcd44d3f0d6147b54" title=" " alt="" coords="103,109,157,137"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="55,81,91,101,86,103,54,86"/>
+</map>

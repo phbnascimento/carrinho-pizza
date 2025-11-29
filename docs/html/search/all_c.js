@@ -8,6 +8,6 @@ var searchData=
   ['mask_5ftx_5fds_5',['MASK_TX_DS',['../carrinho_2nRF24L01_8h.html#ad5f819a0030605463504bd2599579b4c',1,'MASK_TX_DS:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#ad5f819a0030605463504bd2599579b4c',1,'MASK_TX_DS:&#160;nRF24L01.h']]],
   ['max_5frt_6',['MAX_RT',['../carrinho_2nRF24L01_8h.html#ab4482ead4f3b452a032f63ac03ee1870',1,'MAX_RT:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#ab4482ead4f3b452a032f63ac03ee1870',1,'MAX_RT:&#160;nRF24L01.h']]],
   ['mdf_20carro_20pizza_20🚗_7',['Gigantes de MDF - CARRO-PIZZA! 🚗',['../index.html',1,'']]],
-  ['motor_8',['Motor',['../carrinho_8c.html#a3bc45ff9023afee0cc287274e972d7ce',1,'Motor:&#160;carrinho.c'],['../codigo_8c.html#a3bc45ff9023afee0cc287274e972d7ce',1,'Motor:&#160;codigo.c']]],
-  ['motor_9',['motor',['../carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;carrinho.c'],['../codigo_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;codigo.c']]]
+  ['motor_8',['Motor',['../carrinho_8c.html#a3bc45ff9023afee0cc287274e972d7ce',1,'Motor:&#160;carrinho.c'],['../carrinho__ino_8ino.html#a3bc45ff9023afee0cc287274e972d7ce',1,'Motor:&#160;carrinho_ino.ino'],['../codigo_8c.html#a3bc45ff9023afee0cc287274e972d7ce',1,'Motor:&#160;codigo.c']]],
+  ['motor_9',['motor',['../carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;carrinho.c'],['../carrinho__ino_8ino.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;carrinho_ino.ino'],['../codigo_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;codigo.c']]]
 ];
