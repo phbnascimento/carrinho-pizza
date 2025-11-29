@@ -1,0 +1,27 @@
+/* Salve como custom.css na pasta do projeto */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #e0e0e0;
+}
+.title { font-weight: bold; color: #4db6ac; }
+h1, h2, h3 { color: #80cbc4; }
+a { color: #80cbc4; font-weight: bold; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Menu Lateral */
+#nav-tree { border-right: 1px solid #424242; }
+.item { color: #e0e0e0; }
+.label { font-size: 14px; }
+
+/* Blocos de código */
+div.fragment {
+    border: 1px solid #37474f;
+    border-radius: 4px;
+    padding: 10px;
+}
+.lineno { color: #546e7a; background-color: transparent; border-right: none;}
+
+/* Tabelas */
+table.doxtable { background-color: #212121; border: 1px solid #424242; }
+table.doxtable th { background-color: #37474f; color: #fff; }
+table.doxtable td { border: 1px solid #424242; }

@@ -42,7 +42,7 @@ var NAVTREE =
         [ "Variáveis", "globals_vars.html", null ],
         [ "Enumerações", "globals_enum.html", null ],
         [ "Valores de enumerações", "globals_eval.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Macros", "globals_defs.html", "globals_defs" ]
       ] ]
     ] ]
   ] ]
@@ -50,8 +50,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"RF24__config_8h.html",
-"nrf24__avr_8c.html#a65f255eac5ac95eac87265229309fa60"
+"annotated.html",
+"controle_2nRF24L01_8h.html#a1b46f8336bda068b0759f70cceec3b65"
 ];
 
 var SYNCONMSG = 'clique para desativar a sincronização do painel';

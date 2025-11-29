@@ -1,9 +1,0 @@
-<map id="carrinho/nrf24_avr.h" name="carrinho/nrf24_avr.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="72,5,225,33"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,76,109"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,33,74,74,71,70,127,34"/>
-<area shape="rect" id="Node000003" href="$nRF24L01_8h.html" title=" " alt="" coords="100,81,197,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,32,151,67,146,64,147,36"/>
-<area shape="rect" id="Node000004" href="$RF24__config_8h.html" title=" " alt="" coords="221,81,334,109"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,31,244,73,239,74,171,36"/>
-</map>

@@ -6,9 +6,9 @@
 Bem-\/vindo à documentação técnica do projeto de {\bfseries{Carrinho-\/\+Pizza}}. Este firmware foi desenvolvido para a arquitetura AVR (ATmega328P) utilizando manipulação direta de registradores ("{}\+Bare Metal"{}) para garantir a máxima eficiência no tempo de resposta dos motores.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{🎯 Objetivos}{🎯 Objetivos}}\label{index_autotoc_md2}
 
 \begin{DoxyItemize}
-\item Demonstrar controle PWM via Timers de Hardware (Timer0 e Timer2).
-\item Implementar protocolo de comunicação sem fio robusto.
-\item Gerenciar estados de segurança (parada de emergência).
+\item Fazer controle PWM e temporizadores via Timers de Hardware (Timer0 e Timer2).
+\item Implementar protocolo de comunicação sem fio com o módulo de rádio NRF24\+L01.
+\item Demonstrar conhecimentos no desenvolvimento com microcontroladores.
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
@@ -16,10 +16,10 @@ Bem-\/vindo à documentação técnica do projeto de {\bfseries{Carrinho-\/\+Piz
 
 \begin{DoxyTable}{3}{}{}{1}
 \SetCell{bg=\tableheadbgcolor,font=\bfseries}Componente  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Especificação  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Função  \\
-{\bfseries{MCU}}  &ATmega328P (16MHz)  &Cérebro do sistema  \\
+{\bfseries{MCU}}  &ATmega328P (16MHz)  &"{}\+Cérebro"{} do sistema  \\
 {\bfseries{Rádio}}  &NRF24\+L01+  &Comunicação 2.\+4\+GHz  \\
-{\bfseries{Driver}}  &Ponte H (L298\+N/\+Mini)  &Controle de potência dos motores  \\
-{\bfseries{Sensores}}  &Ultrassônico / LDR  &Detecção de ambiente  \\
+{\bfseries{Driver}}  &Ponte H (L298N)  &Controle de potência dos motores  \\
+{\bfseries{Sensores}}  &LDR  &Detecção de luz do ambiente  \\
 \end{DoxyTable}
 
 
@@ -42,8 +42,8 @@ Abaixo está o mapeamento físico dos pinos do microcontrolador para os perifér
 \end{DoxyItemize}
 \item {\bfseries{Interface\+:}}
 \begin{DoxyItemize}
-\item {\ttfamily PD7}\+: Botão de Start/\+Stop (Pull-\/up)
-\item {\ttfamily PC1-\/\+PC3}\+: LEDs de Status
+\item {\ttfamily PD7}\+: Botão para debug (Pull-\/up)
+\item {\ttfamily PC1-\/\+PC3}\+: LEDs de "{}\+Vida"{} do carrinho
 \end{DoxyItemize}
 \end{DoxyItemize}
 
@@ -51,13 +51,15 @@ Abaixo está o mapeamento físico dos pinos do microcontrolador para os perifér
 \hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{🚀 Como Compilar}{🚀 Como Compilar}}\label{index_autotoc_md8}
 
 \begin{DoxyEnumerate}
-\item Configure o {\ttfamily \doxylink{carrinho_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}} para 16000000UL.
-\item Compile utilizando {\ttfamily avr-\/gcc}.
-\item Faça o upload via {\ttfamily avrdude}.
+\item Abra o arquivo {\ttfamily Makefile}.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Configure o {\ttfamily PORT} para a porta USB correta onde será feita a transmissão do código.
+\item Compile apenas utilizando o comando {\ttfamily make DIR=\texorpdfstring{$<$}{<}carrinho/controle\texorpdfstring{$>$}{>}}.
 \end{DoxyEnumerate}
 
 \begin{quote}
-{\bfseries{Nota\+:}} Certifique-\/se de que a biblioteca {\ttfamily \doxylink{nrf24__avr_8h}{nrf24\+\_\+avr.\+h}} esteja no mesmo diretório. \end{quote}
+{\bfseries{Nota\+:}} Certifique-\/se de que a biblioteca {\ttfamily nrf24\+\_\+avr.\+h} esteja presente nos dois diretórios. \end{quote}
 
 
 \DoxyHorRuler{0}

@@ -1,0 +1,83 @@
+\doxysection{Referência ao ficheiro carrinho/\+RF24\+\_\+config.h}
+\hypertarget{carrinho_2RF24__config_8h}{}\label{carrinho_2RF24__config_8h}\index{carrinho/RF24\_config.h@{carrinho/RF24\_config.h}}
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{carrinho_2RF24__config_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{carrinho_2RF24__config_8h_a80b7b445a2432fd652f91232b5558554}{FAILURE\+\_\+\+HANDLING}}
+\item 
+\#define \mbox{\hyperlink{carrinho_2RF24__config_8h_a0bb6ee6736804ee3f6dd01699d9e13f5}{RF24\+\_\+\+POWERUP\+\_\+\+DELAY}}~5000
+\item 
+\#define \mbox{\hyperlink{carrinho_2RF24__config_8h_ae6d0cebac69956c23e8715f4f3bbbd0e}{rf24\+\_\+max}}(a,  b)
+\item 
+\#define \mbox{\hyperlink{carrinho_2RF24__config_8h_a803c01bff6ebb264fb8b4438eb65f098}{rf24\+\_\+min}}(a,  b)
+\item 
+\#define \mbox{\hyperlink{carrinho_2RF24__config_8h_a63ef6fd21b0b83db10e95c0da126d1e2}{RF24\+\_\+\+SPI\+\_\+\+SPEED}}~10000000
+\begin{DoxyCompactList}\small\item\em The default SPI speed (in Hz). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{carrinho_2RF24__config_8h_a6120d1982a91bb372fbee1502841baba}{sprintf\+\_\+P}}~sprintf
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{carrinho_2RF24__config_8h_doc-define-members}
+\doxysubsection{Documentação das macros}
+\Hypertarget{carrinho_2RF24__config_8h_a80b7b445a2432fd652f91232b5558554}\index{RF24\_config.h@{RF24\_config.h}!FAILURE\_HANDLING@{FAILURE\_HANDLING}}
+\index{FAILURE\_HANDLING@{FAILURE\_HANDLING}!RF24\_config.h@{RF24\_config.h}}
+\doxysubsubsection{\texorpdfstring{FAILURE\_HANDLING}{FAILURE\_HANDLING}}
+{\footnotesize\ttfamily \label{carrinho_2RF24__config_8h_a80b7b445a2432fd652f91232b5558554} 
+\#define FAILURE\+\_\+\+HANDLING}
+
+\Hypertarget{carrinho_2RF24__config_8h_ae6d0cebac69956c23e8715f4f3bbbd0e}\index{RF24\_config.h@{RF24\_config.h}!rf24\_max@{rf24\_max}}
+\index{rf24\_max@{rf24\_max}!RF24\_config.h@{RF24\_config.h}}
+\doxysubsubsection{\texorpdfstring{rf24\_max}{rf24\_max}}
+{\footnotesize\ttfamily \label{carrinho_2RF24__config_8h_ae6d0cebac69956c23e8715f4f3bbbd0e} 
+\#define rf24\+\_\+max(\begin{DoxyParamCaption}\item[{}]{a}{, }\item[{}]{b}{}\end{DoxyParamCaption})}
+
+{\bfseries Valor\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((a)\ >\ (b)\ ?\ (a)\ :\ (b))}
+
+\end{DoxyCode}
+\Hypertarget{carrinho_2RF24__config_8h_a803c01bff6ebb264fb8b4438eb65f098}\index{RF24\_config.h@{RF24\_config.h}!rf24\_min@{rf24\_min}}
+\index{rf24\_min@{rf24\_min}!RF24\_config.h@{RF24\_config.h}}
+\doxysubsubsection{\texorpdfstring{rf24\_min}{rf24\_min}}
+{\footnotesize\ttfamily \label{carrinho_2RF24__config_8h_a803c01bff6ebb264fb8b4438eb65f098} 
+\#define rf24\+\_\+min(\begin{DoxyParamCaption}\item[{}]{a}{, }\item[{}]{b}{}\end{DoxyParamCaption})}
+
+{\bfseries Valor\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((a)\ <\ (b)\ ?\ (a)\ :\ (b))}
+
+\end{DoxyCode}
+\Hypertarget{carrinho_2RF24__config_8h_a0bb6ee6736804ee3f6dd01699d9e13f5}\index{RF24\_config.h@{RF24\_config.h}!RF24\_POWERUP\_DELAY@{RF24\_POWERUP\_DELAY}}
+\index{RF24\_POWERUP\_DELAY@{RF24\_POWERUP\_DELAY}!RF24\_config.h@{RF24\_config.h}}
+\doxysubsubsection{\texorpdfstring{RF24\_POWERUP\_DELAY}{RF24\_POWERUP\_DELAY}}
+{\footnotesize\ttfamily \label{carrinho_2RF24__config_8h_a0bb6ee6736804ee3f6dd01699d9e13f5} 
+\#define RF24\+\_\+\+POWERUP\+\_\+\+DELAY~5000}
+
+User access to internally used delay time (in microseconds) during RF24\+::power\+Up() \begin{DoxyWarning}{Aviso}
+This default value compensates for all supported hardware. Only adjust this if you know your radio\textquotesingle{}s hardware is, in fact, genuine and reliable. 
+\end{DoxyWarning}
+\Hypertarget{carrinho_2RF24__config_8h_a63ef6fd21b0b83db10e95c0da126d1e2}\index{RF24\_config.h@{RF24\_config.h}!RF24\_SPI\_SPEED@{RF24\_SPI\_SPEED}}
+\index{RF24\_SPI\_SPEED@{RF24\_SPI\_SPEED}!RF24\_config.h@{RF24\_config.h}}
+\doxysubsubsection{\texorpdfstring{RF24\_SPI\_SPEED}{RF24\_SPI\_SPEED}}
+{\footnotesize\ttfamily \label{carrinho_2RF24__config_8h_a63ef6fd21b0b83db10e95c0da126d1e2} 
+\#define RF24\+\_\+\+SPI\+\_\+\+SPEED~10000000}
+
+
+
+The default SPI speed (in Hz). 
+
+\Hypertarget{carrinho_2RF24__config_8h_a6120d1982a91bb372fbee1502841baba}\index{RF24\_config.h@{RF24\_config.h}!sprintf\_P@{sprintf\_P}}
+\index{sprintf\_P@{sprintf\_P}!RF24\_config.h@{RF24\_config.h}}
+\doxysubsubsection{\texorpdfstring{sprintf\_P}{sprintf\_P}}
+{\footnotesize\ttfamily \label{carrinho_2RF24__config_8h_a6120d1982a91bb372fbee1502841baba} 
+\#define sprintf\+\_\+P~sprintf}
+

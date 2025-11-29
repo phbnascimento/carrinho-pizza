@@ -33,6 +33,3 @@ hex: $(TARGET).elf
 
 upload:
 	avrdude -C /etc/avrdude.conf -p $(MCU) -c $(PROGRAMMER) -P $(PORT) -b $(BAUD) -U flash:w:$(TARGET).hex:i
-
-clean:
-	rm -f $(DIR)/*.o $(TARGET).elf $(TARGET).hex

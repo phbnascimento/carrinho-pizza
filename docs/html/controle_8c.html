@@ -18,6 +18,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -91,13 +92,13 @@ $(function(){initNavTree('controle_8c.html','',''); });
   <div class="headertitle"><div class="title">Referência ao ficheiro controle.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;SPI.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="nRF24L01_8h_source.html">nRF24L01.h</a>&gt;</code><br />
-<code>#include &lt;RF24.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
+<code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="controle_2nrf24__avr_8h_source.html">nrf24_avr.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para controle.c:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c__incl.svg" width="276" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c__incl.svg" width="455" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -107,24 +108,38 @@ Estruturas de Dados</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a43bafb28b29491ec7f871319b5a3b2f8" id="r_a43bafb28b29491ec7f871319b5a3b2f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>&#160;&#160;&#160;16000000UL</td></tr>
 <tr class="memitem:a8aa85ae9867fabf70ec72cd3bf6fb6b9" id="r_a8aa85ae9867fabf70ec72cd3bf6fb6b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a>&#160;&#160;&#160;3</td></tr>
 <tr class="memitem:ad09fe5bf321b9a2de26bd5e5b9af6424" id="r_ad09fe5bf321b9a2de26bd5e5b9af6424"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad09fe5bf321b9a2de26bd5e5b9af6424">LED2</a>&#160;&#160;&#160;5</td></tr>
-<tr class="memitem:a08ee2643fc201d0aa439a4bef60a8890" id="r_a08ee2643fc201d0aa439a4bef60a8890"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08ee2643fc201d0aa439a4bef60a8890">JX</a>&#160;&#160;&#160;A0</td></tr>
-<tr class="memitem:ab03428ee7292eb7bc1f40c08b91f49ab" id="r_ab03428ee7292eb7bc1f40c08b91f49ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab03428ee7292eb7bc1f40c08b91f49ab">JY</a>&#160;&#160;&#160;A1</td></tr>
-<tr class="memitem:aea65463ec80bbae979a30002d5aa8558" id="r_aea65463ec80bbae979a30002d5aa8558"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea65463ec80bbae979a30002d5aa8558">JS</a>&#160;&#160;&#160;A2</td></tr>
-<tr class="memitem:a86de85f5177dabb5ff712bf180db43aa" id="r_a86de85f5177dabb5ff712bf180db43aa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86de85f5177dabb5ff712bf180db43aa">TRIGGER</a>&#160;&#160;&#160;A3</td></tr>
+<tr class="memitem:a08ee2643fc201d0aa439a4bef60a8890" id="r_a08ee2643fc201d0aa439a4bef60a8890"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08ee2643fc201d0aa439a4bef60a8890">JX</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:ab03428ee7292eb7bc1f40c08b91f49ab" id="r_ab03428ee7292eb7bc1f40c08b91f49ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab03428ee7292eb7bc1f40c08b91f49ab">JY</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:aea65463ec80bbae979a30002d5aa8558" id="r_aea65463ec80bbae979a30002d5aa8558"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea65463ec80bbae979a30002d5aa8558">JS</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memitem:a86de85f5177dabb5ff712bf180db43aa" id="r_a86de85f5177dabb5ff712bf180db43aa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86de85f5177dabb5ff712bf180db43aa">TRIGGER</a>&#160;&#160;&#160;3</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:a53cdd46f95419ffdcd44d3f0d6147b54" id="r_a53cdd46f95419ffdcd44d3f0d6147b54"><td class="memItemLeft" align="right" valign="top">RF24&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53cdd46f95419ffdcd44d3f0d6147b54">radio</a> (9, 10)</td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
 <tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variáveis</h2></td></tr>
-<tr class="memitem:ae0c0431bfc31dc095fb3215eaebf79ea" id="r_ae0c0431bfc31dc095fb3215eaebf79ea"><td class="memItemLeft" align="right" valign="top">const byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0c0431bfc31dc095fb3215eaebf79ea">address</a> [6] = &quot;00001&quot;</td></tr>
+<tr class="memitem:a0d5aeb028158bc168b01ed3bf2a385be" id="r_a0d5aeb028158bc168b01ed3bf2a385be"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d5aeb028158bc168b01ed3bf2a385be">addr</a> [5] = {'0', '0', '0', '0', '1'}</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentação das macros</h2>
+<a id="a43bafb28b29491ec7f871319b5a3b2f8" name="a43bafb28b29491ec7f871319b5a3b2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bafb28b29491ec7f871319b5a3b2f8">&#9670;&#160;</a></span>F_CPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define F_CPU&#160;&#160;&#160;16000000UL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aea65463ec80bbae979a30002d5aa8558" name="aea65463ec80bbae979a30002d5aa8558"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea65463ec80bbae979a30002d5aa8558">&#9670;&#160;</a></span>JS</h2>
 
@@ -132,7 +147,7 @@ Variáveis</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define JS&#160;&#160;&#160;A2</td>
+          <td class="memname">#define JS&#160;&#160;&#160;2</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -146,7 +161,7 @@ Variáveis</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define JX&#160;&#160;&#160;A0</td>
+          <td class="memname">#define JX&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -160,7 +175,7 @@ Variáveis</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define JY&#160;&#160;&#160;A1</td>
+          <td class="memname">#define JY&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -202,7 +217,7 @@ Variáveis</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TRIGGER&#160;&#160;&#160;A3</td>
+          <td class="memname">#define TRIGGER&#160;&#160;&#160;3</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -224,37 +239,6 @@ Variáveis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Grafo de chamadas desta função:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="163" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a53cdd46f95419ffdcd44d3f0d6147b54" name="a53cdd46f95419ffdcd44d3f0d6147b54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53cdd46f95419ffdcd44d3f0d6147b54">&#9670;&#160;</a></span>radio()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">RF24 radio </td>
-          <td>(</td>
-          <td class="paramtype">9</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">10</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c_a53cdd46f95419ffdcd44d3f0d6147b54_icgraph.svg" width="171" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -275,20 +259,20 @@ Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c_a4fc01d736fe50cf5b977f755b675f11d_cgraph.svg" width="171" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c_a4fc01d736fe50cf5b977f755b675f11d_cgraph.svg" width="100%" height="583"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentação das variáveis</h2>
-<a id="ae0c0431bfc31dc095fb3215eaebf79ea" name="ae0c0431bfc31dc095fb3215eaebf79ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0c0431bfc31dc095fb3215eaebf79ea">&#9670;&#160;</a></span>address</h2>
+<a id="a0d5aeb028158bc168b01ed3bf2a385be" name="a0d5aeb028158bc168b01ed3bf2a385be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d5aeb028158bc168b01ed3bf2a385be">&#9670;&#160;</a></span>addr</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const byte address[6] = &quot;00001&quot;</td>
+          <td class="memname">const uint8_t addr[5] = {'0', '0', '0', '0', '1'}</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -1,14 +1,14 @@
 \doxysection{Referência ao ficheiro controle/controle.c}
 \hypertarget{controle_8c}{}\label{controle_8c}\index{controle/controle.c@{controle/controle.c}}
-{\ttfamily \#include $<$SPI.\+h$>$}\newline
-{\ttfamily \#include $<$n\+RF24\+L01.\+h$>$}\newline
-{\ttfamily \#include $<$RF24.\+h$>$}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+{\ttfamily \#include "{}nrf24\+\_\+avr.\+h"{}}\newline
 Diagrama de dependências de inclusão para controle.\+c\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=279pt]{controle_8c__incl}
+\includegraphics[width=350pt]{controle_8c__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Estruturas de Dados}
@@ -19,22 +19,22 @@ struct \mbox{\hyperlink{structControls}{Controls}}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\#define \mbox{\hyperlink{controle_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~16000000\+UL
+\item 
 \#define \mbox{\hyperlink{controle_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{LED1}}~3
 \item 
 \#define \mbox{\hyperlink{controle_8c_ad09fe5bf321b9a2de26bd5e5b9af6424}{LED2}}~5
 \item 
-\#define \mbox{\hyperlink{controle_8c_a08ee2643fc201d0aa439a4bef60a8890}{JX}}~A0
+\#define \mbox{\hyperlink{controle_8c_a08ee2643fc201d0aa439a4bef60a8890}{JX}}~0
 \item 
-\#define \mbox{\hyperlink{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab}{JY}}~A1
+\#define \mbox{\hyperlink{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab}{JY}}~1
 \item 
-\#define \mbox{\hyperlink{controle_8c_aea65463ec80bbae979a30002d5aa8558}{JS}}~A2
+\#define \mbox{\hyperlink{controle_8c_aea65463ec80bbae979a30002d5aa8558}{JS}}~2
 \item 
-\#define \mbox{\hyperlink{controle_8c_a86de85f5177dabb5ff712bf180db43aa}{TRIGGER}}~A3
+\#define \mbox{\hyperlink{controle_8c_a86de85f5177dabb5ff712bf180db43aa}{TRIGGER}}~3
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Funções}
 \begin{DoxyCompactItemize}
-\item 
-RF24 \mbox{\hyperlink{controle_8c_a53cdd46f95419ffdcd44d3f0d6147b54}{radio}} (9, 10)
 \item 
 void \mbox{\hyperlink{controle_8c_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
 \item 
@@ -43,30 +43,36 @@ void \mbox{\hyperlink{controle_8c_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
 \doxysubsubsection*{Variáveis}
 \begin{DoxyCompactItemize}
 \item 
-const byte \mbox{\hyperlink{controle_8c_ae0c0431bfc31dc095fb3215eaebf79ea}{address}} \mbox{[}6\mbox{]} = "{}00001"{}
+const uint8\+\_\+t \mbox{\hyperlink{controle_8c_a0d5aeb028158bc168b01ed3bf2a385be}{addr}} \mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}1\textquotesingle{}\}
 \end{DoxyCompactItemize}
 
 
 \label{doc-define-members}
 \Hypertarget{controle_8c_doc-define-members}
 \doxysubsection{Documentação das macros}
+\Hypertarget{controle_8c_a43bafb28b29491ec7f871319b5a3b2f8}\index{controle.c@{controle.c}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \label{controle_8c_a43bafb28b29491ec7f871319b5a3b2f8} 
+\#define F\+\_\+\+CPU~16000000\+UL}
+
 \Hypertarget{controle_8c_aea65463ec80bbae979a30002d5aa8558}\index{controle.c@{controle.c}!JS@{JS}}
 \index{JS@{JS}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{JS}{JS}}
 {\footnotesize\ttfamily \label{controle_8c_aea65463ec80bbae979a30002d5aa8558} 
-\#define JS~A2}
+\#define JS~2}
 
 \Hypertarget{controle_8c_a08ee2643fc201d0aa439a4bef60a8890}\index{controle.c@{controle.c}!JX@{JX}}
 \index{JX@{JX}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{JX}{JX}}
 {\footnotesize\ttfamily \label{controle_8c_a08ee2643fc201d0aa439a4bef60a8890} 
-\#define JX~A0}
+\#define JX~0}
 
 \Hypertarget{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab}\index{controle.c@{controle.c}!JY@{JY}}
 \index{JY@{JY}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{JY}{JY}}
 {\footnotesize\ttfamily \label{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab} 
-\#define JY~A1}
+\#define JY~1}
 
 \Hypertarget{controle_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}\index{controle.c@{controle.c}!LED1@{LED1}}
 \index{LED1@{LED1}!controle.c@{controle.c}}
@@ -84,7 +90,7 @@ const byte \mbox{\hyperlink{controle_8c_ae0c0431bfc31dc095fb3215eaebf79ea}{addre
 \index{TRIGGER@{TRIGGER}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{TRIGGER}{TRIGGER}}
 {\footnotesize\ttfamily \label{controle_8c_a86de85f5177dabb5ff712bf180db43aa} 
-\#define TRIGGER~A3}
+\#define TRIGGER~3}
 
 
 
@@ -97,28 +103,6 @@ const byte \mbox{\hyperlink{controle_8c_ae0c0431bfc31dc095fb3215eaebf79ea}{addre
 {\footnotesize\ttfamily \label{controle_8c_afe461d27b9c48d5921c00d521181f12f} 
 void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Grafo de chamadas desta função\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=194pt]{controle_8c_afe461d27b9c48d5921c00d521181f12f_cgraph}
-\end{center}
-\end{figure}
-\Hypertarget{controle_8c_a53cdd46f95419ffdcd44d3f0d6147b54}\index{controle.c@{controle.c}!radio@{radio}}
-\index{radio@{radio}!controle.c@{controle.c}}
-\doxysubsubsection{\texorpdfstring{radio()}{radio()}}
-{\footnotesize\ttfamily \label{controle_8c_a53cdd46f95419ffdcd44d3f0d6147b54} 
-RF24 radio (\begin{DoxyParamCaption}\item[{9}]{}{, }\item[{10}]{}{}\end{DoxyParamCaption})}
-
-Este é o diagrama das funções que utilizam esta função\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=200pt]{controle_8c_a53cdd46f95419ffdcd44d3f0d6147b54_icgraph}
-\end{center}
-\end{figure}
 \Hypertarget{controle_8c_a4fc01d736fe50cf5b977f755b675f11d}\index{controle.c@{controle.c}!setup@{setup}}
 \index{setup@{setup}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{setup()}{setup()}}
@@ -130,7 +114,7 @@ Grafo de chamadas desta função\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=200pt]{controle_8c_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\includegraphics[width=350pt]{controle_8c_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
 \end{center}
 \end{figure}
 
@@ -138,9 +122,9 @@ Grafo de chamadas desta função\+:
 \label{doc-var-members}
 \Hypertarget{controle_8c_doc-var-members}
 \doxysubsection{Documentação das variáveis}
-\Hypertarget{controle_8c_ae0c0431bfc31dc095fb3215eaebf79ea}\index{controle.c@{controle.c}!address@{address}}
-\index{address@{address}!controle.c@{controle.c}}
-\doxysubsubsection{\texorpdfstring{address}{address}}
-{\footnotesize\ttfamily \label{controle_8c_ae0c0431bfc31dc095fb3215eaebf79ea} 
-const byte address\mbox{[}6\mbox{]} = "{}00001"{}}
+\Hypertarget{controle_8c_a0d5aeb028158bc168b01ed3bf2a385be}\index{controle.c@{controle.c}!addr@{addr}}
+\index{addr@{addr}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{addr}{addr}}
+{\footnotesize\ttfamily \label{controle_8c_a0d5aeb028158bc168b01ed3bf2a385be} 
+const uint8\+\_\+t addr\mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}1\textquotesingle{}\}}
 

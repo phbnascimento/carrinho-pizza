@@ -1,0 +1,1196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Carrinho Pizza - Sem azeitona: Referência ao ficheiro carrinho/nrf24_avr.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Carrinho Pizza - Sem azeitona<span id="projectnumber">&#160;(Com azeitona) 1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('carrinho_2nrf24__avr_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência ao ficheiro nrf24_avr.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
+<code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="carrinho_2nrf24__avr_8h_source.html">nrf24_avr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="carrinho_2nRF24L01_8h_source.html">nRF24L01.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="carrinho_2RF24__config_8h_source.html">RF24_config.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Diagrama de dependências de inclusão para nrf24_avr.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c__incl.svg" width="587" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a43bafb28b29491ec7f871319b5a3b2f8" id="r_a43bafb28b29491ec7f871319b5a3b2f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>&#160;&#160;&#160;16000000UL</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:aa3db4917fa58896ce0a8027a30795033" id="r_aa3db4917fa58896ce0a8027a30795033"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3db4917fa58896ce0a8027a30795033">pinMode_d</a> (uint8_t dpin, uint8_t mode)</td></tr>
+<tr class="memitem:a019970fc17b6b18fa4e45e0baf22c93f" id="r_a019970fc17b6b18fa4e45e0baf22c93f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a019970fc17b6b18fa4e45e0baf22c93f">digitalWrite_d</a> (uint8_t dpin, uint8_t val)</td></tr>
+<tr class="memitem:ab754e31a72213bbae7f3e40f27255301" id="r_ab754e31a72213bbae7f3e40f27255301"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab754e31a72213bbae7f3e40f27255301">digitalRead_d</a> (uint8_t dpin)</td></tr>
+<tr class="memitem:aa653f4dc3541758224a53eef3f04d490" id="r_aa653f4dc3541758224a53eef3f04d490"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa653f4dc3541758224a53eef3f04d490">spi_init</a> (void)</td></tr>
+<tr class="memitem:a8d161d483c095113df5b69798e9cd725" id="r_a8d161d483c095113df5b69798e9cd725"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d161d483c095113df5b69798e9cd725">spi_transfer</a> (uint8_t data)</td></tr>
+<tr class="memitem:a42f8c1120431b7c37e116a4e1eac1cc2" id="r_a42f8c1120431b7c37e116a4e1eac1cc2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42f8c1120431b7c37e116a4e1eac1cc2">csn_low</a> (void)</td></tr>
+<tr class="memitem:adaef88bc02a8e805de3b3a82bf317549" id="r_adaef88bc02a8e805de3b3a82bf317549"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adaef88bc02a8e805de3b3a82bf317549">csn_high</a> (void)</td></tr>
+<tr class="memitem:a77c5f7c57c01266d04faea3052a47f49" id="r_a77c5f7c57c01266d04faea3052a47f49"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77c5f7c57c01266d04faea3052a47f49">ce_low</a> (void)</td></tr>
+<tr class="memitem:a5336963072afb877d785bed84eb6b5f4" id="r_a5336963072afb877d785bed84eb6b5f4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5336963072afb877d785bed84eb6b5f4">ce_high</a> (void)</td></tr>
+<tr class="memitem:a08bc978021db604d02a6da754f73e7e2" id="r_a08bc978021db604d02a6da754f73e7e2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08bc978021db604d02a6da754f73e7e2">write_reg</a> (uint8_t reg, const uint8_t *buf, uint8_t len)</td></tr>
+<tr class="memitem:abefdb1d58b989853c0646a6c8b18b7d3" id="r_abefdb1d58b989853c0646a6c8b18b7d3"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abefdb1d58b989853c0646a6c8b18b7d3">read_reg</a> (uint8_t reg)</td></tr>
+<tr class="memitem:a31d6889b046799ad06c03ce52c9bb640" id="r_a31d6889b046799ad06c03ce52c9bb640"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31d6889b046799ad06c03ce52c9bb640">read_reg_buf</a> (uint8_t reg, uint8_t *buf, uint8_t len)</td></tr>
+<tr class="memitem:a3c9fd94e9894bf0792d4ff5891c16436" id="r_a3c9fd94e9894bf0792d4ff5891c16436"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c9fd94e9894bf0792d4ff5891c16436">write_payload</a> (const void *buf, uint8_t len, uint8_t writeType)</td></tr>
+<tr class="memitem:ac4a676257b5b86b05f4ea608636cb2cf" id="r_ac4a676257b5b86b05f4ea608636cb2cf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4a676257b5b86b05f4ea608636cb2cf">read_payload</a> (void *buf, uint8_t len)</td></tr>
+<tr class="memitem:a023289d1e49bf7f3b61e0e1c5312c8cf" id="r_a023289d1e49bf7f3b61e0e1c5312c8cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a023289d1e49bf7f3b61e0e1c5312c8cf">nrf24_init_hwspi</a> (void)</td></tr>
+<tr class="memitem:ab6fb4c1aa834152310116e7dec65d8e3" id="r_ab6fb4c1aa834152310116e7dec65d8e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6fb4c1aa834152310116e7dec65d8e3">nrf24_begin</a> (uint8_t ce_pin, uint8_t csn_pin, uint32_t spi_speed_hz)</td></tr>
+<tr class="memitem:a49aa88b1042d6d62114cfbca271d9e2b" id="r_a49aa88b1042d6d62114cfbca271d9e2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49aa88b1042d6d62114cfbca271d9e2b">nrf24_setChannel</a> (uint8_t channel)</td></tr>
+<tr class="memitem:aaf2900e7932ebbf7f0ecdc6bce5840e1" id="r_aaf2900e7932ebbf7f0ecdc6bce5840e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf2900e7932ebbf7f0ecdc6bce5840e1">nrf24_setPayloadSize</a> (uint8_t size)</td></tr>
+<tr class="memitem:a21d638882f746748de35324bdc21f448" id="r_a21d638882f746748de35324bdc21f448"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21d638882f746748de35324bdc21f448">nrf24_openWritingPipe</a> (const uint8_t *address)</td></tr>
+<tr class="memitem:a5af2f11537aed8a56d8489355af0ff16" id="r_a5af2f11537aed8a56d8489355af0ff16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5af2f11537aed8a56d8489355af0ff16">nrf24_openReadingPipe</a> (uint8_t pipe, const uint8_t *address)</td></tr>
+<tr class="memitem:a71c5628e9583f6a6fd0871b3ae1bf6df" id="r_a71c5628e9583f6a6fd0871b3ae1bf6df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71c5628e9583f6a6fd0871b3ae1bf6df">nrf24_startListening</a> (void)</td></tr>
+<tr class="memitem:a33899bc3c0f4d2293f37c306d0b8e297" id="r_a33899bc3c0f4d2293f37c306d0b8e297"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33899bc3c0f4d2293f37c306d0b8e297">nrf24_stopListening</a> (void)</td></tr>
+<tr class="memitem:a8232e1982aabc6f52408c318402cb578" id="r_a8232e1982aabc6f52408c318402cb578"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8232e1982aabc6f52408c318402cb578">nrf24_write</a> (const void *buf, uint8_t len)</td></tr>
+<tr class="memitem:a0f64caa74329fd5799a33f30bd8ebf82" id="r_a0f64caa74329fd5799a33f30bd8ebf82"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f64caa74329fd5799a33f30bd8ebf82">nrf24_available</a> (void)</td></tr>
+<tr class="memitem:aa0767db791fc0b45ebadab011c1900bf" id="r_aa0767db791fc0b45ebadab011c1900bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0767db791fc0b45ebadab011c1900bf">nrf24_read</a> (void *buf, uint8_t len)</td></tr>
+<tr class="memitem:a617ab4b2604d6f482796e35da85369ad" id="r_a617ab4b2604d6f482796e35da85369ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a617ab4b2604d6f482796e35da85369ad">nrf24_flush_tx</a> (void)</td></tr>
+<tr class="memitem:a9351c150d32184a95db9ab4a802ed860" id="r_a9351c150d32184a95db9ab4a802ed860"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9351c150d32184a95db9ab4a802ed860">nrf24_flush_rx</a> (void)</td></tr>
+<tr class="memitem:a9a23f602a6077c795322702d0a42f48c" id="r_a9a23f602a6077c795322702d0a42f48c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a23f602a6077c795322702d0a42f48c">nrf24_getStatus</a> (void)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:a4825d22c5c1a40f8e9b62e3073cd3aad" id="r_a4825d22c5c1a40f8e9b62e3073cd3aad"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4825d22c5c1a40f8e9b62e3073cd3aad">_ce_pin</a> = 8</td></tr>
+<tr class="memitem:aeb1e8024b2a72dd816eeafc9dc4a8698" id="r_aeb1e8024b2a72dd816eeafc9dc4a8698"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb1e8024b2a72dd816eeafc9dc4a8698">_csn_pin</a> = 10</td></tr>
+<tr class="memitem:a65f255eac5ac95eac87265229309fa60" id="r_a65f255eac5ac95eac87265229309fa60"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65f255eac5ac95eac87265229309fa60">payload_size</a> = 32</td></tr>
+<tr class="memitem:aa5ea8d75fc1be6a3b4bddf3cd8459da4" id="r_aa5ea8d75fc1be6a3b4bddf3cd8459da4"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5ea8d75fc1be6a3b4bddf3cd8459da4">addr_width</a> = 5</td></tr>
+<tr class="memitem:a41244788e3cbede528185aca2e752059" id="r_a41244788e3cbede528185aca2e752059"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41244788e3cbede528185aca2e752059">dynamic_payloads</a> = 1</td></tr>
+<tr class="memitem:a7fe1e45a5bfd9d243fc5713c3a8f1bb0" id="r_a7fe1e45a5bfd9d243fc5713c3a8f1bb0"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fe1e45a5bfd9d243fc5713c3a8f1bb0">status_reg</a></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentação das macros</h2>
+<a id="a43bafb28b29491ec7f871319b5a3b2f8" name="a43bafb28b29491ec7f871319b5a3b2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bafb28b29491ec7f871319b5a3b2f8">&#9670;&#160;</a></span>F_CPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define F_CPU&#160;&#160;&#160;16000000UL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a5336963072afb877d785bed84eb6b5f4" name="a5336963072afb877d785bed84eb6b5f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5336963072afb877d785bed84eb6b5f4">&#9670;&#160;</a></span>ce_high()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ce_high </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a5336963072afb877d785bed84eb6b5f4_cgraph.svg" width="243" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a5336963072afb877d785bed84eb6b5f4_icgraph.svg" width="384" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a77c5f7c57c01266d04faea3052a47f49" name="a77c5f7c57c01266d04faea3052a47f49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77c5f7c57c01266d04faea3052a47f49">&#9670;&#160;</a></span>ce_low()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ce_low </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a77c5f7c57c01266d04faea3052a47f49_cgraph.svg" width="238" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a77c5f7c57c01266d04faea3052a47f49_icgraph.svg" width="418" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="adaef88bc02a8e805de3b3a82bf317549" name="adaef88bc02a8e805de3b3a82bf317549"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaef88bc02a8e805de3b3a82bf317549">&#9670;&#160;</a></span>csn_high()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void csn_high </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_adaef88bc02a8e805de3b3a82bf317549_cgraph.svg" width="250" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_adaef88bc02a8e805de3b3a82bf317549_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a42f8c1120431b7c37e116a4e1eac1cc2" name="a42f8c1120431b7c37e116a4e1eac1cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42f8c1120431b7c37e116a4e1eac1cc2">&#9670;&#160;</a></span>csn_low()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void csn_low </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a42f8c1120431b7c37e116a4e1eac1cc2_cgraph.svg" width="244" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a42f8c1120431b7c37e116a4e1eac1cc2_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab754e31a72213bbae7f3e40f27255301" name="ab754e31a72213bbae7f3e40f27255301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab754e31a72213bbae7f3e40f27255301">&#9670;&#160;</a></span>digitalRead_d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t digitalRead_d </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>dpin</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a019970fc17b6b18fa4e45e0baf22c93f" name="a019970fc17b6b18fa4e45e0baf22c93f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a019970fc17b6b18fa4e45e0baf22c93f">&#9670;&#160;</a></span>digitalWrite_d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void digitalWrite_d </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>dpin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>val</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a019970fc17b6b18fa4e45e0baf22c93f_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0f64caa74329fd5799a33f30bd8ebf82" name="a0f64caa74329fd5799a33f30bd8ebf82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f64caa74329fd5799a33f30bd8ebf82">&#9670;&#160;</a></span>nrf24_available()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t nrf24_available </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a0f64caa74329fd5799a33f30bd8ebf82_cgraph.svg" width="567" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a0f64caa74329fd5799a33f30bd8ebf82_icgraph.svg" width="338" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab6fb4c1aa834152310116e7dec65d8e3" name="ab6fb4c1aa834152310116e7dec65d8e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6fb4c1aa834152310116e7dec65d8e3">&#9670;&#160;</a></span>nrf24_begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_begin </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>ce_pin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>csn_pin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>spi_speed_hz</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_ab6fb4c1aa834152310116e7dec65d8e3_cgraph.svg" width="100%" height="520"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_ab6fb4c1aa834152310116e7dec65d8e3_icgraph.svg" width="215" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9351c150d32184a95db9ab4a802ed860" name="a9351c150d32184a95db9ab4a802ed860"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9351c150d32184a95db9ab4a802ed860">&#9670;&#160;</a></span>nrf24_flush_rx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_flush_rx </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a9351c150d32184a95db9ab4a802ed860_cgraph.svg" width="432" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a617ab4b2604d6f482796e35da85369ad" name="a617ab4b2604d6f482796e35da85369ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a617ab4b2604d6f482796e35da85369ad">&#9670;&#160;</a></span>nrf24_flush_tx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_flush_tx </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a617ab4b2604d6f482796e35da85369ad_cgraph.svg" width="432" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a617ab4b2604d6f482796e35da85369ad_icgraph.svg" width="268" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9a23f602a6077c795322702d0a42f48c" name="a9a23f602a6077c795322702d0a42f48c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a23f602a6077c795322702d0a42f48c">&#9670;&#160;</a></span>nrf24_getStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t nrf24_getStatus </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a9a23f602a6077c795322702d0a42f48c_cgraph.svg" width="442" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a023289d1e49bf7f3b61e0e1c5312c8cf" name="a023289d1e49bf7f3b61e0e1c5312c8cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a023289d1e49bf7f3b61e0e1c5312c8cf">&#9670;&#160;</a></span>nrf24_init_hwspi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_init_hwspi </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a023289d1e49bf7f3b61e0e1c5312c8cf_cgraph.svg" width="256" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a023289d1e49bf7f3b61e0e1c5312c8cf_icgraph.svg" width="391" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5af2f11537aed8a56d8489355af0ff16" name="a5af2f11537aed8a56d8489355af0ff16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5af2f11537aed8a56d8489355af0ff16">&#9670;&#160;</a></span>nrf24_openReadingPipe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_openReadingPipe </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>pipe</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>address</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a5af2f11537aed8a56d8489355af0ff16_cgraph.svg" width="623" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a5af2f11537aed8a56d8489355af0ff16_icgraph.svg" width="288" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a21d638882f746748de35324bdc21f448" name="a21d638882f746748de35324bdc21f448"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21d638882f746748de35324bdc21f448">&#9670;&#160;</a></span>nrf24_openWritingPipe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_openWritingPipe </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a21d638882f746748de35324bdc21f448_cgraph.svg" width="618" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a21d638882f746748de35324bdc21f448_icgraph.svg" width="286" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa0767db791fc0b45ebadab011c1900bf" name="aa0767db791fc0b45ebadab011c1900bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0767db791fc0b45ebadab011c1900bf">&#9670;&#160;</a></span>nrf24_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_read </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_aa0767db791fc0b45ebadab011c1900bf_cgraph.svg" width="567" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_aa0767db791fc0b45ebadab011c1900bf_icgraph.svg" width="307" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a49aa88b1042d6d62114cfbca271d9e2b" name="a49aa88b1042d6d62114cfbca271d9e2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49aa88b1042d6d62114cfbca271d9e2b">&#9670;&#160;</a></span>nrf24_setChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_setChannel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a49aa88b1042d6d62114cfbca271d9e2b_cgraph.svg" width="583" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a49aa88b1042d6d62114cfbca271d9e2b_icgraph.svg" width="252" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aaf2900e7932ebbf7f0ecdc6bce5840e1" name="aaf2900e7932ebbf7f0ecdc6bce5840e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf2900e7932ebbf7f0ecdc6bce5840e1">&#9670;&#160;</a></span>nrf24_setPayloadSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_setPayloadSize </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_aaf2900e7932ebbf7f0ecdc6bce5840e1_cgraph.svg" width="610" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_aaf2900e7932ebbf7f0ecdc6bce5840e1_icgraph.svg" width="424" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a71c5628e9583f6a6fd0871b3ae1bf6df" name="a71c5628e9583f6a6fd0871b3ae1bf6df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71c5628e9583f6a6fd0871b3ae1bf6df">&#9670;&#160;</a></span>nrf24_startListening()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_startListening </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a71c5628e9583f6a6fd0871b3ae1bf6df_cgraph.svg" width="599" height="194"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a71c5628e9583f6a6fd0871b3ae1bf6df_icgraph.svg" width="264" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a33899bc3c0f4d2293f37c306d0b8e297" name="a33899bc3c0f4d2293f37c306d0b8e297"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33899bc3c0f4d2293f37c306d0b8e297">&#9670;&#160;</a></span>nrf24_stopListening()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nrf24_stopListening </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a33899bc3c0f4d2293f37c306d0b8e297_cgraph.svg" width="598" height="194"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a33899bc3c0f4d2293f37c306d0b8e297_icgraph.svg" width="304" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8232e1982aabc6f52408c318402cb578" name="a8232e1982aabc6f52408c318402cb578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8232e1982aabc6f52408c318402cb578">&#9670;&#160;</a></span>nrf24_write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t nrf24_write </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a8232e1982aabc6f52408c318402cb578_cgraph.svg" width="100%" height="557"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa3db4917fa58896ce0a8027a30795033" name="aa3db4917fa58896ce0a8027a30795033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3db4917fa58896ce0a8027a30795033">&#9670;&#160;</a></span>pinMode_d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pinMode_d </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>dpin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>mode</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_aa3db4917fa58896ce0a8027a30795033_icgraph.svg" width="355" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac4a676257b5b86b05f4ea608636cb2cf" name="ac4a676257b5b86b05f4ea608636cb2cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4a676257b5b86b05f4ea608636cb2cf">&#9670;&#160;</a></span>read_payload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void read_payload </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_ac4a676257b5b86b05f4ea608636cb2cf_cgraph.svg" width="427" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_ac4a676257b5b86b05f4ea608636cb2cf_icgraph.svg" width="464" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abefdb1d58b989853c0646a6c8b18b7d3" name="abefdb1d58b989853c0646a6c8b18b7d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abefdb1d58b989853c0646a6c8b18b7d3">&#9670;&#160;</a></span>read_reg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t read_reg </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_abefdb1d58b989853c0646a6c8b18b7d3_cgraph.svg" width="396" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_abefdb1d58b989853c0646a6c8b18b7d3_icgraph.svg" width="535" height="244"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a31d6889b046799ad06c03ce52c9bb640" name="a31d6889b046799ad06c03ce52c9bb640"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31d6889b046799ad06c03ce52c9bb640">&#9670;&#160;</a></span>read_reg_buf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void read_reg_buf </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a31d6889b046799ad06c03ce52c9bb640_cgraph.svg" width="424" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa653f4dc3541758224a53eef3f04d490" name="aa653f4dc3541758224a53eef3f04d490"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa653f4dc3541758224a53eef3f04d490">&#9670;&#160;</a></span>spi_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void spi_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_aa653f4dc3541758224a53eef3f04d490_icgraph.svg" width="507" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8d161d483c095113df5b69798e9cd725" name="a8d161d483c095113df5b69798e9cd725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d161d483c095113df5b69798e9cd725">&#9670;&#160;</a></span>spi_transfer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t spi_transfer </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a8d161d483c095113df5b69798e9cd725_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3c9fd94e9894bf0792d4ff5891c16436" name="a3c9fd94e9894bf0792d4ff5891c16436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c9fd94e9894bf0792d4ff5891c16436">&#9670;&#160;</a></span>write_payload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void write_payload </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>writeType</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a3c9fd94e9894bf0792d4ff5891c16436_cgraph.svg" width="431" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a3c9fd94e9894bf0792d4ff5891c16436_icgraph.svg" width="268" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a08bc978021db604d02a6da754f73e7e2" name="a08bc978021db604d02a6da754f73e7e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08bc978021db604d02a6da754f73e7e2">&#9670;&#160;</a></span>write_reg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void write_reg </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a08bc978021db604d02a6da754f73e7e2_cgraph.svg" width="400" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_2nrf24__avr_8c_a08bc978021db604d02a6da754f73e7e2_icgraph.svg" width="639" height="499"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentação das variáveis</h2>
+<a id="a4825d22c5c1a40f8e9b62e3073cd3aad" name="a4825d22c5c1a40f8e9b62e3073cd3aad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4825d22c5c1a40f8e9b62e3073cd3aad">&#9670;&#160;</a></span>_ce_pin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t _ce_pin = 8</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb1e8024b2a72dd816eeafc9dc4a8698" name="aeb1e8024b2a72dd816eeafc9dc4a8698"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb1e8024b2a72dd816eeafc9dc4a8698">&#9670;&#160;</a></span>_csn_pin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t _csn_pin = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5ea8d75fc1be6a3b4bddf3cd8459da4" name="aa5ea8d75fc1be6a3b4bddf3cd8459da4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ea8d75fc1be6a3b4bddf3cd8459da4">&#9670;&#160;</a></span>addr_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t addr_width = 5</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41244788e3cbede528185aca2e752059" name="a41244788e3cbede528185aca2e752059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41244788e3cbede528185aca2e752059">&#9670;&#160;</a></span>dynamic_payloads</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t dynamic_payloads = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a65f255eac5ac95eac87265229309fa60" name="a65f255eac5ac95eac87265229309fa60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65f255eac5ac95eac87265229309fa60">&#9670;&#160;</a></span>payload_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t payload_size = 32</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7fe1e45a5bfd9d243fc5713c3a8f1bb0" name="a7fe1e45a5bfd9d243fc5713c3a8f1bb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe1e45a5bfd9d243fc5713c3a8f1bb0">&#9670;&#160;</a></span>status_reg</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t status_reg</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_751a2ea2247ce4bb910fd3d3209aaf82.html">carrinho</a></li><li class="navelem"><a href="carrinho_2nrf24__avr_8c.html">nrf24_avr.c</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

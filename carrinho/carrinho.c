@@ -52,6 +52,7 @@ typedef struct {
   int8_t sw;
   int8_t trigger;
 } Controls;
+static_assert(sizeof(Controls) == 4);  // Só pra ter certeza (não to louco!)
 
 uint8_t life = 0b1110;
 bool on=false, pressed=false, prev=false;

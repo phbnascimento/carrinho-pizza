@@ -18,6 +18,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -98,9 +99,9 @@ Introdução</h1>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 🎯 Objetivos</h2>
 <ul>
-<li>Demonstrar controle PWM via Timers de Hardware (Timer0 e Timer2).</li>
-<li>Implementar protocolo de comunicação sem fio robusto.</li>
-<li>Gerenciar estados de segurança (parada de emergência).</li>
+<li>Fazer controle PWM e temporizadores via Timers de Hardware (Timer0 e Timer2).</li>
+<li>Implementar protocolo de comunicação sem fio com o módulo de rádio NRF24L01.</li>
+<li>Demonstrar conhecimentos no desenvolvimento com microcontroladores.</li>
 </ul>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
@@ -109,13 +110,13 @@ Introdução</h1>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Componente  </th><th class="markdownTableHeadLeft">Especificação  </th><th class="markdownTableHeadLeft">Função  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><b>MCU</b>  </td><td class="markdownTableBodyLeft">ATmega328P (16MHz)  </td><td class="markdownTableBodyLeft">Cérebro do sistema  </td></tr>
+<td class="markdownTableBodyLeft"><b>MCU</b>  </td><td class="markdownTableBodyLeft">ATmega328P (16MHz)  </td><td class="markdownTableBodyLeft">"Cérebro" do sistema  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><b>Rádio</b>  </td><td class="markdownTableBodyLeft">NRF24L01+  </td><td class="markdownTableBodyLeft">Comunicação 2.4GHz  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><b>Driver</b>  </td><td class="markdownTableBodyLeft">Ponte H (L298N/Mini)  </td><td class="markdownTableBodyLeft">Controle de potência dos motores  </td></tr>
+<td class="markdownTableBodyLeft"><b>Driver</b>  </td><td class="markdownTableBodyLeft">Ponte H (L298N)  </td><td class="markdownTableBodyLeft">Controle de potência dos motores  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><b>Sensores</b>  </td><td class="markdownTableBodyLeft">Ultrassônico / LDR  </td><td class="markdownTableBodyLeft">Detecção de ambiente  </td></tr>
+<td class="markdownTableBodyLeft"><b>Sensores</b>  </td><td class="markdownTableBodyLeft">LDR  </td><td class="markdownTableBodyLeft">Detecção de luz do ambiente  </td></tr>
 </table>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
@@ -134,8 +135,8 @@ Introdução</h1>
 </ul>
 </li>
 <li><b>Interface:</b><ul>
-<li><span class="tt">PD7</span>: Botão de Start/Stop (Pull-up)</li>
-<li><span class="tt">PC1-PC3</span>: LEDs de Status</li>
+<li><span class="tt">PD7</span>: Botão para debug (Pull-up)</li>
+<li><span class="tt">PC1-PC3</span>: LEDs de "Vida" do carrinho</li>
 </ul>
 </li>
 </ul>
@@ -143,12 +144,14 @@ Introdução</h1>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
 🚀 Como Compilar</h1>
 <ol type="1">
-<li>Configure o <span class="tt"><a class="el" href="carrinho_8c.html#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a></span> para 16000000UL.</li>
-<li>Compile utilizando <span class="tt">avr-gcc</span>.</li>
-<li>Faça o upload via <span class="tt">avrdude</span>.</li>
+<li>Abra o arquivo <span class="tt">Makefile</span>.</li>
+</ol>
+<ol type="1">
+<li>Configure o <span class="tt">PORT</span> para a porta USB correta onde será feita a transmissão do código.</li>
+<li>Compile apenas utilizando o comando <span class="tt">make DIR=&lt;carrinho/controle&gt;</span>.</li>
 </ol>
 <blockquote class="doxtable">
-<p><b>Nota:</b> Certifique-se de que a biblioteca <span class="tt"><a class="el" href="nrf24__avr_8h.html">nrf24_avr.h</a></span> esteja no mesmo diretório. </p>
+<p><b>Nota:</b> Certifique-se de que a biblioteca <span class="tt">nrf24_avr.h</span> esteja presente nos dois diretórios. </p>
 </blockquote>
 <hr  />
 <p><b>Autores:</b> Bruno Garcia Carvalho, Pedro Henrique Brito, Pedro Henrique Cretella <br  />

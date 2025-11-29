@@ -1,17 +1,22 @@
-#include <SPI.h>
-#include <nRF24L01.h>
-#include <RF24.h>
+#ifndef F_CPU
+#define F_CPU 16000000UL
+#endif
 
-RF24 radio(9, 10); 
-const byte address[6] = "00001";
+#include <avr/io.h>
+#include <util/delay.h>
+#include "nrf24_avr.h"
 
+const uint8_t addr[5] = {'0', '0', '0', '0', '1'};
+
+// PORTD
 #define LED1 3
 #define LED2 5
 
-#define JX A0
-#define JY A1
-#define JS A2
-#define TRIGGER A3
+// PORTB
+#define JX 0  // Joystick X
+#define JY 1 // Y
+#define JS 2 // Switch
+#define TRIGGER 3 // Botão na parte superior do controle
 
 typedef struct {
   int8_t x;
@@ -22,10 +27,10 @@ typedef struct {
 static_assert(sizeof(Controls) == 4);
 
 void setup() {
-  radio.begin();
-  radio.openWritingPipe(address);
-  radio.setPALevel(RF24_PA_LOW);
-  radio.stopListening();
+  nrf24_begin(9, 10, RF24_SPI_SPEED);
+  nrf24_openWritingPipe(addr);
+	nrf24_setChannel(76);
+  nrf24_stopListening();
 
   pinMode(LED1, OUTPUT);
   pinMode(LED2, OUTPUT);
@@ -39,10 +44,10 @@ void loop() {
 
   gamepad.x = (int8_t) map(analogRead(JX), 0, 1023, -127, 128);
   gamepad.y = (int8_t) map(analogRead(JY), 0, 1023, -127, 128);
-  gamepad.sw = (int8_t) (!digitalRead(JS));
-  gamepad.trigger = (int8_t) (!digitalRead(TRIGGER));
+  gamepad.sw = (int8_t) !digitalRead(JS);
+  gamepad.trigger = (int8_t) !(PINB & (1<<TRIGGER));
 
-  bool ok = radio.write(&gamepad, sizeof(gamepad));
+  bool ok = nrf24_write(&gamepad, sizeof(gamepad));
   digitalWrite(LED1, ok);
 
   delay(20);

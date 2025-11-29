@@ -1,0 +1,10 @@
+<map id="controle/RF24_config.h" name="controle/RF24_config.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="52,5,222,33"/>
+<area shape="rect" id="Node000002" href="$controle_2nrf24__avr_8c.html" title=" " alt="" coords="5,157,157,184"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,45,109,82,86,158,81,155,104,80,121,49"/>
+<area shape="rect" id="Node000003" href="$controle_2nrf24__avr_8h.html" title=" " alt="" coords="118,81,270,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,43,187,80,182,81,156,48"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="164,117,102,159,100,154,159,118"/>
+<area shape="rect" id="Node000004" href="$controle_8c.html" title=" " alt="" coords="180,157,323,184"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="215,119,244,157,239,156,213,123"/>
+</map>

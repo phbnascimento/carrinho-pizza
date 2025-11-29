@@ -1,0 +1,7 @@
+<map id="nrf24_stopListening" name="nrf24_stopListening">
+<area shape="rect" id="Node000001" title=" " alt="" coords="149,32,298,60"/>
+<area shape="rect" id="Node000002" href="$carrinho_2nrf24__avr_8c.html#a8232e1982aabc6f52408c318402cb578" title=" " alt="" coords="5,5,101,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,33,101,29,101,24,136,31"/>
+<area shape="rect" id="Node000003" href="$controle_8c.html#a4fc01d736fe50cf5b977f755b675f11d" title=" " alt="" coords="24,57,82,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,60,82,70,82,64,136,59"/>
+</map>
