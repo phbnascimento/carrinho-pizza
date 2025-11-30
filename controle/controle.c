@@ -1,103 +1,107 @@
-  #ifndef F_CPU
-  #define F_CPU 16000000UL
-  #endif
+#ifndef F_CPU
+#define F_CPU 16000000UL
+#endif
 
-  #include <avr/io.h>
-  #include <util/delay.h>
-  #include "nrf24_avr.h"
+#include <avr/io.h>
+#include <util/delay.h>
+#include "nrf24_avr.h"
 
-  const uint8_t addr[5] = {'0', '0', '0', '0', '1'};
+#define HIGH 1
+#define LOW  0
 
-  // PORTD
-  #define LED(LEDNUM, STATE) (STATE ? (PORTD |=  (1 << (LEDNUM))) : (PORTD &= ~(1 << (LEDNUM))))
-  #define LED1 3
-  #define BUZZ 4
-  #define LED2 5
+// Mapeamento físico equivalente ao Arduino
+#define LED1 3
+#define LED2 5
 
-  // PORTB
-  #define JX 0  // Joystick X
-  #define JY 1 // Y
-  #define JS 2 // Switch
-  #define TRIGGER 3 // Botão na parte superior do controle
+// PORTC
+#define JY 0
+#define JX 1
+#define JS 2
+#define TRIGGER 3
 
-  typedef struct {
+// map() igual ao Arduino
+long map(long x, long in_min, long in_max, long out_min, long out_max) {
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+typedef struct {
     int8_t x;
     int8_t y;
     int8_t sw;
     int8_t trigger;
-  } Controls;
-  static_assert(sizeof(Controls) == 4);
+} Controls;
+static_assert(sizeof(Controls) == 4);
 
-  int abs(int num) {
-    return num >= 0 ? num : num * -1;
-  }
+const uint8_t address[5] = {'0','0','0','0','1'};
 
-  int map(int x, int in_min, int in_max, int out_min, int out_max) {
-      return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-  }
-
-  void analog_setup(void) {
-      ADMUX  = (1 << REFS0);
-      ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0); // prescaler 128
-  }
-
-  uint16_t analog_read(uint8_t channel) {
-      channel &= 0x07;
-      ADMUX = (ADMUX & 0xF0) | channel;
-      ADCSRA |= (1 << ADSC);
-      while (ADCSRA & (1 << ADSC));
-
-      return ADC;
-  }
-
-void analog_write(uint8_t pin, uint8_t value) {
-    if (pin == PD5) {
-        DDRD |= (1 << PD5);
-        TCCR0A |= (1<<WGM00) | (1<<WGM01);
-        TCCR0A |= (1<<COM0B1);
-        TCCR0B |= (1<<CS01);
-        OCR0B = value;
-    } else if (pin == PD3) {
-        DDRD |= (1 << PD3);
-        TCCR2A |= (1<<WGM20) | (1<<WGM21);
-        TCCR2A |= (1<<COM2B1);
-        TCCR2B |= (1<<CS21);
-        OCR2B = value;
-    }
+void adc_setup() {
+    ADMUX = (1 << REFS0); 
+    ADCSRA = (1 << ADEN) | (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0); 
 }
 
-  void loop() {
-    Controls gamepad;
+uint16_t adc_read(uint8_t ch) {
+    ADMUX = (ADMUX & 0xF0) | (ch & 0x07);
+    ADCSRA |= (1 << ADSC);
+    while (ADCSRA & (1 << ADSC));
+    return ADC;
+}
 
-    gamepad.x = (int8_t) map(analog_read(JX), 0, 1023, -128, 127);
-    gamepad.y = (int8_t) map(analog_read(JY), 0, 1023, -128, 127);
-    gamepad.sw = (int8_t) !(PINB & (1<<JS));
-    gamepad.trigger = (int8_t) !(PINB & (1<<TRIGGER));
+void pwm_setup() {
+    // LED1 -> PD3 (OC2B)
+    DDRD |= (1 << PD3);
+    TCCR2A = (1<<WGM21) | (1<<WGM20) | (1<<COM2B1);
+    TCCR2B = (1<<CS21);   // prescaler 8
 
-    int ok = nrf24_write(&gamepad, sizeof(gamepad));
-    LED(LED1, ok);
-    analog_write(LED1, 2 * abs(gamepad.x));
+    // LED2 -> PD5 (OC0B)
+    DDRD |= (1 << PD5);
+    TCCR0A = (1<<WGM01) | (1<<WGM00) | (1<<COM0B1);
+    TCCR0B = (1<<CS01);   // prescaler 8
+}
 
-    _delay_ms(20);
-  }
+void pwm_write(uint8_t pin, uint8_t value) {
+    if (pin == 3)      OCR2B = value;
+    else if (pin == 5) OCR0B = value;
+}
 
-  int main() {
+int abs_int(int n) { return n >= 0 ? n : -n; }
+
+void setup() {
+
+    adc_setup();
+    pwm_setup();
+
+    // JS e TRIGGER como entradas pull-up
+    DDRC &= ~((1<<JS) | (1<<TRIGGER));
+    PORTC |= ((1<<JS) | (1<<TRIGGER));
+
     // Rádio
     nrf24_begin(9, 10, RF24_SPI_SPEED);
-    nrf24_openWritingPipe(addr);
-    nrf24_setChannel(76);
+    nrf24_openWritingPipe(address);
     nrf24_stopListening();
+}
 
-    analog_setup();
+void loop() {
+    Controls gamepad;
 
-    // LEDs
-    DDRD |= (1<<LED1) | (1<<LED2) | (1<<BUZZ);
-    PORTD &= ~(1<<BUZZ);
+    gamepad.x = (int8_t) map(adc_read(JX), 0, 1023, -127, 127);
+    gamepad.y = (int8_t) map(adc_read(JY), 0, 1023, -127, 127);
 
-    // Define botão do joystick e trigger como pullup
-    PORTB |= (1<<JS) | (1<<TRIGGER);
+    gamepad.sw = (int8_t)(!(PINC & (1<<JS)));
+    gamepad.trigger = (int8_t)(!(PINC & (1<<TRIGGER)));
 
+    // DEADZONE 
+    if (gamepad.x > -75 && gamepad.x < 75) gamepad.x = 0;
+    if (gamepad.y > -75 && gamepad.y < 75) gamepad.y = 0;
+
+    uint8_t ok = nrf24_write(&gamepad, sizeof(gamepad));
+
+    pwm_write(LED2, ok);
+    pwm_write(LED1, abs_int(gamepad.y) * 2);
+
+    _delay_ms(20);
+}
+
+int main() {
+    setup();
     while (1) { loop(); }
-
-    return 0;
-  }
+}

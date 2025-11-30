@@ -131,10 +131,10 @@ void hit() {
   if (life == 0b01110000) {
     motor(LEFT,  FORWARD,   200);
     motor(RIGHT, BACKWARDS, 200);
-    for(int i=0;i<1000;i++) timer_tick();
+    _delay_ms(1000);
     motor(LEFT,  FORWARD,   0);
     motor(RIGHT, BACKWARDS, 0);
-    for(int i=0;i<4000;i++) timer_tick();
+    _delay_ms(4000);
     life = 0b1110;
   }
 }
@@ -153,15 +153,9 @@ void loop() {
   ldr_prev = ldr;
 
   // Acender o laser
-  if (isTimerOver(ldrTimer)) {
-    timerReset(&ldrTimer);
-    PORTB ^= (1<<0);
-  }
-
   if (isTimerOver(laserTimer)) {
     timerReset(&laserTimer);
-    if (on) PORTB |=  (1<<LASER);
-    else    PORTB &= ~(1<<LASER);
+    PORTB ^= (1<<0);
   }
 
   Controls gamepad;
