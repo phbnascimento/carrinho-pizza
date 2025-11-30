@@ -1,6 +1,6 @@
 <map id="nrf24_setChannel" name="nrf24_setChannel">
 <area shape="rect" id="Node000001" title=" " alt="" coords="108,32,243,60"/>
-<area shape="rect" id="Node000002" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,33"/>
+<area shape="rect" id="Node000002" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Função principal: inicializa periféricos e roda loop()." alt="" coords="5,5,60,33"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,32,61,27,60,22,95,29"/>
 <area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,57,60,85"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="90,61,61,69,60,64,95,60"/>

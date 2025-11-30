@@ -93,7 +93,7 @@ $(function(){initNavTree('structControls.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor).  
+<p>Estrutura recebida do controle remoto contendo eixos e botões.  
  <a href="#details">Mais...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -104,7 +104,10 @@ Campos de Dados</h2></td></tr>
 <tr class="memitem:acf3f4cb783a1d6a1acbd0f3656620b7b" id="r_acf3f4cb783a1d6a1acbd0f3656620b7b"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf3f4cb783a1d6a1acbd0f3656620b7b">trigger</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor). </p>
+<div class="textblock"><p>Estrutura recebida do controle remoto contendo eixos e botões. </p>
+<p>Estrutura enviada/recebida pelo controle RF.</p>
+<dl class="section note"><dt>Nota</dt><dd>Tamanho garantido em 4 bytes.</dd></dl>
+<p>x e y variam de -127 a 127. sw e trigger são botões (0 ou 1). </p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentação dos campos e atributos</h2>
 <a id="a14d0fa1de5e626d1dc1cba236dff2379" name="a14d0fa1de5e626d1dc1cba236dff2379"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14d0fa1de5e626d1dc1cba236dff2379">&#9670;&#160;</a></span>sw</h2>
@@ -117,7 +120,6 @@ Campos de Dados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Botão do Joystick (Switch). </p>
 
 </div>
 </div>
@@ -132,7 +134,6 @@ Campos de Dados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gatilho ou botão auxiliar. </p>
 
 </div>
 </div>
@@ -147,7 +148,6 @@ Campos de Dados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Eixo X do Joystick (-127 a 127). </p>
 
 </div>
 </div>
@@ -162,16 +162,14 @@ Campos de Dados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Eixo Y do Joystick (-127 a 127). </p>
 
 </div>
 </div>
 <hr/>A documentação para esta estrutura foi gerada a partir dos seguintes ficheiros:<ul>
+<li>arduino/<a class="el" href="carrinho__ino_8ino.html">carrinho_ino.ino</a></li>
+<li>arduino/<a class="el" href="controle__ino_8ino.html">controle_ino.ino</a></li>
 <li>carrinho/<a class="el" href="carrinho_8c.html">carrinho.c</a></li>
-<li>carrinho_ino/<a class="el" href="carrinho__ino_8ino.html">carrinho_ino.ino</a></li>
-<li><a class="el" href="codigo_8c.html">codigo.c</a></li>
 <li>controle/<a class="el" href="controle_8c.html">controle.c</a></li>
-<li>controle_ino/<a class="el" href="controle__ino_8ino.html">controle_ino.ino</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -14,23 +14,23 @@ Diagrama de dependências de inclusão para controle.\+c\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structControls}{Controls}}
-\begin{DoxyCompactList}\small\item\em Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Estrutura recebida do controle remoto contendo eixos e botões. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{controle_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+CPU}}~16000000\+UL
 \item 
-\#define \mbox{\hyperlink{controle_8c_a94180201817e497ad4f773021adf385b}{LED}}(LEDNUM,  STATE)
+\#define \mbox{\hyperlink{controle_8c_a5bb885982ff66a2e0a0a45a8ee9c35e2}{HIGH}}~1
+\item 
+\#define \mbox{\hyperlink{controle_8c_ab811d8c6ff3a505312d3276590444289}{LOW}}~0
 \item 
 \#define \mbox{\hyperlink{controle_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{LED1}}~3
 \item 
-\#define \mbox{\hyperlink{controle_8c_a4d7a42500434ec6947ccb8ac9ae931e6}{BUZZ}}~4
-\item 
 \#define \mbox{\hyperlink{controle_8c_ad09fe5bf321b9a2de26bd5e5b9af6424}{LED2}}~5
 \item 
-\#define \mbox{\hyperlink{controle_8c_a08ee2643fc201d0aa439a4bef60a8890}{JX}}~0
+\#define \mbox{\hyperlink{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab}{JY}}~0
 \item 
-\#define \mbox{\hyperlink{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab}{JY}}~1
+\#define \mbox{\hyperlink{controle_8c_a08ee2643fc201d0aa439a4bef60a8890}{JX}}~1
 \item 
 \#define \mbox{\hyperlink{controle_8c_aea65463ec80bbae979a30002d5aa8558}{JS}}~2
 \item 
@@ -39,41 +39,45 @@ struct \mbox{\hyperlink{structControls}{Controls}}
 \doxysubsubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{controle_8c_aaa87dddb1e62142fd07ee17db1b5d673}{abs}} (int num)
-\item 
-int \mbox{\hyperlink{controle_8c_ab66e88e73e935433d27613e6b65139dd}{map}} (int x, int in\+\_\+min, int in\+\_\+max, int out\+\_\+min, int out\+\_\+max)
-\item 
-void \mbox{\hyperlink{controle_8c_a1fc0a8f5b026eb5e606e738ca5434d2d}{analog\+\_\+setup}} (void)
-\item 
-uint16\+\_\+t \mbox{\hyperlink{controle_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}{analog\+\_\+read}} (uint8\+\_\+t channel)
-\item 
-void \mbox{\hyperlink{controle_8c_ac7c0935e24e573b2929d0df7f9e6b82f}{analog\+\_\+write}} (uint8\+\_\+t pin, uint8\+\_\+t value)
-\item 
+long \mbox{\hyperlink{controle_8c_aada2d75bc8a8c6eb845bd940eadfa3fd}{map}} (long x, long in\+\_\+min, long in\+\_\+max, long out\+\_\+min, long out\+\_\+max)
+\begin{DoxyCompactList}\small\item\em Função equivalente ao \doxylink{controle_8c_aada2d75bc8a8c6eb845bd940eadfa3fd}{map()} do Arduino. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controle_8c_af5e0a217880b6f6976ff1c2b1297f7a3}{adc\+\_\+setup}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa o ADC do AVR para leitura dos analógicos. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{controle_8c_a7c3d687942e3acba4e53cac61d9e71ea}{adc\+\_\+read}} (uint8\+\_\+t ch)
+\begin{DoxyCompactList}\small\item\em Lê o ADC em um canal específico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controle_8c_a6b11f55ddc2f9d1125c97a47e4a799f6}{pwm\+\_\+setup}} ()
+\begin{DoxyCompactList}\small\item\em Configura PWM dos pinos LED1 e LED2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controle_8c_a0bf689abd3a20724062e39ce568130b1}{pwm\+\_\+write}} (uint8\+\_\+t pin, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Escreve valor PWM em LED1 ou LED2. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{controle_8c_a3785cfdfc42be12ee699c8b8b4e4d01f}{abs\+\_\+int}} (int n)
+\begin{DoxyCompactList}\small\item\em Retorna valor absoluto de um inteiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controle_8c_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Inicializações principais (ADC, PWM, entradas e rádio). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{controle_8c_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Loop principal\+: lê controles, aplica deadzone, envia por RF e atualiza LEDs. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{controle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função principal do firmware. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variáveis}
 \begin{DoxyCompactItemize}
 \item 
-const uint8\+\_\+t \mbox{\hyperlink{controle_8c_a0d5aeb028158bc168b01ed3bf2a385be}{addr}} \mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}1\textquotesingle{}\}
+const uint8\+\_\+t \mbox{\hyperlink{controle_8c_a4f926beded94616414d611d5c8099424}{address}} \mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}1\textquotesingle{}\}
 \end{DoxyCompactItemize}
 
 
 \label{doc-define-members}
 \Hypertarget{controle_8c_doc-define-members}
 \doxysubsection{Documentação das macros}
-\Hypertarget{controle_8c_a4d7a42500434ec6947ccb8ac9ae931e6}\index{controle.c@{controle.c}!BUZZ@{BUZZ}}
-\index{BUZZ@{BUZZ}!controle.c@{controle.c}}
-\doxysubsubsection{\texorpdfstring{BUZZ}{BUZZ}}
-{\footnotesize\ttfamily \label{controle_8c_a4d7a42500434ec6947ccb8ac9ae931e6} 
-\#define BUZZ~4}
-
 \Hypertarget{controle_8c_a43bafb28b29491ec7f871319b5a3b2f8}\index{controle.c@{controle.c}!F\_CPU@{F\_CPU}}
 \index{F\_CPU@{F\_CPU}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
 {\footnotesize\ttfamily \label{controle_8c_a43bafb28b29491ec7f871319b5a3b2f8} 
 \#define F\+\_\+\+CPU~16000000\+UL}
+
+\Hypertarget{controle_8c_a5bb885982ff66a2e0a0a45a8ee9c35e2}\index{controle.c@{controle.c}!HIGH@{HIGH}}
+\index{HIGH@{HIGH}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{HIGH}{HIGH}}
+{\footnotesize\ttfamily \label{controle_8c_a5bb885982ff66a2e0a0a45a8ee9c35e2} 
+\#define HIGH~1}
 
 \Hypertarget{controle_8c_aea65463ec80bbae979a30002d5aa8558}\index{controle.c@{controle.c}!JS@{JS}}
 \index{JS@{JS}!controle.c@{controle.c}}
@@ -85,25 +89,14 @@ const uint8\+\_\+t \mbox{\hyperlink{controle_8c_a0d5aeb028158bc168b01ed3bf2a385b
 \index{JX@{JX}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{JX}{JX}}
 {\footnotesize\ttfamily \label{controle_8c_a08ee2643fc201d0aa439a4bef60a8890} 
-\#define JX~0}
+\#define JX~1}
 
 \Hypertarget{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab}\index{controle.c@{controle.c}!JY@{JY}}
 \index{JY@{JY}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{JY}{JY}}
 {\footnotesize\ttfamily \label{controle_8c_ab03428ee7292eb7bc1f40c08b91f49ab} 
-\#define JY~1}
+\#define JY~0}
 
-\Hypertarget{controle_8c_a94180201817e497ad4f773021adf385b}\index{controle.c@{controle.c}!LED@{LED}}
-\index{LED@{LED}!controle.c@{controle.c}}
-\doxysubsubsection{\texorpdfstring{LED}{LED}}
-{\footnotesize\ttfamily \label{controle_8c_a94180201817e497ad4f773021adf385b} 
-\#define LED(\begin{DoxyParamCaption}\item[{}]{LEDNUM}{, }\item[{}]{STATE}{}\end{DoxyParamCaption})}
-
-{\bfseries Valor\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{(STATE\ ?\ (PORTD\ |=\ \ (1\ <<\ (LEDNUM)))\ :\ (PORTD\ \&=\ \string~(1\ <<\ (LEDNUM))))}
-
-\end{DoxyCode}
 \Hypertarget{controle_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}\index{controle.c@{controle.c}!LED1@{LED1}}
 \index{LED1@{LED1}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{LED1}{LED1}}
@@ -116,6 +109,12 @@ const uint8\+\_\+t \mbox{\hyperlink{controle_8c_a0d5aeb028158bc168b01ed3bf2a385b
 {\footnotesize\ttfamily \label{controle_8c_ad09fe5bf321b9a2de26bd5e5b9af6424} 
 \#define LED2~5}
 
+\Hypertarget{controle_8c_ab811d8c6ff3a505312d3276590444289}\index{controle.c@{controle.c}!LOW@{LOW}}
+\index{LOW@{LOW}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{LOW}{LOW}}
+{\footnotesize\ttfamily \label{controle_8c_ab811d8c6ff3a505312d3276590444289} 
+\#define LOW~0}
+
 \Hypertarget{controle_8c_a86de85f5177dabb5ff712bf180db43aa}\index{controle.c@{controle.c}!TRIGGER@{TRIGGER}}
 \index{TRIGGER@{TRIGGER}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{TRIGGER}{TRIGGER}}
@@ -127,56 +126,66 @@ const uint8\+\_\+t \mbox{\hyperlink{controle_8c_a0d5aeb028158bc168b01ed3bf2a385b
 \label{doc-func-members}
 \Hypertarget{controle_8c_doc-func-members}
 \doxysubsection{Documentação das funções}
-\Hypertarget{controle_8c_aaa87dddb1e62142fd07ee17db1b5d673}\index{controle.c@{controle.c}!abs@{abs}}
-\index{abs@{abs}!controle.c@{controle.c}}
-\doxysubsubsection{\texorpdfstring{abs()}{abs()}}
-{\footnotesize\ttfamily \label{controle_8c_aaa87dddb1e62142fd07ee17db1b5d673} 
-int abs (\begin{DoxyParamCaption}\item[{int}]{num}{}\end{DoxyParamCaption})}
+\Hypertarget{controle_8c_a3785cfdfc42be12ee699c8b8b4e4d01f}\index{controle.c@{controle.c}!abs\_int@{abs\_int}}
+\index{abs\_int@{abs\_int}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{abs\_int()}{abs\_int()}}
+{\footnotesize\ttfamily \label{controle_8c_a3785cfdfc42be12ee699c8b8b4e4d01f} 
+int abs\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
 
-Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+
+
+Retorna valor absoluto de um inteiro. 
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=263pt]{controle_8c_aaa87dddb1e62142fd07ee17db1b5d673_icgraph}
+\includegraphics[width=281pt]{controle_8c_a3785cfdfc42be12ee699c8b8b4e4d01f_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{controle_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}\index{controle.c@{controle.c}!analog\_read@{analog\_read}}
-\index{analog\_read@{analog\_read}!controle.c@{controle.c}}
-\doxysubsubsection{\texorpdfstring{analog\_read()}{analog\_read()}}
-{\footnotesize\ttfamily \label{controle_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9} 
-uint16\+\_\+t analog\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel}{}\end{DoxyParamCaption})}
+\Hypertarget{controle_8c_a7c3d687942e3acba4e53cac61d9e71ea}\index{controle.c@{controle.c}!adc\_read@{adc\_read}}
+\index{adc\_read@{adc\_read}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{adc\_read()}{adc\_read()}}
+{\footnotesize\ttfamily \label{controle_8c_a7c3d687942e3acba4e53cac61d9e71ea} 
+uint16\+\_\+t adc\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ch}{}\end{DoxyParamCaption})}
 
-Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+
+
+Lê o ADC em um canal específico. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em ch} & canal analógico (0–7) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+valor de 0 a 1023 
+\end{DoxyReturn}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=306pt]{controle_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9_icgraph}
+\includegraphics[width=290pt]{controle_8c_a7c3d687942e3acba4e53cac61d9e71ea_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{controle_8c_a1fc0a8f5b026eb5e606e738ca5434d2d}\index{controle.c@{controle.c}!analog\_setup@{analog\_setup}}
-\index{analog\_setup@{analog\_setup}!controle.c@{controle.c}}
-\doxysubsubsection{\texorpdfstring{analog\_setup()}{analog\_setup()}}
-{\footnotesize\ttfamily \label{controle_8c_a1fc0a8f5b026eb5e606e738ca5434d2d} 
-void analog\+\_\+setup (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+\Hypertarget{controle_8c_af5e0a217880b6f6976ff1c2b1297f7a3}\index{controle.c@{controle.c}!adc\_setup@{adc\_setup}}
+\index{adc\_setup@{adc\_setup}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{adc\_setup()}{adc\_setup()}}
+{\footnotesize\ttfamily \label{controle_8c_af5e0a217880b6f6976ff1c2b1297f7a3} 
+void adc\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+
+
+Inicializa o ADC do AVR para leitura dos analógicos. 
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=238pt]{controle_8c_a1fc0a8f5b026eb5e606e738ca5434d2d_icgraph}
-\end{center}
-\end{figure}
-\Hypertarget{controle_8c_ac7c0935e24e573b2929d0df7f9e6b82f}\index{controle.c@{controle.c}!analog\_write@{analog\_write}}
-\index{analog\_write@{analog\_write}!controle.c@{controle.c}}
-\doxysubsubsection{\texorpdfstring{analog\_write()}{analog\_write()}}
-{\footnotesize\ttfamily \label{controle_8c_ac7c0935e24e573b2929d0df7f9e6b82f} 
-void analog\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
-
-Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=309pt]{controle_8c_ac7c0935e24e573b2929d0df7f9e6b82f_icgraph}
+\includegraphics[width=301pt]{controle_8c_af5e0a217880b6f6976ff1c2b1297f7a3_icgraph}
 \end{center}
 \end{figure}
 \Hypertarget{controle_8c_afe461d27b9c48d5921c00d521181f12f}\index{controle.c@{controle.c}!loop@{loop}}
@@ -185,14 +194,20 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 {\footnotesize\ttfamily \label{controle_8c_afe461d27b9c48d5921c00d521181f12f} 
 void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Grafo de chamadas desta função\+:\nopagebreak
+
+
+Loop principal\+: lê controles, aplica deadzone, envia por RF e atualiza LEDs. 
+
+Grafo de chamadas desta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{controle_8c_afe461d27b9c48d5921c00d521181f12f_cgraph}
 \end{center}
 \end{figure}
-Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -205,24 +220,119 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 {\footnotesize\ttfamily \label{controle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
 int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Grafo de chamadas desta função\+:\nopagebreak
+
+
+Função principal do firmware. 
+
+Grafo de chamadas desta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{controle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
 \end{center}
 \end{figure}
-\Hypertarget{controle_8c_ab66e88e73e935433d27613e6b65139dd}\index{controle.c@{controle.c}!map@{map}}
+\Hypertarget{controle_8c_aada2d75bc8a8c6eb845bd940eadfa3fd}\index{controle.c@{controle.c}!map@{map}}
 \index{map@{map}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{map()}{map()}}
-{\footnotesize\ttfamily \label{controle_8c_ab66e88e73e935433d27613e6b65139dd} 
-int map (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{in\+\_\+min}{, }\item[{int}]{in\+\_\+max}{, }\item[{int}]{out\+\_\+min}{, }\item[{int}]{out\+\_\+max}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{controle_8c_aada2d75bc8a8c6eb845bd940eadfa3fd} 
+long map (\begin{DoxyParamCaption}\item[{long}]{x}{, }\item[{long}]{in\+\_\+min}{, }\item[{long}]{in\+\_\+max}{, }\item[{long}]{out\+\_\+min}{, }\item[{long}]{out\+\_\+max}{}\end{DoxyParamCaption})}
 
-Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+
+
+Função equivalente ao \doxylink{controle_8c_aada2d75bc8a8c6eb845bd940eadfa3fd}{map()} do Arduino. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em x} & valor de entrada \\
+\hline
+{\em in\+\_\+min} & faixa mínima de entrada \\
+\hline
+{\em in\+\_\+max} & faixa máxima de entrada \\
+\hline
+{\em out\+\_\+min} & faixa mínima de saída \\
+\hline
+{\em out\+\_\+max} & faixa máxima de saída \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+valor mapeado proporcionalmente 
+\end{DoxyReturn}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=268pt]{controle_8c_ab66e88e73e935433d27613e6b65139dd_icgraph}
+\includegraphics[width=191pt]{controle_8c_aada2d75bc8a8c6eb845bd940eadfa3fd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_a6b11f55ddc2f9d1125c97a47e4a799f6}\index{controle.c@{controle.c}!pwm\_setup@{pwm\_setup}}
+\index{pwm\_setup@{pwm\_setup}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{pwm\_setup()}{pwm\_setup()}}
+{\footnotesize\ttfamily \label{controle_8c_a6b11f55ddc2f9d1125c97a47e4a799f6} 
+void pwm\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Configura PWM dos pinos LED1 e LED2. 
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{controle_8c_a6b11f55ddc2f9d1125c97a47e4a799f6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_a0bf689abd3a20724062e39ce568130b1}\index{controle.c@{controle.c}!pwm\_write@{pwm\_write}}
+\index{pwm\_write@{pwm\_write}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{pwm\_write()}{pwm\_write()}}
+{\footnotesize\ttfamily \label{controle_8c_a0bf689abd3a20724062e39ce568130b1} 
+void pwm\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Escreve valor PWM em LED1 ou LED2. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em pin} & 3 ou 5 \\
+\hline
+{\em value} & intensidade 0–255 \\
+\hline
+\end{DoxyParams}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{controle_8c_a0bf689abd3a20724062e39ce568130b1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_a4fc01d736fe50cf5b977f755b675f11d}\index{controle.c@{controle.c}!setup@{setup}}
+\index{setup@{setup}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{controle_8c_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Inicializações principais (ADC, PWM, entradas e rádio). 
+
+Grafo de chamadas desta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{controle_8c_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{controle_8c_a4fc01d736fe50cf5b977f755b675f11d_icgraph}
 \end{center}
 \end{figure}
 
@@ -230,9 +340,9 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \label{doc-var-members}
 \Hypertarget{controle_8c_doc-var-members}
 \doxysubsection{Documentação das variáveis}
-\Hypertarget{controle_8c_a0d5aeb028158bc168b01ed3bf2a385be}\index{controle.c@{controle.c}!addr@{addr}}
-\index{addr@{addr}!controle.c@{controle.c}}
-\doxysubsubsection{\texorpdfstring{addr}{addr}}
-{\footnotesize\ttfamily \label{controle_8c_a0d5aeb028158bc168b01ed3bf2a385be} 
-const uint8\+\_\+t addr\mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}1\textquotesingle{}\}}
+\Hypertarget{controle_8c_a4f926beded94616414d611d5c8099424}\index{controle.c@{controle.c}!address@{address}}
+\index{address@{address}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily \label{controle_8c_a4f926beded94616414d611d5c8099424} 
+const uint8\+\_\+t address\mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}1\textquotesingle{}\}}
 

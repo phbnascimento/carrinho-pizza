@@ -1,0 +1,5 @@
+<map id="isTimerOver" name="isTimerOver">
+<area shape="rect" id="Node000001" title="Verifica se o tempo de um timer acabou." alt="" coords="5,5,106,33"/>
+<area shape="rect" id="Node000002" href="$carrinho_8c.html#a6ff7f2532a22366f0013bc41397129fd" title="Retorna o valor de millis desde o início do programa." alt="" coords="154,5,211,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,17,141,19,135,19,106,22"/>
+</map>

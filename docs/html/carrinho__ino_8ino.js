@@ -28,6 +28,7 @@ var carrinho__ino_8ino =
     [ "isTimerOver", "carrinho__ino_8ino.html#adf1dfbee680be7fd774683d7c6a1a05c", null ],
     [ "loop", "carrinho__ino_8ino.html#afe461d27b9c48d5921c00d521181f12f", null ],
     [ "motor", "carrinho__ino_8ino.html#a83f9abde8522ce95dd4c5ce5ba3d9d39", null ],
+    [ "motor_setup", "carrinho__ino_8ino.html#adf003d086ffc3ea127fb361097b6bb44", null ],
     [ "radio", "carrinho__ino_8ino.html#a53cdd46f95419ffdcd44d3f0d6147b54", null ],
     [ "setup", "carrinho__ino_8ino.html#a4fc01d736fe50cf5b977f755b675f11d", null ],
     [ "timerReset", "carrinho__ino_8ino.html#a28e17ddfc6c506e94ffac4c672837624", null ],

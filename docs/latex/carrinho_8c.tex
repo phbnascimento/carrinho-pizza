@@ -14,7 +14,9 @@ Diagrama de dependências de inclusão para carrinho.\+c\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structControls}{Controls}}
-\begin{DoxyCompactList}\small\item\em Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Estrutura recebida do controle remoto contendo eixos e botões. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structTimer}{Timer}}
+\begin{DoxyCompactList}\small\item\em Estrutura de timer simples baseada em \doxylink{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}{millis()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -58,35 +60,43 @@ struct \mbox{\hyperlink{structControls}{Controls}}
 enum \mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} \{ \mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065}{LEFT}}
 , \mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ceaec8379af7490bb9eaaf579cf17876f38}{RIGHT}}
  \}
-\item 
+\begin{DoxyCompactList}\small\item\em Enum dos motores disponíveis. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} \{ \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36}{BACKWARDS}} =0
 , \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4aa26736999186daf8146f809e863712a1}{FORWARD}} =1
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sentido de rotação\+: para frente ou para trás. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{carrinho_8c_a1fc0a8f5b026eb5e606e738ca5434d2d}{analog\+\_\+setup}} (void)
-\item 
-uint16\+\_\+t \mbox{\hyperlink{carrinho_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}{analog\+\_\+read}} (uint8\+\_\+t channel)
-\item 
-void \mbox{\hyperlink{carrinho_8c_ac7c0935e24e573b2929d0df7f9e6b82f}{analog\+\_\+write}} (uint8\+\_\+t pin, uint8\+\_\+t value)
-\item 
-void \mbox{\hyperlink{carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39}{motor}} (\mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} motor, \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} dir, uint8\+\_\+t value)
-\item 
-void \mbox{\hyperlink{carrinho_8c_a026d019671eda0cfe729200fc24d23ba}{game\+Over}} ()
-\item 
+void \mbox{\hyperlink{carrinho_8c_a1d20445f4dfe5c6183e929ef7221d4d4}{timer\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Incrementa o contador de millis. Deve ser chamado a cada 1ms. \end{DoxyCompactList}\item 
+unsigned long \mbox{\hyperlink{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}{millis}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o valor de millis desde o início do programa. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{carrinho_8c_aaa87dddb1e62142fd07ee17db1b5d673}{abs}} (int num)
-\item 
+\begin{DoxyCompactList}\small\item\em Retorna o valor absoluto de um inteiro. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51}{is\+Timer\+Over}} (\mbox{\hyperlink{structTimer}{Timer}} t)
+\begin{DoxyCompactList}\small\item\em Verifica se o tempo de um timer acabou. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{carrinho_8c_a8019f056ad898f0e555eb56190617c2b}{timer\+Reset}} (\mbox{\hyperlink{structTimer}{Timer}} \texorpdfstring{$\ast$}{*}t)
+\begin{DoxyCompactList}\small\item\em Reseta o timer para o valor atual de \doxylink{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}{millis()}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{carrinho_8c_a1fc0a8f5b026eb5e606e738ca5434d2d}{analog\+\_\+setup}} (void)
+\begin{DoxyCompactList}\small\item\em Configura o ADC e os PWM usados. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{carrinho_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}{analog\+\_\+read}} (uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Lê um canal analógico (ADC0–\+ADC7). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{carrinho_8c_ac7c0935e24e573b2929d0df7f9e6b82f}{analog\+\_\+write}} (uint8\+\_\+t pin, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Define o duty de um PWM em uma das saídas configuradas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39}{motor}} (\mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} motor, \mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} dir, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Controla um motor no sentido desejado e com PWM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2}{hit}} ()
+\begin{DoxyCompactList}\small\item\em Reduz a vida e executa a penalidade de dano. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{carrinho_8c_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Laço principal contendo toda a lógica do robô. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{carrinho_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Função principal\+: inicializa periféricos e roda \doxylink{carrinho_8c_afe461d27b9c48d5921c00d521181f12f}{loop()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variáveis}
 \begin{DoxyCompactItemize}
 \item 
 const uint8\+\_\+t \mbox{\hyperlink{carrinho_8c_a0d5aeb028158bc168b01ed3bf2a385be}{addr}} \mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}1\textquotesingle{}\}
-\begin{DoxyCompactList}\small\item\em Endereço do pipe de leitura do rádio NRF24. Endereço\+: "{}00001"{}. \end{DoxyCompactList}\item 
+\item 
 uint8\+\_\+t \mbox{\hyperlink{carrinho_8c_a5694338c1bcb4455072af4179913d44d}{life}} = 0b1110
 \item 
 bool \mbox{\hyperlink{carrinho_8c_aaa928c9a62449f7946da1e32f66c70d2}{on}} =false
@@ -94,6 +104,14 @@ bool \mbox{\hyperlink{carrinho_8c_aaa928c9a62449f7946da1e32f66c70d2}{on}} =false
 bool \mbox{\hyperlink{carrinho_8c_a132ba96da5ba28448b61e42c019312a9}{pressed}} =false
 \item 
 bool \mbox{\hyperlink{carrinho_8c_af2f56090dc8a3b112529c55e98dd04a7}{prev}} =false
+\item 
+bool \mbox{\hyperlink{carrinho_8c_a171c692ff21cffa8f4931841654bf8c7}{ldr\+\_\+prev}} = false
+\item 
+\mbox{\hyperlink{structTimer}{Timer}} \mbox{\hyperlink{carrinho_8c_adc42314b62dd12e31a24733e3937e42b}{ldr\+Timer}} = \{5000, 0\}
+\item 
+\mbox{\hyperlink{structTimer}{Timer}} \mbox{\hyperlink{carrinho_8c_aea7da615a218e8633ad839a5d7a6cbb9}{laser\+Timer}} = \{1000, 0\}
+\item 
+unsigned long \mbox{\hyperlink{carrinho_8c_a6eec37fa85119f43424399f8de909adc}{millis\+\_\+count}} = 0
 \end{DoxyCompactItemize}
 
 
@@ -216,7 +234,11 @@ bool \mbox{\hyperlink{carrinho_8c_af2f56090dc8a3b112529c55e98dd04a7}{prev}} =fal
 \index{Dir@{Dir}!carrinho.c@{carrinho.c}}
 \doxysubsubsection{\texorpdfstring{Dir}{Dir}}
 {\footnotesize\ttfamily \label{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4} 
-enum \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}
+enum \mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}
+
+
+
+Sentido de rotação\+: para frente ou para trás. 
 
 \begin{DoxyEnumFields}[2]{Valores de enumerações}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BACKWARDS@{BACKWARDS}!carrinho.c@{carrinho.c}}\index{carrinho.c@{carrinho.c}!BACKWARDS@{BACKWARDS}}}\Hypertarget{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36}\label{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36} 
@@ -232,7 +254,11 @@ FORWARD&\\
 \index{Motor@{Motor}!carrinho.c@{carrinho.c}}
 \doxysubsubsection{\texorpdfstring{Motor}{Motor}}
 {\footnotesize\ttfamily \label{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce} 
-enum \mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}
+enum \mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}
+
+
+
+Enum dos motores disponíveis. 
 
 \begin{DoxyEnumFields}[2]{Valores de enumerações}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!carrinho.c@{carrinho.c}}\index{carrinho.c@{carrinho.c}!LEFT@{LEFT}}}\Hypertarget{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065}\label{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065} 
@@ -255,11 +281,15 @@ RIGHT&\\
 {\footnotesize\ttfamily \label{carrinho_8c_aaa87dddb1e62142fd07ee17db1b5d673} 
 int abs (\begin{DoxyParamCaption}\item[{int}]{num}{}\end{DoxyParamCaption})}
 
+
+
+Retorna o valor absoluto de um inteiro. 
+
 Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=263pt]{carrinho_8c_aaa87dddb1e62142fd07ee17db1b5d673_icgraph}
+\includegraphics[width=186pt]{carrinho_8c_aaa87dddb1e62142fd07ee17db1b5d673_icgraph}
 \end{center}
 \end{figure}
 \Hypertarget{carrinho_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}\index{carrinho.c@{carrinho.c}!analog\_read@{analog\_read}}
@@ -268,11 +298,34 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 {\footnotesize\ttfamily \label{carrinho_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9} 
 uint16\+\_\+t analog\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel}{}\end{DoxyParamCaption})}
 
+
+
+Lê um canal analógico (ADC0–\+ADC7). 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em channel} & Canal a ler. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor de 0 a 1023. 
+\end{DoxyReturn}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{carrinho_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{carrinho_8c_a1fc0a8f5b026eb5e606e738ca5434d2d}\index{carrinho.c@{carrinho.c}!analog\_setup@{analog\_setup}}
 \index{analog\_setup@{analog\_setup}!carrinho.c@{carrinho.c}}
 \doxysubsubsection{\texorpdfstring{analog\_setup()}{analog\_setup()}}
 {\footnotesize\ttfamily \label{carrinho_8c_a1fc0a8f5b026eb5e606e738ca5434d2d} 
 void analog\+\_\+setup (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Configura o ADC e os PWM usados. 
 
 Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \begin{figure}[H]
@@ -287,6 +340,17 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 {\footnotesize\ttfamily \label{carrinho_8c_ac7c0935e24e573b2929d0df7f9e6b82f} 
 void analog\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
 
+
+
+Define o duty de um PWM em uma das saídas configuradas. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em pin} & Pino PWM (3 ou 6). \\
+\hline
+{\em value} & Duty-\/cycle (0–255). \\
+\hline
+\end{DoxyParams}
 Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -294,17 +358,60 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \includegraphics[width=350pt]{carrinho_8c_ac7c0935e24e573b2929d0df7f9e6b82f_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{carrinho_8c_a026d019671eda0cfe729200fc24d23ba}\index{carrinho.c@{carrinho.c}!gameOver@{gameOver}}
-\index{gameOver@{gameOver}!carrinho.c@{carrinho.c}}
-\doxysubsubsection{\texorpdfstring{gameOver()}{gameOver()}}
-{\footnotesize\ttfamily \label{carrinho_8c_a026d019671eda0cfe729200fc24d23ba} 
-void game\+Over (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\Hypertarget{carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2}\index{carrinho.c@{carrinho.c}!hit@{hit}}
+\index{hit@{hit}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily \label{carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2} 
+void hit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reduz a vida e executa a penalidade de dano. 
 
 Grafo de chamadas desta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=343pt]{carrinho_8c_a026d019671eda0cfe729200fc24d23ba_cgraph}
+\includegraphics[width=305pt]{carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51}\index{carrinho.c@{carrinho.c}!isTimerOver@{isTimerOver}}
+\index{isTimerOver@{isTimerOver}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{isTimerOver()}{isTimerOver()}}
+{\footnotesize\ttfamily \label{carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51} 
+bool is\+Timer\+Over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTimer}{Timer}}}]{t}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se o tempo de um timer acabou. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em t} & \doxylink{structTimer}{Timer} a verificar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se o tempo passou. 
+\end{DoxyReturn}
+Grafo de chamadas desta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51_icgraph}
 \end{center}
 \end{figure}
 \Hypertarget{carrinho_8c_afe461d27b9c48d5921c00d521181f12f}\index{carrinho.c@{carrinho.c}!loop@{loop}}
@@ -312,6 +419,10 @@ Grafo de chamadas desta função\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{loop()}{loop()}}
 {\footnotesize\ttfamily \label{carrinho_8c_afe461d27b9c48d5921c00d521181f12f} 
 void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Laço principal contendo toda a lógica do robô. 
 
 Grafo de chamadas desta função\+:\nopagebreak
 \begin{figure}[H]
@@ -333,6 +444,10 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 {\footnotesize\ttfamily \label{carrinho_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
 int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
+
+
+Função principal\+: inicializa periféricos e roda \doxylink{carrinho_8c_afe461d27b9c48d5921c00d521181f12f}{loop()}. 
+
 Grafo de chamadas desta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -340,12 +455,45 @@ Grafo de chamadas desta função\+:\nopagebreak
 \includegraphics[width=350pt]{carrinho_8c_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
 \end{center}
 \end{figure}
+\Hypertarget{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}\index{carrinho.c@{carrinho.c}!millis@{millis}}
+\index{millis@{millis}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{millis()}{millis()}}
+{\footnotesize\ttfamily \label{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd} 
+unsigned long millis (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna o valor de millis desde o início do programa. 
+
+\begin{DoxyReturn}{Retorna}
+Tempo em ms. 
+\end{DoxyReturn}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39}\index{carrinho.c@{carrinho.c}!motor@{motor}}
 \index{motor@{motor}!carrinho.c@{carrinho.c}}
 \doxysubsubsection{\texorpdfstring{motor()}{motor()}}
 {\footnotesize\ttfamily \label{carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39} 
-void motor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}]{motor}{, }\item[{\mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}]{dir}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+void motor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}]{motor}{, }\item[{\mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}]{dir}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
 
+
+
+Controla um motor no sentido desejado e com PWM. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em motor} & \doxylink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor} LEFT ou RIGHT. \\
+\hline
+{\em dir} & Direção FORWARD ou BACKWARDS. \\
+\hline
+{\em value} & Intensidade PWM (0–255). \\
+\hline
+\end{DoxyParams}
 Grafo de chamadas desta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -357,7 +505,48 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=305pt]{carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_icgraph}
+\includegraphics[width=340pt]{carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{carrinho_8c_a1d20445f4dfe5c6183e929ef7221d4d4}\index{carrinho.c@{carrinho.c}!timer\_tick@{timer\_tick}}
+\index{timer\_tick@{timer\_tick}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{timer\_tick()}{timer\_tick()}}
+{\footnotesize\ttfamily \label{carrinho_8c_a1d20445f4dfe5c6183e929ef7221d4d4} 
+void timer\+\_\+tick (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Incrementa o contador de millis. Deve ser chamado a cada 1ms. 
+
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{carrinho_8c_a1d20445f4dfe5c6183e929ef7221d4d4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{carrinho_8c_a8019f056ad898f0e555eb56190617c2b}\index{carrinho.c@{carrinho.c}!timerReset@{timerReset}}
+\index{timerReset@{timerReset}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{timerReset()}{timerReset()}}
+{\footnotesize\ttfamily \label{carrinho_8c_a8019f056ad898f0e555eb56190617c2b} 
+void timer\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTimer}{Timer}} \texorpdfstring{$\ast$}{*}}]{t}{}\end{DoxyParamCaption})}
+
+
+
+Reseta o timer para o valor atual de \doxylink{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}{millis()}. 
+
+Grafo de chamadas desta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{carrinho_8c_a8019f056ad898f0e555eb56190617c2b_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{carrinho_8c_a8019f056ad898f0e555eb56190617c2b_icgraph}
 \end{center}
 \end{figure}
 
@@ -371,15 +560,35 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 {\footnotesize\ttfamily \label{carrinho_8c_a0d5aeb028158bc168b01ed3bf2a385be} 
 const uint8\+\_\+t addr\mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}1\textquotesingle{}\}}
 
+\Hypertarget{carrinho_8c_aea7da615a218e8633ad839a5d7a6cbb9}\index{carrinho.c@{carrinho.c}!laserTimer@{laserTimer}}
+\index{laserTimer@{laserTimer}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{laserTimer}{laserTimer}}
+{\footnotesize\ttfamily \label{carrinho_8c_aea7da615a218e8633ad839a5d7a6cbb9} 
+\mbox{\hyperlink{structTimer}{Timer}} laser\+Timer = \{1000, 0\}}
 
+\Hypertarget{carrinho_8c_a171c692ff21cffa8f4931841654bf8c7}\index{carrinho.c@{carrinho.c}!ldr\_prev@{ldr\_prev}}
+\index{ldr\_prev@{ldr\_prev}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{ldr\_prev}{ldr\_prev}}
+{\footnotesize\ttfamily \label{carrinho_8c_a171c692ff21cffa8f4931841654bf8c7} 
+bool ldr\+\_\+prev = false}
 
-Endereço do pipe de leitura do rádio NRF24. Endereço\+: "{}00001"{}. 
+\Hypertarget{carrinho_8c_adc42314b62dd12e31a24733e3937e42b}\index{carrinho.c@{carrinho.c}!ldrTimer@{ldrTimer}}
+\index{ldrTimer@{ldrTimer}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{ldrTimer}{ldrTimer}}
+{\footnotesize\ttfamily \label{carrinho_8c_adc42314b62dd12e31a24733e3937e42b} 
+\mbox{\hyperlink{structTimer}{Timer}} ldr\+Timer = \{5000, 0\}}
 
 \Hypertarget{carrinho_8c_a5694338c1bcb4455072af4179913d44d}\index{carrinho.c@{carrinho.c}!life@{life}}
 \index{life@{life}!carrinho.c@{carrinho.c}}
 \doxysubsubsection{\texorpdfstring{life}{life}}
 {\footnotesize\ttfamily \label{carrinho_8c_a5694338c1bcb4455072af4179913d44d} 
 uint8\+\_\+t life = 0b1110}
+
+\Hypertarget{carrinho_8c_a6eec37fa85119f43424399f8de909adc}\index{carrinho.c@{carrinho.c}!millis\_count@{millis\_count}}
+\index{millis\_count@{millis\_count}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{millis\_count}{millis\_count}}
+{\footnotesize\ttfamily \label{carrinho_8c_a6eec37fa85119f43424399f8de909adc} 
+unsigned long millis\+\_\+count = 0}
 
 \Hypertarget{carrinho_8c_aaa928c9a62449f7946da1e32f66c70d2}\index{carrinho.c@{carrinho.c}!on@{on}}
 \index{on@{on}!carrinho.c@{carrinho.c}}

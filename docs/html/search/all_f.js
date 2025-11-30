@@ -7,8 +7,10 @@ var searchData=
   ['pizza_20🚗_4',['Gigantes de MDF - CARRO-PIZZA! 🚗',['../index.html',1,'']]],
   ['pll_5flock_5',['PLL_LOCK',['../carrinho_2nRF24L01_8h.html#af76cfc0d6ed71259b4a237cbd8e30624',1,'PLL_LOCK:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#af76cfc0d6ed71259b4a237cbd8e30624',1,'PLL_LOCK:&#160;nRF24L01.h']]],
   ['plos_5fcnt_6',['PLOS_CNT',['../carrinho_2nRF24L01_8h.html#af45c13e8941613c7eb931001ab964965',1,'PLOS_CNT:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#af45c13e8941613c7eb931001ab964965',1,'PLOS_CNT:&#160;nRF24L01.h']]],
-  ['pressed_7',['pressed',['../carrinho_8c.html#a132ba96da5ba28448b61e42c019312a9',1,'pressed:&#160;carrinho.c'],['../carrinho__ino_8ino.html#a132ba96da5ba28448b61e42c019312a9',1,'pressed:&#160;carrinho_ino.ino'],['../codigo_8c.html#a132ba96da5ba28448b61e42c019312a9',1,'pressed:&#160;codigo.c']]],
-  ['prev_8',['prev',['../carrinho_8c.html#af2f56090dc8a3b112529c55e98dd04a7',1,'prev:&#160;carrinho.c'],['../carrinho__ino_8ino.html#af2f56090dc8a3b112529c55e98dd04a7',1,'prev:&#160;carrinho_ino.ino'],['../codigo_8c.html#af2f56090dc8a3b112529c55e98dd04a7',1,'prev:&#160;codigo.c']]],
+  ['pressed_7',['pressed',['../carrinho__ino_8ino.html#a132ba96da5ba28448b61e42c019312a9',1,'pressed:&#160;carrinho_ino.ino'],['../carrinho_8c.html#a132ba96da5ba28448b61e42c019312a9',1,'pressed:&#160;carrinho.c']]],
+  ['prev_8',['prev',['../carrinho__ino_8ino.html#af2f56090dc8a3b112529c55e98dd04a7',1,'prev:&#160;carrinho_ino.ino'],['../carrinho_8c.html#af2f56090dc8a3b112529c55e98dd04a7',1,'prev:&#160;carrinho.c']]],
   ['prim_5frx_9',['PRIM_RX',['../carrinho_2nRF24L01_8h.html#a0b4d92f3ecccb150d4cb1cb5d0f9d4e6',1,'PRIM_RX:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#a0b4d92f3ecccb150d4cb1cb5d0f9d4e6',1,'PRIM_RX:&#160;nRF24L01.h']]],
-  ['pwr_5fup_10',['PWR_UP',['../carrinho_2nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d',1,'PWR_UP:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d',1,'PWR_UP:&#160;nRF24L01.h']]]
+  ['pwm_5fsetup_10',['pwm_setup',['../controle_8c.html#a6b11f55ddc2f9d1125c97a47e4a799f6',1,'controle.c']]],
+  ['pwm_5fwrite_11',['pwm_write',['../controle_8c.html#a0bf689abd3a20724062e39ce568130b1',1,'controle.c']]],
+  ['pwr_5fup_12',['PWR_UP',['../carrinho_2nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d',1,'PWR_UP:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d',1,'PWR_UP:&#160;nRF24L01.h']]]
 ];

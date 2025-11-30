@@ -1,13 +1,16 @@
 var searchData=
 [
-  ['main_0',['main',['../carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;carrinho.c'],['../codigo_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;codigo.c'],['../controle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;controle.c'],['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.c']]],
+  ['main_0',['main',['../carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;carrinho.c'],['../controle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;controle.c'],['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.c']]],
   ['main_2ec_1',['main.c',['../main_8c.html',1,'']]],
-  ['map_2',['map',['../controle_8c.html#ab66e88e73e935433d27613e6b65139dd',1,'controle.c']]],
+  ['map_2',['map',['../controle_8c.html#aada2d75bc8a8c6eb845bd940eadfa3fd',1,'controle.c']]],
   ['mask_5fmax_5frt_3',['MASK_MAX_RT',['../carrinho_2nRF24L01_8h.html#a13e9f541027a36c23211d6c8f3b33a92',1,'MASK_MAX_RT:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#a13e9f541027a36c23211d6c8f3b33a92',1,'MASK_MAX_RT:&#160;nRF24L01.h']]],
   ['mask_5frx_5fdr_4',['MASK_RX_DR',['../carrinho_2nRF24L01_8h.html#a5f30d66a7a448dc83fd695dbd3efbe31',1,'MASK_RX_DR:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#a5f30d66a7a448dc83fd695dbd3efbe31',1,'MASK_RX_DR:&#160;nRF24L01.h']]],
   ['mask_5ftx_5fds_5',['MASK_TX_DS',['../carrinho_2nRF24L01_8h.html#ad5f819a0030605463504bd2599579b4c',1,'MASK_TX_DS:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#ad5f819a0030605463504bd2599579b4c',1,'MASK_TX_DS:&#160;nRF24L01.h']]],
   ['max_5frt_6',['MAX_RT',['../carrinho_2nRF24L01_8h.html#ab4482ead4f3b452a032f63ac03ee1870',1,'MAX_RT:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#ab4482ead4f3b452a032f63ac03ee1870',1,'MAX_RT:&#160;nRF24L01.h']]],
   ['mdf_20carro_20pizza_20🚗_7',['Gigantes de MDF - CARRO-PIZZA! 🚗',['../index.html',1,'']]],
-  ['motor_8',['Motor',['../carrinho_8c.html#a3bc45ff9023afee0cc287274e972d7ce',1,'Motor:&#160;carrinho.c'],['../carrinho__ino_8ino.html#a3bc45ff9023afee0cc287274e972d7ce',1,'Motor:&#160;carrinho_ino.ino'],['../codigo_8c.html#a3bc45ff9023afee0cc287274e972d7ce',1,'Motor:&#160;codigo.c']]],
-  ['motor_9',['motor',['../carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;carrinho.c'],['../carrinho__ino_8ino.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;carrinho_ino.ino'],['../codigo_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;codigo.c']]]
+  ['millis_8',['millis',['../carrinho_8c.html#a6ff7f2532a22366f0013bc41397129fd',1,'carrinho.c']]],
+  ['millis_5fcount_9',['millis_count',['../carrinho_8c.html#a6eec37fa85119f43424399f8de909adc',1,'carrinho.c']]],
+  ['motor_10',['Motor',['../carrinho__ino_8ino.html#a3bc45ff9023afee0cc287274e972d7ce',1,'Motor:&#160;carrinho_ino.ino'],['../carrinho_8c.html#a3bc45ff9023afee0cc287274e972d7ce',1,'Motor:&#160;carrinho.c']]],
+  ['motor_11',['motor',['../carrinho__ino_8ino.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;carrinho_ino.ino'],['../carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39',1,'motor(Motor motor, Dir dir, uint8_t value):&#160;carrinho.c']]],
+  ['motor_5fsetup_12',['motor_setup',['../carrinho__ino_8ino.html#adf003d086ffc3ea127fb361097b6bb44',1,'carrinho_ino.ino']]]
 ];

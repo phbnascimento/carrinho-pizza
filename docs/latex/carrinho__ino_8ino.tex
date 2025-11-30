@@ -1,10 +1,9 @@
-\doxysection{Referência ao ficheiro carrinho\+\_\+ino/carrinho\+\_\+ino.ino}
-\hypertarget{carrinho__ino_8ino}{}\label{carrinho__ino_8ino}\index{carrinho\_ino/carrinho\_ino.ino@{carrinho\_ino/carrinho\_ino.ino}}
+\doxysection{Referência ao ficheiro arduino/carrinho\+\_\+ino.ino}
+\hypertarget{carrinho__ino_8ino}{}\label{carrinho__ino_8ino}\index{arduino/carrinho\_ino.ino@{arduino/carrinho\_ino.ino}}
 {\ttfamily \#include $<$SPI.\+h$>$}\newline
 {\ttfamily \#include $<$n\+RF24\+L01.\+h$>$}\newline
 {\ttfamily \#include $<$RF24.\+h$>$}\newline
-Diagrama de dependências de inclusão para carrinho\+\_\+ino.\+ino\+:
-\nopagebreak
+Diagrama de dependências de inclusão para carrinho\+\_\+ino.\+ino\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,9 +14,9 @@ Diagrama de dependências de inclusão para carrinho\+\_\+ino.\+ino\+:
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structTimer}{Timer}}
-\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de timer simples baseada em \doxylink{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}{millis()}. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structControls}{Controls}}
-\begin{DoxyCompactList}\small\item\em Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Estrutura recebida do controle remoto contendo eixos e botões. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -67,9 +66,11 @@ bool \mbox{\hyperlink{carrinho__ino_8ino_adf1dfbee680be7fd774683d7c6a1a05c}{is\+
 \item 
 void \mbox{\hyperlink{carrinho__ino_8ino_a28e17ddfc6c506e94ffac4c672837624}{timer\+Reset}} (\mbox{\hyperlink{structTimer}{Timer}} \texorpdfstring{$\ast$}{*}timer)
 \item 
-void \mbox{\hyperlink{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39}{motor}} (\mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} motor, \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} dir, uint8\+\_\+t value)
+void \mbox{\hyperlink{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39}{motor}} (\mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} motor, \mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} dir, uint8\+\_\+t value)
 \item 
 void \mbox{\hyperlink{carrinho__ino_8ino_a026d019671eda0cfe729200fc24d23ba}{game\+Over}} ()
+\item 
+void \mbox{\hyperlink{carrinho__ino_8ino_adf003d086ffc3ea127fb361097b6bb44}{motor\+\_\+setup}} ()
 \item 
 void \mbox{\hyperlink{carrinho__ino_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
 \item 
@@ -188,7 +189,7 @@ bool \mbox{\hyperlink{carrinho__ino_8ino_a171c692ff21cffa8f4931841654bf8c7}{ldr\
 \index{Dir@{Dir}!carrinho\_ino.ino@{carrinho\_ino.ino}}
 \doxysubsubsection{\texorpdfstring{Dir}{Dir}}
 {\footnotesize\ttfamily \label{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4} 
-enum \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}
+enum \mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}
 
 \begin{DoxyEnumFields}[2]{Valores de enumerações}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{BACKWARDS@{BACKWARDS}!carrinho\_ino.ino@{carrinho\_ino.ino}}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!BACKWARDS@{BACKWARDS}}}\Hypertarget{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36}\label{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36} 
@@ -204,7 +205,7 @@ FORWARD&\\
 \index{Motor@{Motor}!carrinho\_ino.ino@{carrinho\_ino.ino}}
 \doxysubsubsection{\texorpdfstring{Motor}{Motor}}
 {\footnotesize\ttfamily \label{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce} 
-enum \mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}
+enum \mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}
 
 \begin{DoxyEnumFields}[2]{Valores de enumerações}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!carrinho\_ino.ino@{carrinho\_ino.ino}}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!LEFT@{LEFT}}}\Hypertarget{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065}\label{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065} 
@@ -227,16 +228,14 @@ RIGHT&\\
 {\footnotesize\ttfamily \label{carrinho__ino_8ino_a026d019671eda0cfe729200fc24d23ba} 
 void game\+Over (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Grafo de chamadas desta função\+:
-\nopagebreak
+Grafo de chamadas desta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{carrinho__ino_8ino_a026d019671eda0cfe729200fc24d23ba_cgraph}
+\includegraphics[width=228pt]{carrinho__ino_8ino_a026d019671eda0cfe729200fc24d23ba_cgraph}
 \end{center}
 \end{figure}
-Este é o diagrama das funções que utilizam esta função\+:
-\nopagebreak
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -249,16 +248,14 @@ Este é o diagrama das funções que utilizam esta função\+:
 {\footnotesize\ttfamily \label{carrinho__ino_8ino_ae85c96d8ab4fe9d1b125421eaaef40e2} 
 void hit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Grafo de chamadas desta função\+:
-\nopagebreak
+Grafo de chamadas desta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{carrinho__ino_8ino_ae85c96d8ab4fe9d1b125421eaaef40e2_cgraph}
+\includegraphics[width=293pt]{carrinho__ino_8ino_ae85c96d8ab4fe9d1b125421eaaef40e2_cgraph}
 \end{center}
 \end{figure}
-Este é o diagrama das funções que utilizam esta função\+:
-\nopagebreak
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -271,8 +268,14 @@ Este é o diagrama das funções que utilizam esta função\+:
 {\footnotesize\ttfamily \label{carrinho__ino_8ino_adf1dfbee680be7fd774683d7c6a1a05c} 
 bool is\+Timer\+Over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTimer}{Timer}}}]{timer}{}\end{DoxyParamCaption})}
 
-Este é o diagrama das funções que utilizam esta função\+:
-\nopagebreak
+Grafo de chamadas desta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{carrinho__ino_8ino_adf1dfbee680be7fd774683d7c6a1a05c_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -285,8 +288,7 @@ Este é o diagrama das funções que utilizam esta função\+:
 {\footnotesize\ttfamily \label{carrinho__ino_8ino_afe461d27b9c48d5921c00d521181f12f} 
 void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Grafo de chamadas desta função\+:
-\nopagebreak
+Grafo de chamadas desta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -297,32 +299,35 @@ Grafo de chamadas desta função\+:
 \index{motor@{motor}!carrinho\_ino.ino@{carrinho\_ino.ino}}
 \doxysubsubsection{\texorpdfstring{motor()}{motor()}}
 {\footnotesize\ttfamily \label{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39} 
-void motor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}]{motor}{, }\item[{\mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}]{dir}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+void motor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}]{motor}{, }\item[{\mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}]{dir}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
 
-Grafo de chamadas desta função\+:
-\nopagebreak
+Grafo de chamadas desta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=322pt]{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39_cgraph}
+\includegraphics[width=125pt]{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39_cgraph}
 \end{center}
 \end{figure}
-Este é o diagrama das funções que utilizam esta função\+:
-\nopagebreak
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{carrinho__ino_8ino_a83f9abde8522ce95dd4c5ce5ba3d9d39_icgraph}
 \end{center}
 \end{figure}
+\Hypertarget{carrinho__ino_8ino_adf003d086ffc3ea127fb361097b6bb44}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!motor\_setup@{motor\_setup}}
+\index{motor\_setup@{motor\_setup}!carrinho\_ino.ino@{carrinho\_ino.ino}}
+\doxysubsubsection{\texorpdfstring{motor\_setup()}{motor\_setup()}}
+{\footnotesize\ttfamily \label{carrinho__ino_8ino_adf003d086ffc3ea127fb361097b6bb44} 
+void motor\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
 \Hypertarget{carrinho__ino_8ino_a53cdd46f95419ffdcd44d3f0d6147b54}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!radio@{radio}}
 \index{radio@{radio}!carrinho\_ino.ino@{carrinho\_ino.ino}}
 \doxysubsubsection{\texorpdfstring{radio()}{radio()}}
 {\footnotesize\ttfamily \label{carrinho__ino_8ino_a53cdd46f95419ffdcd44d3f0d6147b54} 
 RF24 radio (\begin{DoxyParamCaption}\item[{9}]{}{, }\item[{10}]{}{}\end{DoxyParamCaption})}
 
-Este é o diagrama das funções que utilizam esta função\+:
-\nopagebreak
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -335,12 +340,11 @@ Este é o diagrama das funções que utilizam esta função\+:
 {\footnotesize\ttfamily \label{carrinho__ino_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
 void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Grafo de chamadas desta função\+:
-\nopagebreak
+Grafo de chamadas desta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{carrinho__ino_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\includegraphics[width=204pt]{carrinho__ino_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
 \end{center}
 \end{figure}
 \Hypertarget{carrinho__ino_8ino_a28e17ddfc6c506e94ffac4c672837624}\index{carrinho\_ino.ino@{carrinho\_ino.ino}!timerReset@{timerReset}}
@@ -349,8 +353,14 @@ Grafo de chamadas desta função\+:
 {\footnotesize\ttfamily \label{carrinho__ino_8ino_a28e17ddfc6c506e94ffac4c672837624} 
 void timer\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTimer}{Timer}} \texorpdfstring{$\ast$}{*}}]{timer}{}\end{DoxyParamCaption})}
 
-Este é o diagrama das funções que utilizam esta função\+:
-\nopagebreak
+Grafo de chamadas desta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{carrinho__ino_8ino_a28e17ddfc6c506e94ffac4c672837624_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

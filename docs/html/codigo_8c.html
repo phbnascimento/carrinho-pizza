@@ -104,7 +104,7 @@ Diagrama de dependências de inclusão para codigo.c:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Estruturas de Dados</h2></td></tr>
 <tr class="memitem:Controls" id="r_Controls"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControls.html">Controls</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor).  <a href="structControls.html#details">Mais...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura recebida do controle remoto contendo eixos e botões.  <a href="structControls.html#details">Mais...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -162,7 +162,7 @@ Funções</h2></td></tr>
 <tr class="memdesc:a08bebecdd1ca2d6e7ef3f68cd452ccf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a leitura analógica de um canal específico.  <br /></td></tr>
 <tr class="memitem:ac7c0935e24e573b2929d0df7f9e6b82f" id="r_ac7c0935e24e573b2929d0df7f9e6b82f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7c0935e24e573b2929d0df7f9e6b82f">analog_write</a> (uint8_t pin, uint8_t value)</td></tr>
 <tr class="memdesc:ac7c0935e24e573b2929d0df7f9e6b82f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escreve um valor PWM em um pino específico.  <br /></td></tr>
-<tr class="memitem:a83f9abde8522ce95dd4c5ce5ba3d9d39" id="r_a83f9abde8522ce95dd4c5ce5ba3d9d39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83f9abde8522ce95dd4c5ce5ba3d9d39">motor</a> (<a class="el" href="carrinho_8c.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a> motor, <a class="el" href="carrinho_8c.html#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a> dir, uint8_t value)</td></tr>
+<tr class="memitem:a83f9abde8522ce95dd4c5ce5ba3d9d39" id="r_a83f9abde8522ce95dd4c5ce5ba3d9d39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83f9abde8522ce95dd4c5ce5ba3d9d39">motor</a> (<a class="el" href="carrinho__ino_8ino.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a> motor, <a class="el" href="carrinho__ino_8ino.html#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a> dir, uint8_t value)</td></tr>
 <tr class="memdesc:a83f9abde8522ce95dd4c5ce5ba3d9d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controla a direção e velocidade de um motor DC.  <br /></td></tr>
 <tr class="memitem:a026d019671eda0cfe729200fc24d23ba" id="r_a026d019671eda0cfe729200fc24d23ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a026d019671eda0cfe729200fc24d23ba">gameOver</a> ()</td></tr>
 <tr class="memdesc:a026d019671eda0cfe729200fc24d23ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa a rotina de "Game Over".  <br /></td></tr>
@@ -482,7 +482,7 @@ Variáveis</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="carrinho_8c.html#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a></td>
+          <td class="memname">enum <a class="el" href="carrinho__ino_8ino.html#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -504,7 +504,7 @@ Variáveis</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="carrinho_8c.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a></td>
+          <td class="memname">enum <a class="el" href="carrinho__ino_8ino.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -657,7 +657,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="codigo_8c_a026d019671eda0cfe729200fc24d23ba_cgraph.svg" width="515" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="codigo_8c_a026d019671eda0cfe729200fc24d23ba_cgraph.svg" width="362" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -681,7 +681,7 @@ Grafo de chamadas desta função:</div>
 <p>Realiza as seguintes tarefas:</p><ol type="1">
 <li>Leitura e debounce do botão de start.</li>
 <li>Verificação de dados disponíveis no rádio NRF24.</li>
-<li>Processamento do pacote de dados (Struct <a class="el" href="structControls.html" title="Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor).">Controls</a>).</li>
+<li>Processamento do pacote de dados (Struct <a class="el" href="structControls.html" title="Estrutura recebida do controle remoto contendo eixos e botões.">Controls</a>).</li>
 <li>Atuação nos motores.</li>
 </ol>
 <dl class="section warning"><dt>Aviso</dt><dd>Atualmente contém código de teste (hardcoded) sobrescrevendo a entrada de rádio. </dd></dl>
@@ -739,12 +739,12 @@ Grafo de chamadas desta função:</div>
         <tr>
           <td class="memname">void motor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="carrinho_8c.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a></td>          <td class="paramname"><span class="paramname"><em>motor</em></span>, </td>
+          <td class="paramtype"><a class="el" href="carrinho__ino_8ino.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a></td>          <td class="paramname"><span class="paramname"><em>motor</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="carrinho_8c.html#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a></td>          <td class="paramname"><span class="paramname"><em>dir</em></span>, </td>
+          <td class="paramtype"><a class="el" href="carrinho__ino_8ino.html#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a></td>          <td class="paramname"><span class="paramname"><em>dir</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -767,7 +767,7 @@ Grafo de chamadas desta função:</div>
 <div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_cgraph.svg" width="378" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_cgraph.svg" width="224" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>

@@ -2,7 +2,7 @@
 \hypertarget{structControls}{}\label{structControls}\index{Controls@{Controls}}
 
 
-Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor).  
+Estrutura recebida do controle remoto contendo eixos e botões.  
 
 
 \doxysubsubsection*{Campos de Dados}
@@ -19,7 +19,14 @@ int8\+\_\+t \mbox{\hyperlink{structControls_acf3f4cb783a1d6a1acbd0f3656620b7b}{t
 
 
 \doxysubsection{Descrição detalhada}
-Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor). 
+Estrutura recebida do controle remoto contendo eixos e botões. 
+
+Estrutura enviada/recebida pelo controle RF.
+
+\begin{DoxyNote}{Nota}
+Tamanho garantido em 4 bytes.
+\end{DoxyNote}
+x e y variam de -\/127 a 127. sw e trigger são botões (0 ou 1). 
 
 \label{doc-variable-members}
 \Hypertarget{structControls_doc-variable-members}
@@ -30,30 +37,29 @@ Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle
 {\footnotesize\ttfamily \label{structControls_a14d0fa1de5e626d1dc1cba236dff2379} 
 int8\+\_\+t Controls\+::sw}
 
-Botão do Joystick (Switch). \Hypertarget{structControls_acf3f4cb783a1d6a1acbd0f3656620b7b}\index{Controls@{Controls}!trigger@{trigger}}
+\Hypertarget{structControls_acf3f4cb783a1d6a1acbd0f3656620b7b}\index{Controls@{Controls}!trigger@{trigger}}
 \index{trigger@{trigger}!Controls@{Controls}}
 \doxysubsubsection{\texorpdfstring{trigger}{trigger}}
 {\footnotesize\ttfamily \label{structControls_acf3f4cb783a1d6a1acbd0f3656620b7b} 
 int8\+\_\+t Controls\+::trigger}
 
-Gatilho ou botão auxiliar. \Hypertarget{structControls_a0958b9cae1f60c23a4d0309058b45357}\index{Controls@{Controls}!x@{x}}
+\Hypertarget{structControls_a0958b9cae1f60c23a4d0309058b45357}\index{Controls@{Controls}!x@{x}}
 \index{x@{x}!Controls@{Controls}}
 \doxysubsubsection{\texorpdfstring{x}{x}}
 {\footnotesize\ttfamily \label{structControls_a0958b9cae1f60c23a4d0309058b45357} 
 int8\+\_\+t Controls\+::x}
 
-Eixo X do Joystick (-\/127 a 127). \Hypertarget{structControls_a8a1da9fdf679e6e1d17f310420755d94}\index{Controls@{Controls}!y@{y}}
+\Hypertarget{structControls_a8a1da9fdf679e6e1d17f310420755d94}\index{Controls@{Controls}!y@{y}}
 \index{y@{y}!Controls@{Controls}}
 \doxysubsubsection{\texorpdfstring{y}{y}}
 {\footnotesize\ttfamily \label{structControls_a8a1da9fdf679e6e1d17f310420755d94} 
 int8\+\_\+t Controls\+::y}
 
-Eixo Y do Joystick (-\/127 a 127). 
+
 
 A documentação para esta estrutura foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
 \item 
+arduino/\mbox{\hyperlink{carrinho__ino_8ino}{carrinho\+\_\+ino.\+ino}}\item 
+arduino/\mbox{\hyperlink{controle__ino_8ino}{controle\+\_\+ino.\+ino}}\item 
 carrinho/\mbox{\hyperlink{carrinho_8c}{carrinho.\+c}}\item 
-carrinho\+\_\+ino/\mbox{\hyperlink{carrinho__ino_8ino}{carrinho\+\_\+ino.\+ino}}\item 
-\mbox{\hyperlink{codigo_8c}{codigo.\+c}}\item 
-controle/\mbox{\hyperlink{controle_8c}{controle.\+c}}\item 
-controle\+\_\+ino/\mbox{\hyperlink{controle__ino_8ino}{controle\+\_\+ino.\+ino}}\end{DoxyCompactItemize}
+controle/\mbox{\hyperlink{controle_8c}{controle.\+c}}\end{DoxyCompactItemize}

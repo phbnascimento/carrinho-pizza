@@ -14,7 +14,7 @@ Diagrama de dependências de inclusão para codigo.\+c\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structControls}{Controls}}
-\begin{DoxyCompactList}\small\item\em Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Estrutura recebida do controle remoto contendo eixos e botões. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -72,7 +72,7 @@ uint16\+\_\+t \mbox{\hyperlink{codigo_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}{anal
 \begin{DoxyCompactList}\small\item\em Realiza a leitura analógica de um canal específico. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{codigo_8c_ac7c0935e24e573b2929d0df7f9e6b82f}{analog\+\_\+write}} (uint8\+\_\+t pin, uint8\+\_\+t value)
 \begin{DoxyCompactList}\small\item\em Escreve um valor PWM em um pino específico. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39}{motor}} (\mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} motor, \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} dir, uint8\+\_\+t value)
+void \mbox{\hyperlink{codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39}{motor}} (\mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}{Motor}} motor, \mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} dir, uint8\+\_\+t value)
 \begin{DoxyCompactList}\small\item\em Controla a direção e velocidade de um motor DC. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{codigo_8c_a026d019671eda0cfe729200fc24d23ba}{game\+Over}} ()
 \begin{DoxyCompactList}\small\item\em Executa a rotina de "{}\+Game Over"{}. \end{DoxyCompactList}\item 
@@ -294,7 +294,7 @@ Nível lógico baixo (0).
 \index{Dir@{Dir}!codigo.c@{codigo.c}}
 \doxysubsubsection{\texorpdfstring{Dir}{Dir}}
 {\footnotesize\ttfamily \label{codigo_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4} 
-enum \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}
+enum \mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}
 
 
 
@@ -314,7 +314,7 @@ FORWARD&Frente. \\
 \index{Motor@{Motor}!codigo.c@{codigo.c}}
 \doxysubsubsection{\texorpdfstring{Motor}{Motor}}
 {\footnotesize\ttfamily \label{codigo_8c_a3bc45ff9023afee0cc287274e972d7ce} 
-enum \mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}
+enum \mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}
 
 
 
@@ -430,11 +430,12 @@ void game\+Over (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 Executa a rotina de "{}\+Game Over"{}. 
 
-Faz o carrinho girar no próprio eixo (um motor para frente, outro para trás) e reseta a variável de vida. Grafo de chamadas desta função\+:\nopagebreak
+Faz o carrinho girar no próprio eixo (um motor para frente, outro para trás) e reseta a variável de vida. Grafo de chamadas desta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{codigo_8c_a026d019671eda0cfe729200fc24d23ba_cgraph}
+\includegraphics[width=343pt]{codigo_8c_a026d019671eda0cfe729200fc24d23ba_cgraph}
 \end{center}
 \end{figure}
 \Hypertarget{codigo_8c_afe461d27b9c48d5921c00d521181f12f}\index{codigo.c@{codigo.c}!loop@{loop}}
@@ -505,7 +506,7 @@ Grafo de chamadas desta função\+:\nopagebreak
 \index{motor@{motor}!codigo.c@{codigo.c}}
 \doxysubsubsection{\texorpdfstring{motor()}{motor()}}
 {\footnotesize\ttfamily \label{codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39} 
-void motor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{carrinho_8c_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}]{motor}{, }\item[{\mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}]{dir}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+void motor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{carrinho__ino_8ino_a3bc45ff9023afee0cc287274e972d7ce}{Motor}}}]{motor}{, }\item[{\mbox{\hyperlink{carrinho__ino_8ino_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}}}]{dir}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
 
 
 
@@ -522,11 +523,12 @@ Gerencia a lógica da Ponte H setando os pinos INx e o pino de Enable.
 {\em value} & Velocidade PWM (0-\/255). \\
 \hline
 \end{DoxyParams}
-Grafo de chamadas desta função\+:\nopagebreak
+Grafo de chamadas desta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_cgraph}
+\includegraphics[width=240pt]{codigo_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_cgraph}
 \end{center}
 \end{figure}
 Este é o diagrama das funções que utilizam esta função\+:\nopagebreak

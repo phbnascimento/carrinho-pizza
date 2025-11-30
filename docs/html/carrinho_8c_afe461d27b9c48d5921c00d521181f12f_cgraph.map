@@ -1,35 +1,51 @@
 <map id="loop" name="loop">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,108,55,136"/>
-<area shape="rect" id="Node000002" href="$carrinho_8c.html#aaa87dddb1e62142fd07ee17db1b5d673" title=" " alt="" coords="142,5,186,33"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="39,107,66,75,101,44,129,30,126,34,104,48,69,79,44,109"/>
-<area shape="rect" id="Node000003" href="$carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39" title=" " alt="" coords="134,81,194,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="54,115,120,102,117,106,56,119"/>
-<area shape="rect" id="Node000005" href="$carrinho_2nrf24__avr_8c.html#a0f64caa74329fd5799a33f30bd8ebf82" title=" " alt="" coords="103,133,225,161"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="54,124,89,131,85,134,56,129"/>
-<area shape="rect" id="Node000011" href="$carrinho_2nrf24__avr_8c.html#aa0767db791fc0b45ebadab011c1900bf" title=" " alt="" coords="118,185,210,213"/>
-<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="50,134,104,170,116,178,111,179,101,175,49,139"/>
-<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="140,81,136,72,139,63,149,57,164,55,180,57,190,65,184,66,178,62,164,60,150,62,143,66,141,72,145,81"/>
-<area shape="rect" id="Node000004" href="$carrinho_8c.html#ac7c0935e24e573b2929d0df7f9e6b82f" title=" " alt="" coords="275,81,380,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="194,93,262,94,257,96,195,98"/>
-<area shape="rect" id="Node000006" href="$carrinho_2nrf24__avr_8c.html#abefdb1d58b989853c0646a6c8b18b7d3" title=" " alt="" coords="288,133,367,161"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="225,145,275,146,270,148,226,150"/>
-<area shape="rect" id="Node000007" href="$carrinho_2nrf24__avr_8c.html#adaef88bc02a8e805de3b3a82bf317549" title=" " alt="" coords="440,185,519,213"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="368,158,428,181,423,181,367,163"/>
-<area shape="rect" id="Node000009" href="$carrinho_2nrf24__avr_8c.html#a42f8c1120431b7c37e116a4e1eac1cc2" title=" " alt="" coords="443,133,516,161"/>
-<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="367,145,430,147,425,148,368,150"/>
-<area shape="rect" id="Node000010" href="$carrinho_2nrf24__avr_8c.html#a8d161d483c095113df5b69798e9cd725" title=" " alt="" coords="430,237,529,265"/>
-<area shape="poly" id="edge11_Node000006_Node000010" title=" " alt="" coords="363,159,384,172,408,197,432,223,439,230,434,228,429,226,405,201,381,176,362,164"/>
-<area shape="rect" id="Node000008" href="$carrinho_2nrf24__avr_8c.html#a019970fc17b6b18fa4e45e0baf22c93f" title=" " alt="" coords="577,160,689,188"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="519,190,559,186,564,185,520,195"/>
-<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="517,151,564,161,559,162,517,156"/>
-<area shape="rect" id="Node000012" href="$carrinho_2nrf24__avr_8c.html#ac4a676257b5b86b05f4ea608636cb2cf" title=" " alt="" coords="273,237,382,265"/>
-<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="210,211,270,232,265,232,210,216"/>
-<area shape="rect" id="Node000013" href="$carrinho_2nrf24__avr_8c.html#a08bc978021db604d02a6da754f73e7e2" title=" " alt="" coords="286,185,369,213"/>
-<area shape="poly" id="edge17_Node000011_Node000013" title=" " alt="" coords="210,197,273,199,268,200,210,202"/>
-<area shape="poly" id="edge14_Node000012_Node000007" title=" " alt="" coords="370,234,423,218,428,217,371,239"/>
-<area shape="poly" id="edge15_Node000012_Node000009" title=" " alt="" coords="361,234,381,222,405,198,429,172,434,170,439,168,432,176,408,201,384,227,363,239"/>
-<area shape="poly" id="edge16_Node000012_Node000010" title=" " alt="" coords="383,249,417,251,412,251,383,254"/>
-<area shape="poly" id="edge18_Node000013_Node000007" title=" " alt="" coords="369,197,428,199,422,199,370,202"/>
-<area shape="poly" id="edge19_Node000013_Node000009" title=" " alt="" coords="369,183,426,165,431,164,370,188"/>
-<area shape="poly" id="edge20_Node000013_Node000010" title=" " alt="" coords="370,211,425,232,420,232,369,216"/>
+<area shape="rect" id="Node000001" title="Laço principal contendo toda a lógica do robô." alt="" coords="5,211,55,238"/>
+<area shape="rect" id="Node000002" href="$carrinho_8c.html#aaa87dddb1e62142fd07ee17db1b5d673" title="Retorna o valor absoluto de um inteiro." alt="" coords="142,5,186,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="31,210,37,177,50,133,71,86,101,44,129,27,126,32,105,48,75,89,55,135,42,178,36,210"/>
+<area shape="rect" id="Node000003" href="$carrinho_8c.html#a08bebecdd1ca2d6e7ef3f68cd452ccf9" title="Lê um canal analógico (ADC0–ADC7)." alt="" coords="113,57,214,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="34,209,57,155,76,124,101,96,110,91,107,95,105,100,81,127,62,158,39,211"/>
+<area shape="rect" id="Node000004" href="$carrinho_8c.html#ae85c96d8ab4fe9d1b125421eaaef40e2" title="Reduz a vida e executa a penalidade de dano." alt="" coords="145,109,183,137"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="41,209,68,182,101,153,133,136,130,140,104,157,71,185,46,212"/>
+<area shape="rect" id="Node000005" href="$carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39" title="Controla um motor no sentido desejado e com PWM." alt="" coords="298,159,358,186"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="53,213,102,197,198,180,284,173,280,176,199,185,103,202,56,217"/>
+<area shape="rect" id="Node000008" href="$carrinho_8c.html#a77947cc1d2af5b57aa9e7f701e2c1f51" title="Verifica se o tempo de um timer acabou." alt="" coords="114,263,214,290"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="54,231,115,255,110,258,55,236"/>
+<area shape="rect" id="Node000010" href="$carrinho_2nrf24__avr_8c.html#a0f64caa74329fd5799a33f30bd8ebf82" title=" " alt="" coords="103,367,225,394"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="36,236,61,293,80,324,105,352,111,358,106,359,101,356,76,327,57,295,35,242"/>
+<area shape="rect" id="Node000016" href="$carrinho_2nrf24__avr_8c.html#aa0767db791fc0b45ebadab011c1900bf" title=" " alt="" coords="118,315,210,342"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="41,236,69,268,104,300,114,307,108,308,101,304,65,272,42,241"/>
+<area shape="rect" id="Node000019" href="$carrinho_8c.html#a1d20445f4dfe5c6183e929ef7221d4d4" title="Incrementa o contador de millis. Deve ser chamado a cada 1ms." alt="" coords="120,419,208,446"/>
+<area shape="poly" id="edge27_Node000001_Node000019" title=" " alt="" coords="33,236,42,271,55,315,75,362,105,404,110,411,105,410,101,408,70,365,50,317,37,273,33,241"/>
+<area shape="rect" id="Node000020" href="$carrinho_8c.html#a8019f056ad898f0e555eb56190617c2b" title="Reseta o timer para o valor atual de millis()." alt="" coords="117,211,210,238"/>
+<area shape="poly" id="edge28_Node000001_Node000020" title=" " alt="" coords="54,222,104,223,100,226,56,227"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="183,126,285,158,280,160,184,131"/>
+<area shape="rect" id="Node000006" href="$carrinho_8c.html#ac7c0935e24e573b2929d0df7f9e6b82f" title="Define o duty de um PWM em uma das saídas configuradas." alt="" coords="430,185,536,213"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="358,175,418,187,413,188,359,180"/>
+<area shape="rect" id="Node000007" href="$carrinho__ino_8ino.html#a83f9abde8522ce95dd4c5ce5ba3d9d39" title=" " alt="" coords="453,133,513,161"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="358,165,440,153,435,156,359,170"/>
+<area shape="poly" id="edge7_Node000007_Node000007" title=" " alt="" coords="455,132,451,124,455,115,466,109,483,107,501,109,513,118,507,118,499,114,483,112,467,114,459,118,457,124,461,133"/>
+<area shape="rect" id="Node000009" href="$carrinho_8c.html#a6ff7f2532a22366f0013bc41397129fd" title="Retorna o valor de millis desde o início do programa." alt="" coords="299,211,356,238"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="209,260,286,237,282,240,211,264"/>
+<area shape="rect" id="Node000011" href="$carrinho_2nrf24__avr_8c.html#abefdb1d58b989853c0646a6c8b18b7d3" title=" " alt="" coords="288,367,367,394"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="225,378,275,380,270,381,226,383"/>
+<area shape="rect" id="Node000012" href="$carrinho_2nrf24__avr_8c.html#adaef88bc02a8e805de3b3a82bf317549" title=" " alt="" coords="444,315,522,342"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="366,365,427,347,432,346,368,370"/>
+<area shape="rect" id="Node000014" href="$carrinho_2nrf24__avr_8c.html#a42f8c1120431b7c37e116a4e1eac1cc2" title=" " alt="" coords="446,263,520,290"/>
+<area shape="poly" id="edge15_Node000011_Node000014" title=" " alt="" coords="361,364,381,352,404,327,429,301,434,300,439,297,432,305,408,330,384,356,363,369"/>
+<area shape="rect" id="Node000015" href="$carrinho_2nrf24__avr_8c.html#a8d161d483c095113df5b69798e9cd725" title=" " alt="" coords="434,367,532,394"/>
+<area shape="poly" id="edge17_Node000011_Node000015" title=" " alt="" coords="367,378,421,380,416,381,367,383"/>
+<area shape="rect" id="Node000013" href="$carrinho_2nrf24__avr_8c.html#a019970fc17b6b18fa4e45e0baf22c93f" title=" " alt="" coords="584,289,696,317"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="522,320,571,314,566,315,523,325"/>
+<area shape="poly" id="edge16_Node000014_Node000013" title=" " alt="" coords="520,280,571,291,565,291,520,285"/>
+<area shape="rect" id="Node000017" href="$carrinho_2nrf24__avr_8c.html#ac4a676257b5b86b05f4ea608636cb2cf" title=" " alt="" coords="273,263,382,290"/>
+<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="209,312,270,294,265,297,211,316"/>
+<area shape="rect" id="Node000018" href="$carrinho_2nrf24__avr_8c.html#a08bc978021db604d02a6da754f73e7e2" title=" " alt="" coords="286,315,369,342"/>
+<area shape="poly" id="edge23_Node000016_Node000018" title=" " alt="" coords="210,326,273,328,268,329,211,331"/>
+<area shape="poly" id="edge20_Node000017_Node000012" title=" " alt="" coords="372,288,432,310,426,311,371,294"/>
+<area shape="poly" id="edge21_Node000017_Node000014" title=" " alt="" coords="382,274,433,276,428,277,383,279"/>
+<area shape="poly" id="edge22_Node000017_Node000015" title=" " alt="" coords="363,288,384,301,408,327,432,352,439,359,434,358,429,356,404,330,381,305,362,294"/>
+<area shape="poly" id="edge24_Node000018_Node000012" title=" " alt="" coords="369,326,431,328,426,329,369,331"/>
+<area shape="poly" id="edge25_Node000018_Node000014" title=" " alt="" coords="368,312,434,293,429,294,370,317"/>
+<area shape="poly" id="edge26_Node000018_Node000015" title=" " alt="" coords="369,340,427,361,422,361,369,345"/>
+<area shape="poly" id="edge29_Node000020_Node000009" title=" " alt="" coords="210,222,286,223,281,226,212,227"/>
 </map>

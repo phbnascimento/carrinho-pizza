@@ -4,12 +4,12 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="391,89,361,87,362,81,397,89"/>
 <area shape="rect" id="Node000005" href="$carrinho_2nrf24__avr_8c.html#a8232e1982aabc6f52408c318402cb578" title=" " alt="" coords="238,109,333,137"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="397,106,334,118,333,113,391,106"/>
-<area shape="rect" id="Node000003" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="108,5,162,33"/>
+<area shape="rect" id="Node000003" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Função principal: inicializa periféricos e roda loop()." alt="" coords="108,5,162,33"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="227,53,162,31,162,26,232,51"/>
 <area shape="rect" id="Node000004" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="108,57,162,85"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="192,72,163,74,162,69,197,71"/>
-<area shape="rect" id="Node000006" href="$controle_8c.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="110,109,160,137"/>
+<area shape="rect" id="Node000006" href="$controle_8c.html#afe461d27b9c48d5921c00d521181f12f" title="Loop principal: lê controles, aplica deadzone, envia por RF e atualiza LEDs." alt="" coords="110,109,160,137"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="220,123,160,126,160,121,225,123"/>
-<area shape="rect" id="Node000007" href="$controle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,109,60,137"/>
+<area shape="rect" id="Node000007" href="$controle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Função principal do firmware." alt="" coords="5,109,60,137"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="92,124,60,126,60,121,97,122"/>
 </map>

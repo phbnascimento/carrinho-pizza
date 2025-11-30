@@ -51,8 +51,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"codigo_8c.html#a94180201817e497ad4f773021adf385b",
-"index.html"
+"controle_2nRF24L01_8h.html#a1050140a3d78b059f809a424e0d9e1c7"
 ];
 
 var SYNCONMSG = 'clique para desativar a sincronização do painel';

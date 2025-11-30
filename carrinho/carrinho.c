@@ -30,6 +30,10 @@
 
 const uint8_t addr[5] = {'0', '0', '0', '0', '1'};
 
+/**
+ * @brief Estrutura recebida do controle remoto contendo eixos e botões.
+ * @note Tamanho garantido em 4 bytes.
+ */
 typedef struct {
   int8_t x;
   int8_t y;
@@ -38,6 +42,9 @@ typedef struct {
 } Controls;
 static_assert(sizeof(Controls) == 4);
 
+/**
+ * @brief Estrutura de timer simples baseada em millis().
+ */
 typedef struct {
   long duration;
   long count;
@@ -52,27 +59,48 @@ Timer laserTimer = {1000, 0};
 
 unsigned long millis_count = 0;
 
+/**
+ * @brief Incrementa o contador de millis. Deve ser chamado a cada 1ms.
+ */
 void timer_tick() {
   _delay_ms(1);
   millis_count++;
 }
 
+/**
+ * @brief Retorna o valor de millis desde o início do programa.
+ * @return Tempo em ms.
+ */
 unsigned long millis() {
   return millis_count;
 }
 
+/**
+ * @brief Retorna o valor absoluto de um inteiro.
+ */
 int abs(int num) {
   return num >= 0 ? num : num * -1;
 }
 
+/**
+ * @brief Verifica se o tempo de um timer acabou.
+ * @param t Timer a verificar.
+ * @return true se o tempo passou.
+ */
 bool isTimerOver(Timer t) {
   return millis() - t.count > t.duration;
 }
 
+/**
+ * @brief Reseta o timer para o valor atual de millis().
+ */
 void timerReset(Timer *t) {
   t->count = millis();
 }
 
+/**
+ * @brief Configura o ADC e os PWM usados.
+ */
 void analog_setup(void) {
   ADMUX = (1 << REFS0);
   ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
@@ -86,6 +114,11 @@ void analog_setup(void) {
   TCCR2B = (1<<CS21);
 }
 
+/**
+ * @brief Lê um canal analógico (ADC0–ADC7).
+ * @param channel Canal a ler.
+ * @return Valor de 0 a 1023.
+ */
 uint16_t analog_read(uint8_t channel) {
     channel &= 0x07;
     ADMUX = (ADMUX & 0xF0) | channel;
@@ -94,14 +127,32 @@ uint16_t analog_read(uint8_t channel) {
     return ADC;
 }
 
+/**
+ * @brief Define o duty de um PWM em uma das saídas configuradas.
+ * @param pin Pino PWM (3 ou 6).
+ * @param value Duty-cycle (0–255).
+ */
 void analog_write(uint8_t pin, uint8_t value) {
     if (pin == 6)      OCR0A = value;
     else if (pin == 3) OCR2B = value;
 }
 
+/**
+ * @brief Enum dos motores disponíveis.
+ */
 typedef enum {LEFT, RIGHT} Motor;
+
+/**
+ * @brief Sentido de rotação: para frente ou para trás.
+ */
 typedef enum {BACKWARDS=0, FORWARD=1} Dir;
 
+/**
+ * @brief Controla um motor no sentido desejado e com PWM.
+ * @param motor Motor LEFT ou RIGHT.
+ * @param dir Direção FORWARD ou BACKWARDS.
+ * @param value Intensidade PWM (0–255).
+ */
 void motor(Motor motor, Dir dir, uint8_t value);
 void motor(Motor motor, Dir dir, uint8_t value) {
     switch (motor) {
@@ -126,6 +177,9 @@ void motor(Motor motor, Dir dir, uint8_t value) {
     }
 }
 
+/**
+ * @brief Reduz a vida e executa a penalidade de dano.
+ */
 void hit() {
   life <<= 1;
   if (life == 0b01110000) {
@@ -139,6 +193,9 @@ void hit() {
   }
 }
 
+/**
+ * @brief Laço principal contendo toda a lógica do robô.
+ */
 void loop() {
   timer_tick();
 
@@ -184,6 +241,9 @@ void loop() {
   }
 }
 
+/**
+ * @brief Função principal: inicializa periféricos e roda loop().
+ */
 int main() {
   analog_setup();
 

@@ -1,10 +1,14 @@
 <map id="nrf24_setPayloadSize" name="nrf24_setPayloadSize">
-<area shape="rect" id="Node000001" title=" " alt="" coords="254,31,415,58"/>
-<area shape="rect" id="Node000002" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,60,33"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,39,60,24,60,19,239,34"/>
-<area shape="rect" id="Node000003" href="$carrinho_2nrf24__avr_8c.html#ab6fb4c1aa834152310116e7dec65d8e3" title=" " alt="" coords="108,56,206,84"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,58,207,66,206,60,236,59"/>
-<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="105,51,60,33,61,28,109,48"/>
-<area shape="rect" id="Node000004" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,57,60,85"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="89,71,60,74,60,68,94,70"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="359,32,521,60"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="109,5,164,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="342,39,164,24,164,19,345,35"/>
+<area shape="rect" id="Node000003" href="$carrinho_2nrf24__avr_8c.html#ab6fb4c1aa834152310116e7dec65d8e3" title=" " alt="" coords="213,57,311,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="341,60,312,67,311,62,346,59"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="210,51,164,33,164,28,215,50"/>
+<area shape="rect" id="Node000004" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Função principal: inicializa periféricos e roda loop()." alt="" coords="109,57,164,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="195,72,164,74,163,69,200,71"/>
+<area shape="rect" id="Node000005" href="$controle_8c.html#a4fc01d736fe50cf5b977f755b675f11d" title="Inicializações principais (ADC, PWM, entradas e rádio)." alt="" coords="108,109,165,137"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="215,91,166,114,165,109,210,92"/>
+<area shape="rect" id="Node000006" href="$controle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Função principal do firmware." alt="" coords="5,109,60,137"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="89,124,60,126,60,121,95,122"/>
 </map>

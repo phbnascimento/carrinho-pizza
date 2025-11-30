@@ -31,7 +31,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="controle_8c.html#afe461d27b9c48d5921c00d521181f12f" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="controle_8c.html#afe461d27b9c48d5921c00d521181f12f" target="_top" xlink:title="Loop principal: lê controles, aplica deadzone, envia por RF e atualiza LEDs.">
 <polygon fill="white" stroke="#666666" points="113.75,-20.75 76.75,-20.75 76.75,0 113.75,0 113.75,-20.75"/>
 <text xml:space="preserve" text-anchor="middle" x="95.25" y="-7.25" font-family="Helvetica,sans-Serif" font-size="10.00">loop</text>
 </a>
@@ -49,7 +49,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="controle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="controle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title="Função principal do firmware.">
 <polygon fill="white" stroke="#666666" points="40.75,-20.75 0,-20.75 0,0 40.75,0 40.75,-20.75"/>
 <text xml:space="preserve" text-anchor="middle" x="20.38" y="-7.25" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
 </a>

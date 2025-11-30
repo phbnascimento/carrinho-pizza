@@ -19,11 +19,26 @@
 #define JS 2
 #define TRIGGER 3
 
-// map() igual ao Arduino
+/**
+ * @brief Função equivalente ao map() do Arduino.
+ *
+ * @param x valor de entrada
+ * @param in_min faixa mínima de entrada
+ * @param in_max faixa máxima de entrada
+ * @param out_min faixa mínima de saída
+ * @param out_max faixa máxima de saída
+ * @return valor mapeado proporcionalmente
+ */
 long map(long x, long in_min, long in_max, long out_min, long out_max) {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
+/**
+ * @brief Estrutura enviada/recebida pelo controle RF.
+ *
+ * x e y variam de -127 a 127.
+ * sw e trigger são botões (0 ou 1).
+ */
 typedef struct {
     int8_t x;
     int8_t y;
@@ -34,11 +49,20 @@ static_assert(sizeof(Controls) == 4);
 
 const uint8_t address[5] = {'0','0','0','0','1'};
 
+/**
+ * @brief Inicializa o ADC do AVR para leitura dos analógicos.
+ */
 void adc_setup() {
     ADMUX = (1 << REFS0); 
     ADCSRA = (1 << ADEN) | (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0); 
 }
 
+/**
+ * @brief Lê o ADC em um canal específico.
+ *
+ * @param ch canal analógico (0–7)
+ * @return valor de 0 a 1023
+ */
 uint16_t adc_read(uint8_t ch) {
     ADMUX = (ADMUX & 0xF0) | (ch & 0x07);
     ADCSRA |= (1 << ADSC);
@@ -46,6 +70,9 @@ uint16_t adc_read(uint8_t ch) {
     return ADC;
 }
 
+/**
+ * @brief Configura PWM dos pinos LED1 e LED2.
+ */
 void pwm_setup() {
     // LED1 -> PD3 (OC2B)
     DDRD |= (1 << PD3);
@@ -58,13 +85,25 @@ void pwm_setup() {
     TCCR0B = (1<<CS01);   // prescaler 8
 }
 
+/**
+ * @brief Escreve valor PWM em LED1 ou LED2.
+ *
+ * @param pin 3 ou 5
+ * @param value intensidade 0–255
+ */
 void pwm_write(uint8_t pin, uint8_t value) {
     if (pin == 3)      OCR2B = value;
     else if (pin == 5) OCR0B = value;
 }
 
+/**
+ * @brief Retorna valor absoluto de um inteiro.
+ */
 int abs_int(int n) { return n >= 0 ? n : -n; }
 
+/**
+ * @brief Inicializações principais (ADC, PWM, entradas e rádio).
+ */
 void setup() {
 
     adc_setup();
@@ -80,6 +119,9 @@ void setup() {
     nrf24_stopListening();
 }
 
+/**
+ * @brief Loop principal: lê controles, aplica deadzone, envia por RF e atualiza LEDs.
+ */
 void loop() {
     Controls gamepad;
 
@@ -101,6 +143,9 @@ void loop() {
     _delay_ms(20);
 }
 
+/**
+ * @brief Função principal do firmware.
+ */
 int main() {
     setup();
     while (1) { loop(); }

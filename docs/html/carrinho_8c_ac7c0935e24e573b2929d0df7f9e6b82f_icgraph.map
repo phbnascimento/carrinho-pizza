@@ -1,13 +1,13 @@
 <map id="analog_write" name="analog_write">
-<area shape="rect" id="Node000001" title=" " alt="" coords="353,57,459,85"/>
-<area shape="rect" id="Node000002" href="$carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39" title=" " alt="" coords="245,57,305,85"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="335,71,306,74,306,69,340,71"/>
-<area shape="poly" id="edge6_Node000002_Node000002" title=" " alt="" coords="294,41,288,38,275,36,263,38,257,42,255,48,258,58,253,56,249,48,252,39,261,33,275,31,290,33,299,42"/>
-<area shape="rect" id="Node000003" href="$carrinho_8c.html#a026d019671eda0cfe729200fc24d23ba" title=" " alt="" coords="108,5,197,33"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="228,53,187,36,188,31,234,52"/>
-<area shape="rect" id="Node000004" href="$carrinho_8c.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="128,57,177,85"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="227,72,178,74,177,69,233,71"/>
-<area shape="rect" id="Node000005" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,83,60,110"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="233,88,197,99,123,104,60,102,60,96,123,99,197,94,227,89"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="110,81,61,93,59,88,114,78"/>
+<area shape="rect" id="Node000001" title="Define o duty de um PWM em uma das saídas configuradas." alt="" coords="400,56,505,84"/>
+<area shape="rect" id="Node000002" href="$carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39" title="Controla um motor no sentido desejado e com PWM." alt="" coords="291,56,352,84"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,70,352,72,352,67,387,70"/>
+<area shape="rect" id="Node000003" href="$carrinho_8c.html#ae85c96d8ab4fe9d1b125421eaaef40e2" title="Reduz a vida e executa a penalidade de dano." alt="" coords="205,5,243,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="277,48,243,31,244,26,283,48"/>
+<area shape="rect" id="Node000004" href="$carrinho_8c.html#afe461d27b9c48d5921c00d521181f12f" title="Laço principal contendo toda a lógica do robô." alt="" coords="108,56,157,84"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="274,71,157,72,157,67,279,69"/>
+<area shape="rect" id="Node000005" href="$carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Função principal: inicializa periféricos e roda loop()." alt="" coords="5,81,60,109"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="279,79,157,98,60,99,60,94,157,93,273,79"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="194,36,158,59,156,54,189,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="90,81,61,91,59,86,95,79"/>
 </map>

@@ -104,7 +104,9 @@ Diagrama de dependências de inclusão para carrinho.c:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Estruturas de Dados</h2></td></tr>
 <tr class="memitem:Controls" id="r_Controls"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControls.html">Controls</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura do payload recebido via rádio. Mapeia os dados enviados pelo controle remoto (transmissor).  <a href="structControls.html#details">Mais...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura recebida do controle remoto contendo eixos e botões.  <a href="structControls.html#details">Mais...</a><br /></td></tr>
+<tr class="memitem:Timer" id="r_Timer"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimer.html">Timer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de timer simples baseada em <a class="el" href="#a6ff7f2532a22366f0013bc41397129fd" title="Retorna o valor de millis desde o início do programa.">millis()</a>.  <a href="structTimer.html#details">Mais...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -131,29 +133,50 @@ Enumerações</h2></td></tr>
 <tr class="memitem:a3bc45ff9023afee0cc287274e972d7ce" id="r_a3bc45ff9023afee0cc287274e972d7ce"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bc45ff9023afee0cc287274e972d7ce">Motor</a> { <a class="el" href="#a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065">LEFT</a>
 , <a class="el" href="#a3bc45ff9023afee0cc287274e972d7ceaec8379af7490bb9eaaf579cf17876f38">RIGHT</a>
  }</td></tr>
+<tr class="memdesc:a3bc45ff9023afee0cc287274e972d7ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum dos motores disponíveis.  <a href="#a3bc45ff9023afee0cc287274e972d7ce">Mais...</a><br /></td></tr>
 <tr class="memitem:a7cf6e8c5a5bc5e7b2afef3647870b1c4" id="r_a7cf6e8c5a5bc5e7b2afef3647870b1c4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a> { <a class="el" href="#a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36">BACKWARDS</a> =0
 , <a class="el" href="#a7cf6e8c5a5bc5e7b2afef3647870b1c4aa26736999186daf8146f809e863712a1">FORWARD</a> =1
  }</td></tr>
+<tr class="memdesc:a7cf6e8c5a5bc5e7b2afef3647870b1c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentido de rotação: para frente ou para trás.  <a href="#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Mais...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:a1fc0a8f5b026eb5e606e738ca5434d2d" id="r_a1fc0a8f5b026eb5e606e738ca5434d2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc0a8f5b026eb5e606e738ca5434d2d">analog_setup</a> (void)</td></tr>
-<tr class="memitem:a08bebecdd1ca2d6e7ef3f68cd452ccf9" id="r_a08bebecdd1ca2d6e7ef3f68cd452ccf9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08bebecdd1ca2d6e7ef3f68cd452ccf9">analog_read</a> (uint8_t channel)</td></tr>
-<tr class="memitem:ac7c0935e24e573b2929d0df7f9e6b82f" id="r_ac7c0935e24e573b2929d0df7f9e6b82f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7c0935e24e573b2929d0df7f9e6b82f">analog_write</a> (uint8_t pin, uint8_t value)</td></tr>
-<tr class="memitem:a83f9abde8522ce95dd4c5ce5ba3d9d39" id="r_a83f9abde8522ce95dd4c5ce5ba3d9d39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83f9abde8522ce95dd4c5ce5ba3d9d39">motor</a> (<a class="el" href="#a3bc45ff9023afee0cc287274e972d7ce">Motor</a> motor, <a class="el" href="#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a> dir, uint8_t value)</td></tr>
-<tr class="memitem:a026d019671eda0cfe729200fc24d23ba" id="r_a026d019671eda0cfe729200fc24d23ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a026d019671eda0cfe729200fc24d23ba">gameOver</a> ()</td></tr>
+<tr class="memitem:a1d20445f4dfe5c6183e929ef7221d4d4" id="r_a1d20445f4dfe5c6183e929ef7221d4d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d20445f4dfe5c6183e929ef7221d4d4">timer_tick</a> ()</td></tr>
+<tr class="memdesc:a1d20445f4dfe5c6183e929ef7221d4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incrementa o contador de millis. Deve ser chamado a cada 1ms.  <br /></td></tr>
+<tr class="memitem:a6ff7f2532a22366f0013bc41397129fd" id="r_a6ff7f2532a22366f0013bc41397129fd"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ff7f2532a22366f0013bc41397129fd">millis</a> ()</td></tr>
+<tr class="memdesc:a6ff7f2532a22366f0013bc41397129fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o valor de millis desde o início do programa.  <br /></td></tr>
 <tr class="memitem:aaa87dddb1e62142fd07ee17db1b5d673" id="r_aaa87dddb1e62142fd07ee17db1b5d673"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa87dddb1e62142fd07ee17db1b5d673">abs</a> (int num)</td></tr>
+<tr class="memdesc:aaa87dddb1e62142fd07ee17db1b5d673"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o valor absoluto de um inteiro.  <br /></td></tr>
+<tr class="memitem:a77947cc1d2af5b57aa9e7f701e2c1f51" id="r_a77947cc1d2af5b57aa9e7f701e2c1f51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77947cc1d2af5b57aa9e7f701e2c1f51">isTimerOver</a> (<a class="el" href="structTimer.html">Timer</a> t)</td></tr>
+<tr class="memdesc:a77947cc1d2af5b57aa9e7f701e2c1f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o tempo de um timer acabou.  <br /></td></tr>
+<tr class="memitem:a8019f056ad898f0e555eb56190617c2b" id="r_a8019f056ad898f0e555eb56190617c2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8019f056ad898f0e555eb56190617c2b">timerReset</a> (<a class="el" href="structTimer.html">Timer</a> *t)</td></tr>
+<tr class="memdesc:a8019f056ad898f0e555eb56190617c2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reseta o timer para o valor atual de <a class="el" href="#a6ff7f2532a22366f0013bc41397129fd" title="Retorna o valor de millis desde o início do programa.">millis()</a>.  <br /></td></tr>
+<tr class="memitem:a1fc0a8f5b026eb5e606e738ca5434d2d" id="r_a1fc0a8f5b026eb5e606e738ca5434d2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc0a8f5b026eb5e606e738ca5434d2d">analog_setup</a> (void)</td></tr>
+<tr class="memdesc:a1fc0a8f5b026eb5e606e738ca5434d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura o ADC e os PWM usados.  <br /></td></tr>
+<tr class="memitem:a08bebecdd1ca2d6e7ef3f68cd452ccf9" id="r_a08bebecdd1ca2d6e7ef3f68cd452ccf9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08bebecdd1ca2d6e7ef3f68cd452ccf9">analog_read</a> (uint8_t channel)</td></tr>
+<tr class="memdesc:a08bebecdd1ca2d6e7ef3f68cd452ccf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê um canal analógico (ADC0–ADC7).  <br /></td></tr>
+<tr class="memitem:ac7c0935e24e573b2929d0df7f9e6b82f" id="r_ac7c0935e24e573b2929d0df7f9e6b82f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7c0935e24e573b2929d0df7f9e6b82f">analog_write</a> (uint8_t pin, uint8_t value)</td></tr>
+<tr class="memdesc:ac7c0935e24e573b2929d0df7f9e6b82f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o duty de um PWM em uma das saídas configuradas.  <br /></td></tr>
+<tr class="memitem:a83f9abde8522ce95dd4c5ce5ba3d9d39" id="r_a83f9abde8522ce95dd4c5ce5ba3d9d39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83f9abde8522ce95dd4c5ce5ba3d9d39">motor</a> (<a class="el" href="carrinho__ino_8ino.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a> motor, <a class="el" href="carrinho__ino_8ino.html#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a> dir, uint8_t value)</td></tr>
+<tr class="memdesc:a83f9abde8522ce95dd4c5ce5ba3d9d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controla um motor no sentido desejado e com PWM.  <br /></td></tr>
+<tr class="memitem:ae85c96d8ab4fe9d1b125421eaaef40e2" id="r_ae85c96d8ab4fe9d1b125421eaaef40e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae85c96d8ab4fe9d1b125421eaaef40e2">hit</a> ()</td></tr>
+<tr class="memdesc:ae85c96d8ab4fe9d1b125421eaaef40e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduz a vida e executa a penalidade de dano.  <br /></td></tr>
 <tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
+<tr class="memdesc:afe461d27b9c48d5921c00d521181f12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Laço principal contendo toda a lógica do robô.  <br /></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função principal: inicializa periféricos e roda <a class="el" href="#afe461d27b9c48d5921c00d521181f12f" title="Laço principal contendo toda a lógica do robô.">loop()</a>.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variáveis</h2></td></tr>
 <tr class="memitem:a0d5aeb028158bc168b01ed3bf2a385be" id="r_a0d5aeb028158bc168b01ed3bf2a385be"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d5aeb028158bc168b01ed3bf2a385be">addr</a> [5] = {'0', '0', '0', '0', '1'}</td></tr>
-<tr class="memdesc:a0d5aeb028158bc168b01ed3bf2a385be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endereço do pipe de leitura do rádio NRF24. Endereço: "00001".  <br /></td></tr>
 <tr class="memitem:a5694338c1bcb4455072af4179913d44d" id="r_a5694338c1bcb4455072af4179913d44d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5694338c1bcb4455072af4179913d44d">life</a> = 0b1110</td></tr>
 <tr class="memitem:aaa928c9a62449f7946da1e32f66c70d2" id="r_aaa928c9a62449f7946da1e32f66c70d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa928c9a62449f7946da1e32f66c70d2">on</a> =false</td></tr>
 <tr class="memitem:a132ba96da5ba28448b61e42c019312a9" id="r_a132ba96da5ba28448b61e42c019312a9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a132ba96da5ba28448b61e42c019312a9">pressed</a> =false</td></tr>
 <tr class="memitem:af2f56090dc8a3b112529c55e98dd04a7" id="r_af2f56090dc8a3b112529c55e98dd04a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2f56090dc8a3b112529c55e98dd04a7">prev</a> =false</td></tr>
+<tr class="memitem:a171c692ff21cffa8f4931841654bf8c7" id="r_a171c692ff21cffa8f4931841654bf8c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a171c692ff21cffa8f4931841654bf8c7">ldr_prev</a> = false</td></tr>
+<tr class="memitem:adc42314b62dd12e31a24733e3937e42b" id="r_adc42314b62dd12e31a24733e3937e42b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTimer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc42314b62dd12e31a24733e3937e42b">ldrTimer</a> = {5000, 0}</td></tr>
+<tr class="memitem:aea7da615a218e8633ad839a5d7a6cbb9" id="r_aea7da615a218e8633ad839a5d7a6cbb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTimer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea7da615a218e8633ad839a5d7a6cbb9">laserTimer</a> = {1000, 0}</td></tr>
+<tr class="memitem:a6eec37fa85119f43424399f8de909adc" id="r_a6eec37fa85119f43424399f8de909adc"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6eec37fa85119f43424399f8de909adc">millis_count</a> = 0</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentação das macros</h2>
 <a id="ad475217c28645ec178b59c745f3fc3ba" name="ad475217c28645ec178b59c745f3fc3ba"></a>
@@ -410,10 +433,12 @@ Variáveis</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a></td>
+          <td class="memname">enum <a class="el" href="carrinho__ino_8ino.html#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sentido de rotação: para frente ou para trás. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Valores de enumerações</th></tr><tr><td class="fieldname"><a id="a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36" name="a7cf6e8c5a5bc5e7b2afef3647870b1c4aad5aa01ac1825d55dfc1978ee49c4c36"></a>BACKWARDS&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7cf6e8c5a5bc5e7b2afef3647870b1c4aa26736999186daf8146f809e863712a1" name="a7cf6e8c5a5bc5e7b2afef3647870b1c4aa26736999186daf8146f809e863712a1"></a>FORWARD&#160;</td><td class="fielddoc"></td></tr>
@@ -428,10 +453,12 @@ Variáveis</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="#a3bc45ff9023afee0cc287274e972d7ce">Motor</a></td>
+          <td class="memname">enum <a class="el" href="carrinho__ino_8ino.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enum dos motores disponíveis. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Valores de enumerações</th></tr><tr><td class="fieldname"><a id="a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065" name="a3bc45ff9023afee0cc287274e972d7ceadb45120aafd37a973140edee24708065"></a>LEFT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a3bc45ff9023afee0cc287274e972d7ceaec8379af7490bb9eaaf579cf17876f38" name="a3bc45ff9023afee0cc287274e972d7ceaec8379af7490bb9eaaf579cf17876f38"></a>RIGHT&#160;</td><td class="fielddoc"></td></tr>
@@ -454,10 +481,12 @@ Variáveis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retorna o valor absoluto de um inteiro. </p>
 <div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_aaa87dddb1e62142fd07ee17db1b5d673_icgraph.svg" width="255" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_aaa87dddb1e62142fd07ee17db1b5d673_icgraph.svg" width="152" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -477,6 +506,20 @@ Este é o diagrama das funções que utilizam esta função:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Lê um canal analógico (ADC0–ADC7). </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Canal a ler. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Valor de 0 a 1023. </dd></dl>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9_icgraph.svg" width="312" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
 </div>
 </div>
 <a id="a1fc0a8f5b026eb5e606e738ca5434d2d" name="a1fc0a8f5b026eb5e606e738ca5434d2d"></a>
@@ -493,6 +536,8 @@ Este é o diagrama das funções que utilizam esta função:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Configura o ADC e os PWM usados. </p>
 <div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
@@ -519,32 +564,84 @@ Este é o diagrama das funções que utilizam esta função:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Define o duty de um PWM em uma das saídas configuradas. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>Pino PWM (3 ou 6). </td></tr>
+    <tr><td class="paramname">value</td><td>Duty-cycle (0–255). </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_ac7c0935e24e573b2929d0df7f9e6b82f_icgraph.svg" width="464" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_ac7c0935e24e573b2929d0df7f9e6b82f_icgraph.svg" width="511" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a026d019671eda0cfe729200fc24d23ba" name="a026d019671eda0cfe729200fc24d23ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a026d019671eda0cfe729200fc24d23ba">&#9670;&#160;</a></span>gameOver()</h2>
+<a id="ae85c96d8ab4fe9d1b125421eaaef40e2" name="ae85c96d8ab4fe9d1b125421eaaef40e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae85c96d8ab4fe9d1b125421eaaef40e2">&#9670;&#160;</a></span>hit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void gameOver </td>
+          <td class="memname">void hit </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reduz a vida e executa a penalidade de dano. </p>
 <div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a026d019671eda0cfe729200fc24d23ba_cgraph.svg" width="362" height="63"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2_cgraph.svg" width="311" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2_icgraph.svg" width="250" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a77947cc1d2af5b57aa9e7f701e2c1f51" name="a77947cc1d2af5b57aa9e7f701e2c1f51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77947cc1d2af5b57aa9e7f701e2c1f51">&#9670;&#160;</a></span>isTimerOver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isTimerOver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTimer.html">Timer</a></td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se o tempo de um timer acabou. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td><a class="el" href="structTimer.html" title="Estrutura de timer simples baseada em millis().">Timer</a> a verificar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o tempo passou. </dd></dl>
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51_cgraph.svg" width="216" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51_icgraph.svg" width="311" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -563,10 +660,12 @@ Grafo de chamadas desta função:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Laço principal contendo toda a lógica do robô. </p>
 <div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="100%" height="503"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
@@ -590,10 +689,37 @@ Este é o diagrama das funções que utilizam esta função:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Função principal: inicializa periféricos e roda <a class="el" href="#afe461d27b9c48d5921c00d521181f12f" title="Laço principal contendo toda a lógica do robô.">loop()</a>. </p>
 <div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a6ff7f2532a22366f0013bc41397129fd" name="a6ff7f2532a22366f0013bc41397129fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ff7f2532a22366f0013bc41397129fd">&#9670;&#160;</a></span>millis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long millis </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o valor de millis desde o início do programa. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Tempo em ms. </dd></dl>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a6ff7f2532a22366f0013bc41397129fd_icgraph.svg" width="416" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -607,12 +733,12 @@ Grafo de chamadas desta função:</div>
         <tr>
           <td class="memname">void motor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a3bc45ff9023afee0cc287274e972d7ce">Motor</a></td>          <td class="paramname"><span class="paramname"><em>motor</em></span>, </td>
+          <td class="paramtype"><a class="el" href="carrinho__ino_8ino.html#a3bc45ff9023afee0cc287274e972d7ce">Motor</a></td>          <td class="paramname"><span class="paramname"><em>motor</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a></td>          <td class="paramname"><span class="paramname"><em>dir</em></span>, </td>
+          <td class="paramtype"><a class="el" href="carrinho__ino_8ino.html#a7cf6e8c5a5bc5e7b2afef3647870b1c4">Dir</a></td>          <td class="paramname"><span class="paramname"><em>dir</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -621,15 +747,78 @@ Grafo de chamadas desta função:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Controla um motor no sentido desejado e com PWM. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td><a class="el" href="#a3bc45ff9023afee0cc287274e972d7ce" title="Enum dos motores disponíveis.">Motor</a> LEFT ou RIGHT. </td></tr>
+    <tr><td class="paramname">dir</td><td>Direção FORWARD ou BACKWARDS. </td></tr>
+    <tr><td class="paramname">value</td><td>Intensidade PWM (0–255). </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_cgraph.svg" width="224" height="63"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_cgraph.svg" width="224" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_icgraph.svg" width="311" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_icgraph.svg" width="358" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1d20445f4dfe5c6183e929ef7221d4d4" name="a1d20445f4dfe5c6183e929ef7221d4d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d20445f4dfe5c6183e929ef7221d4d4">&#9670;&#160;</a></span>timer_tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer_tick </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Incrementa o contador de millis. Deve ser chamado a cada 1ms. </p>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a1d20445f4dfe5c6183e929ef7221d4d4_icgraph.svg" width="298" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8019f056ad898f0e555eb56190617c2b" name="a8019f056ad898f0e555eb56190617c2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8019f056ad898f0e555eb56190617c2b">&#9670;&#160;</a></span>timerReset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timerReset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTimer.html">Timer</a> *</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reseta o timer para o valor atual de <a class="el" href="#a6ff7f2532a22366f0013bc41397129fd" title="Retorna o valor de millis desde o início do programa.">millis()</a>. </p>
+<div class="dynheader">
+Grafo de chamadas desta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a8019f056ad898f0e555eb56190617c2b_cgraph.svg" width="210" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a8019f056ad898f0e555eb56190617c2b_icgraph.svg" width="304" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -647,7 +836,47 @@ Este é o diagrama das funções que utilizam esta função:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Endereço do pipe de leitura do rádio NRF24. Endereço: "00001". </p>
+</div>
+</div>
+<a id="aea7da615a218e8633ad839a5d7a6cbb9" name="aea7da615a218e8633ad839a5d7a6cbb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea7da615a218e8633ad839a5d7a6cbb9">&#9670;&#160;</a></span>laserTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTimer.html">Timer</a> laserTimer = {1000, 0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a171c692ff21cffa8f4931841654bf8c7" name="a171c692ff21cffa8f4931841654bf8c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a171c692ff21cffa8f4931841654bf8c7">&#9670;&#160;</a></span>ldr_prev</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ldr_prev = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc42314b62dd12e31a24733e3937e42b" name="adc42314b62dd12e31a24733e3937e42b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc42314b62dd12e31a24733e3937e42b">&#9670;&#160;</a></span>ldrTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structTimer.html">Timer</a> ldrTimer = {5000, 0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -659,6 +888,20 @@ Este é o diagrama das funções que utilizam esta função:</div>
       <table class="memname">
         <tr>
           <td class="memname">uint8_t life = 0b1110</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6eec37fa85119f43424399f8de909adc" name="a6eec37fa85119f43424399f8de909adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eec37fa85119f43424399f8de909adc">&#9670;&#160;</a></span>millis_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long millis_count = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
