@@ -138,7 +138,7 @@ void loop() {
     hit();
   }
   ldr_prev = ldr;
-
+  
   if (isTimerOver(ldrTimer)) {
     timerReset(&ldrTimer);
     PORTB ^= (1<<0); // acende e apaga a cada 1s
