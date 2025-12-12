@@ -3,7 +3,7 @@
 #endif
 
 #include <avr/io.h>
-#include <util/delay.h>
+#include <avr/interrupt.h>
 #include "nrf24_avr.h"
 
 #define HIGH 1
@@ -42,38 +42,9 @@ typedef struct {
 } Controls;
 static_assert(sizeof(Controls) == 4);
 
-/**
- * @brief Estrutura de timer simples baseada em millis().
- */
-typedef struct {
-  long duration;
-  long count;
-} Timer;
-
 uint8_t life = 0b1110;
 bool on=false, pressed=false, prev=false;
 bool ldr_prev = false;
-
-Timer ldrTimer = {5000, 0};
-Timer laserTimer = {1000, 0};
-
-unsigned long millis_count = 0;
-
-/**
- * @brief Incrementa o contador de millis. Deve ser chamado a cada 1ms.
- */
-void timer_tick() {
-  _delay_ms(1);
-  millis_count++;
-}
-
-/**
- * @brief Retorna o valor de millis desde o início do programa.
- * @return Tempo em ms.
- */
-unsigned long millis() {
-  return millis_count;
-}
 
 /**
  * @brief Retorna o valor absoluto de um inteiro.
@@ -82,20 +53,24 @@ int abs(int num) {
   return num >= 0 ? num : num * -1;
 }
 
-/**
- * @brief Verifica se o tempo de um timer acabou.
- * @param t Timer a verificar.
- * @return true se o tempo passou.
- */
-bool isTimerOver(Timer t) {
-  return millis() - t.count > t.duration;
+void timer1_setup() {
+    TCCR1A = 0;
+    TCCR1B = (1<<CS12) | (1<<CS10);   // Prescaler de 1024
+    TCNT1 = 49911;
+    TIMSK1 = (1<<TOIE1);
 }
 
-/**
- * @brief Reseta o timer para o valor atual de millis().
- */
-void timerReset(Timer *t) {
-  t->count = millis();
+volatile uint8_t ovf_count = 0;
+ISR(TIMER1_OVF_vect) {
+  TCNT1 = 49911; // preload para a espera de 1s
+  ovf_count++;
+}
+
+void delay_sec(uint8_t seconds) {
+    ovf_count = 0;
+    TCNT1 = 49911;
+
+    while (ovf_count < seconds);
 }
 
 /**
@@ -182,13 +157,17 @@ void motor(Motor motor, Dir dir, uint8_t value) {
  */
 void hit() {
   life <<= 1;
+
+  // Game Over
   if (life == 0b01110000) {
+    PORTB &= ~(1<<0); // Desliga laser
+    // Gira por 1s
     motor(LEFT,  FORWARD,   200);
     motor(RIGHT, BACKWARDS, 200);
-    _delay_ms(1000);
+    delay_sec(1);
     motor(LEFT,  FORWARD,   0);
     motor(RIGHT, BACKWARDS, 0);
-    _delay_ms(4000);
+    delay_sec(4); // espera os 4 segundos restantes para contar 5s
     life = 0b1110;
   }
 }
@@ -197,8 +176,6 @@ void hit() {
  * @brief Laço principal contendo toda a lógica do robô.
  */
 void loop() {
-  timer_tick();
-
   pressed = IS_PRESSED;
   if (pressed && !prev) on = !on;
   prev = pressed;
@@ -209,23 +186,24 @@ void loop() {
   if (ldr && !ldr_prev) hit();
   ldr_prev = ldr;
 
-  // Acender o laser
-  if (isTimerOver(laserTimer)) {
-    timerReset(&laserTimer);
-    PORTB ^= (1<<0);
-  }
-
-  Controls gamepad;
+  // Recebendo os dados do controle
+  Controls gamepad = {0, 0, 1, 1}; // desativa tudo caso a recepção falhe
   int available = nrf24_available();
   LED(LED2, available);
-
+  
   if (available) {
     nrf24_read(&gamepad, sizeof(gamepad));
   }
 
-  // Vida
+  // Alterna o laser a cada 1s
+  if (ovf_count >= 1) {
+    ovf_count = 0;
 
-  PORTC = life;
+    PORTB ^= (1<<0);
+  }
+
+  // Vida
+  // PORTC = life;
 
   // Controle do Motor
   if (gamepad.x < -100) {
@@ -245,8 +223,12 @@ void loop() {
  * @brief Função principal: inicializa periféricos e roda loop().
  */
 int main() {
+  timer1_setup();
   analog_setup();
 
+  sei();
+
+  // Preferi definir desse jeito pela facilidade
   DDRB |= 0b00000001;
   DDRC |= 0b00001110;
   DDRD |= 0b01111110;

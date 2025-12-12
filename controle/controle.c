@@ -3,11 +3,13 @@
 #endif
 
 #include <avr/io.h>
-#include <util/delay.h>
+#include <avr/interrupt.h>
 #include "nrf24_avr.h"
 
 #define HIGH 1
 #define LOW  0
+
+#define DEADZONE 60
 
 // Mapeamento físico equivalente ao Arduino
 #define LED1 3
@@ -75,7 +77,7 @@ uint16_t adc_read(uint8_t ch) {
  */
 void pwm_setup() {
     // LED1 -> PD3 (OC2B)
-    DDRD |= (1 << PD3);
+    DDRD |= (1 << 3);
     TCCR2A = (1<<WGM21) | (1<<WGM20) | (1<<COM2B1);
     TCCR2B = (1<<CS21);   // prescaler 8
 
@@ -101,11 +103,35 @@ void pwm_write(uint8_t pin, uint8_t value) {
  */
 int abs_int(int n) { return n >= 0 ? n : -n; }
 
+void timer0_setup() {
+    sei();
+    TCCR0A = 0;
+    TCCR0B = (1 << CS02) | (1 << CS00); // Prescaler de 1024
+    TIMSK0 = (1 << TOIE0);
+    TCNT0 = 0;
+}
+
+volatile uint8_t ovf_count = 0;
+ISR(TIMER0_OVF_vect) {
+    ovf_count++;
+}
+
+void delay20ms() {
+    ovf_count = 0;
+    TCNT0 = 0;
+
+    // Espera 1 ovf + 56 counts = 20ms
+    while (ovf_count < 1);
+    while (TCNT0 < 56);
+}
+
+
 /**
  * @brief Inicializações principais (ADC, PWM, entradas e rádio).
  */
 void setup() {
-
+    timer0_setup();
+    
     adc_setup();
     pwm_setup();
 
@@ -131,16 +157,16 @@ void loop() {
     gamepad.sw = (int8_t)(!(PINC & (1<<JS)));
     gamepad.trigger = (int8_t)(!(PINC & (1<<TRIGGER)));
 
-    // DEADZONE 
-    if (gamepad.x > -75 && gamepad.x < 75) gamepad.x = 0;
-    if (gamepad.y > -75 && gamepad.y < 75) gamepad.y = 0;
+    // DEADZONE
+    if (gamepad.x > -DEADZONE && gamepad.x < DEADZONE) gamepad.x = 0;
+    if (gamepad.y > -DEADZONE && gamepad.y < DEADZONE) gamepad.y = 0;
 
     uint8_t ok = nrf24_write(&gamepad, sizeof(gamepad));
 
     pwm_write(LED2, ok);
     pwm_write(LED1, abs_int(gamepad.y) * 2);
 
-    _delay_ms(20);
+    delay20ms();
 }
 
 /**
@@ -148,5 +174,5 @@ void loop() {
  */
 int main() {
     setup();
-    while (1) { loop(); }
+    while (1) loop();
 }
