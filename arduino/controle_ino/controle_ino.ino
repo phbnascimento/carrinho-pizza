@@ -39,6 +39,7 @@
 
     gamepad.x = (int8_t) map(analogRead(JX), 0, 1023, -127, 127);
     gamepad.y = (int8_t) map(analogRead(JY), 0, 1023, -127, 127);
+    
     gamepad.sw = (int8_t) (!digitalRead(JS));
     gamepad.trigger = (int8_t) (!digitalRead(TRIGGER));
 

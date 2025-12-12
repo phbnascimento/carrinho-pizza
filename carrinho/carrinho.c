@@ -180,8 +180,7 @@ void loop() {
   if (pressed && !prev) on = !on;
   prev = pressed;
 
-  uint16_t ldr_val = analog_read(LDR);
-  bool ldr = ldr_val > 800;
+  bool ldr = (analog_read(LDR) > 800);
 
   if (ldr && !ldr_prev) hit();
   ldr_prev = ldr;

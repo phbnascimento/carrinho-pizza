@@ -65,10 +65,16 @@ void motor(Motor motor, Dir dir, uint8_t value) {
 }
 
 // Acabou para o Beta
+bool gameover = false;
 void gameOver() {
+  gameover = true;
+
+  // Desliga o laser
+  PORTB &= ~(1<<0);
+
   // Gira 180 e desliga por 5s
-  motor(LEFT,  FORWARD,   200);
-  motor(RIGHT, BACKWARDS, 200);
+  motor(LEFT,  FORWARD,   220);
+  motor(RIGHT, BACKWARDS, 220);
   delay(1000);
   motor(LEFT,  FORWARD,   0);
   motor(RIGHT, BACKWARDS, 0);
@@ -110,7 +116,6 @@ void setup() {
 
   pinMode(BTN, INPUT_PULLUP);
 
-  ldrTimer   = {5000, 0};
   laserTimer = {1000, 0};
 
   motor(LEFT, FORWARD, 0);
@@ -119,11 +124,13 @@ void setup() {
 
 void hit() {
   life <<= 1;
+  PORTC = life; // garantindo que todos os leds apagarão, senão não atualiza até o fim de gameover.
 
   if (life == 0b01110000) gameOver();
 }
 
 bool ldr_prev = false;
+Controls gamepad = {0, 0, 0, 0};
 void loop() {
   // Botão "just pressed"
   pressed = IS_PRESSED; // Para sincronizar todos os valores, pois a leitura pode falhar.
@@ -134,26 +141,30 @@ void loop() {
 
   // Leitura LDR
   bool ldr = analogRead(LDR) > 800;
-  if (ldr && ! ldr_prev) {
+  if (ldr && !ldr_prev && !gameover) {
     hit();
   }
   ldr_prev = ldr;
   
-  if (isTimerOver(ldrTimer)) {
-    timerReset(&ldrTimer);
+  if (isTimerOver(laserTimer)) {
+    timerReset(&laserTimer);
     PORTB ^= (1<<0); // acende e apaga a cada 1s
   }
   
-  Controls gamepad;
   bool available = radio.available();
-  digitalWrite(LED2, available);
+  // digitalWrite(LED2, available);
 
   if (available) {
     radio.read(&gamepad, sizeof(gamepad));
   }
 
   // Vida
-  PORTC = life;
+  if (gameover) PORTC = 0b0100;
+  else PORTC = life;
+
+  if (gamepad.trigger) gameover = false;
+
+  if (gameover) return;
 
   // Controle do Motor
   if (gamepad.x < -100) {
@@ -164,7 +175,6 @@ void loop() {
 
   if (gamepad.x > 100) {
     motor(RIGHT,  FORWARD, 0);
-
   } else {
     motor(RIGHT,  gamepad.y > 0 ? FORWARD : BACKWARDS, abs(gamepad.y) * 2);
   }
