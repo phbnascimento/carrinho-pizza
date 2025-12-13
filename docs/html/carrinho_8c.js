@@ -1,7 +1,6 @@
 var carrinho_8c =
 [
     [ "Controls", "structControls.html", "structControls" ],
-    [ "Timer", "structTimer.html", "structTimer" ],
     [ "BTN", "carrinho_8c.html#ad475217c28645ec178b59c745f3fc3ba", null ],
     [ "ENA", "carrinho_8c.html#ac20176fb102e81762b5bb8a08b65a206", null ],
     [ "ENB", "carrinho_8c.html#afb4da94c34e8eeb6ebb83676d92ea36b", null ],
@@ -31,21 +30,18 @@ var carrinho_8c =
     [ "analog_read", "carrinho_8c.html#a08bebecdd1ca2d6e7ef3f68cd452ccf9", null ],
     [ "analog_setup", "carrinho_8c.html#a1fc0a8f5b026eb5e606e738ca5434d2d", null ],
     [ "analog_write", "carrinho_8c.html#ac7c0935e24e573b2929d0df7f9e6b82f", null ],
+    [ "delay_sec", "carrinho_8c.html#aca98ea6592036069ef7f48edf7f8c826", null ],
     [ "hit", "carrinho_8c.html#ae85c96d8ab4fe9d1b125421eaaef40e2", null ],
-    [ "isTimerOver", "carrinho_8c.html#a77947cc1d2af5b57aa9e7f701e2c1f51", null ],
+    [ "ISR", "carrinho_8c.html#ab16889ae984b9b798989a0d239283cac", null ],
     [ "loop", "carrinho_8c.html#afe461d27b9c48d5921c00d521181f12f", null ],
     [ "main", "carrinho_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4", null ],
-    [ "millis", "carrinho_8c.html#a6ff7f2532a22366f0013bc41397129fd", null ],
     [ "motor", "carrinho_8c.html#a83f9abde8522ce95dd4c5ce5ba3d9d39", null ],
-    [ "timer_tick", "carrinho_8c.html#a1d20445f4dfe5c6183e929ef7221d4d4", null ],
-    [ "timerReset", "carrinho_8c.html#a8019f056ad898f0e555eb56190617c2b", null ],
+    [ "timer1_setup", "carrinho_8c.html#a09dd35e11fe4a5c9278847c009477602", null ],
     [ "addr", "carrinho_8c.html#a0d5aeb028158bc168b01ed3bf2a385be", null ],
-    [ "laserTimer", "carrinho_8c.html#aea7da615a218e8633ad839a5d7a6cbb9", null ],
     [ "ldr_prev", "carrinho_8c.html#a171c692ff21cffa8f4931841654bf8c7", null ],
-    [ "ldrTimer", "carrinho_8c.html#adc42314b62dd12e31a24733e3937e42b", null ],
     [ "life", "carrinho_8c.html#a5694338c1bcb4455072af4179913d44d", null ],
-    [ "millis_count", "carrinho_8c.html#a6eec37fa85119f43424399f8de909adc", null ],
     [ "on", "carrinho_8c.html#aaa928c9a62449f7946da1e32f66c70d2", null ],
+    [ "ovf_count", "carrinho_8c.html#abbd387e7138a4c76bc186cd5ed969ede", null ],
     [ "pressed", "carrinho_8c.html#a132ba96da5ba28448b61e42c019312a9", null ],
     [ "prev", "carrinho_8c.html#af2f56090dc8a3b112529c55e98dd04a7", null ]
 ];

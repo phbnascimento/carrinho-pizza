@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['lasertimer_0',['laserTimer',['../carrinho__ino_8ino.html#aea7da615a218e8633ad839a5d7a6cbb9',1,'laserTimer:&#160;carrinho_ino.ino'],['../carrinho_8c.html#aea7da615a218e8633ad839a5d7a6cbb9',1,'laserTimer:&#160;carrinho.c']]],
-  ['ldr_5fprev_1',['ldr_prev',['../carrinho__ino_8ino.html#a171c692ff21cffa8f4931841654bf8c7',1,'ldr_prev:&#160;carrinho_ino.ino'],['../carrinho_8c.html#a171c692ff21cffa8f4931841654bf8c7',1,'ldr_prev:&#160;carrinho.c']]],
-  ['ldrtimer_2',['ldrTimer',['../carrinho__ino_8ino.html#adc42314b62dd12e31a24733e3937e42b',1,'ldrTimer:&#160;carrinho_ino.ino'],['../carrinho_8c.html#adc42314b62dd12e31a24733e3937e42b',1,'ldrTimer:&#160;carrinho.c']]],
-  ['life_3',['life',['../carrinho__ino_8ino.html#a5694338c1bcb4455072af4179913d44d',1,'life:&#160;carrinho_ino.ino'],['../carrinho_8c.html#a5694338c1bcb4455072af4179913d44d',1,'life:&#160;carrinho.c']]]
+  ['gameover_0',['gameover',['../carrinho__ino_8ino.html#a5b43e44f713e3c93be6db1e65774c2db',1,'carrinho_ino.ino']]],
+  ['gamepad_1',['gamepad',['../carrinho__ino_8ino.html#a2f8de9cd8a7c72afe6821db40ca5d450',1,'carrinho_ino.ino']]]
 ];

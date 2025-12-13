@@ -1,9 +1,10 @@
 \doxysection{Referência ao ficheiro carrinho/carrinho.c}
 \hypertarget{carrinho_8c}{}\label{carrinho_8c}\index{carrinho/carrinho.c@{carrinho/carrinho.c}}
 {\ttfamily \#include $<$avr/io.\+h$>$}\newline
-{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
 {\ttfamily \#include "{}nrf24\+\_\+avr.\+h"{}}\newline
-Diagrama de dependências de inclusão para carrinho.\+c\+:\nopagebreak
+Diagrama de dependências de inclusão para carrinho.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -14,9 +15,7 @@ Diagrama de dependências de inclusão para carrinho.\+c\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structControls}{Controls}}
-\begin{DoxyCompactList}\small\item\em Estrutura recebida do controle remoto contendo eixos e botões. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structTimer}{Timer}}
-\begin{DoxyCompactList}\small\item\em Estrutura de timer simples baseada em \doxylink{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}{millis()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Estrutura recebida do controle remoto contendo eixos e botões. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -68,16 +67,14 @@ enum \mbox{\hyperlink{carrinho_8c_a7cf6e8c5a5bc5e7b2afef3647870b1c4}{Dir}} \{ \m
 \doxysubsubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{carrinho_8c_a1d20445f4dfe5c6183e929ef7221d4d4}{timer\+\_\+tick}} ()
-\begin{DoxyCompactList}\small\item\em Incrementa o contador de millis. Deve ser chamado a cada 1ms. \end{DoxyCompactList}\item 
-unsigned long \mbox{\hyperlink{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}{millis}} ()
-\begin{DoxyCompactList}\small\item\em Retorna o valor de millis desde o início do programa. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{carrinho_8c_aaa87dddb1e62142fd07ee17db1b5d673}{abs}} (int num)
 \begin{DoxyCompactList}\small\item\em Retorna o valor absoluto de um inteiro. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51}{is\+Timer\+Over}} (\mbox{\hyperlink{structTimer}{Timer}} t)
-\begin{DoxyCompactList}\small\item\em Verifica se o tempo de um timer acabou. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{carrinho_8c_a8019f056ad898f0e555eb56190617c2b}{timer\+Reset}} (\mbox{\hyperlink{structTimer}{Timer}} \texorpdfstring{$\ast$}{*}t)
-\begin{DoxyCompactList}\small\item\em Reseta o timer para o valor atual de \doxylink{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}{millis()}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{carrinho_8c_a09dd35e11fe4a5c9278847c009477602}{timer1\+\_\+setup}} ()
+\item 
+\mbox{\hyperlink{carrinho_8c_ab16889ae984b9b798989a0d239283cac}{ISR}} (TIMER1\+\_\+\+OVF\+\_\+vect)
+\item 
+void \mbox{\hyperlink{carrinho_8c_aca98ea6592036069ef7f48edf7f8c826}{delay\+\_\+sec}} (uint8\+\_\+t seconds)
+\item 
 void \mbox{\hyperlink{carrinho_8c_a1fc0a8f5b026eb5e606e738ca5434d2d}{analog\+\_\+setup}} (void)
 \begin{DoxyCompactList}\small\item\em Configura o ADC e os PWM usados. \end{DoxyCompactList}\item 
 uint16\+\_\+t \mbox{\hyperlink{carrinho_8c_a08bebecdd1ca2d6e7ef3f68cd452ccf9}{analog\+\_\+read}} (uint8\+\_\+t channel)
@@ -107,11 +104,7 @@ bool \mbox{\hyperlink{carrinho_8c_af2f56090dc8a3b112529c55e98dd04a7}{prev}} =fal
 \item 
 bool \mbox{\hyperlink{carrinho_8c_a171c692ff21cffa8f4931841654bf8c7}{ldr\+\_\+prev}} = false
 \item 
-\mbox{\hyperlink{structTimer}{Timer}} \mbox{\hyperlink{carrinho_8c_adc42314b62dd12e31a24733e3937e42b}{ldr\+Timer}} = \{5000, 0\}
-\item 
-\mbox{\hyperlink{structTimer}{Timer}} \mbox{\hyperlink{carrinho_8c_aea7da615a218e8633ad839a5d7a6cbb9}{laser\+Timer}} = \{1000, 0\}
-\item 
-unsigned long \mbox{\hyperlink{carrinho_8c_a6eec37fa85119f43424399f8de909adc}{millis\+\_\+count}} = 0
+volatile uint8\+\_\+t \mbox{\hyperlink{carrinho_8c_abbd387e7138a4c76bc186cd5ed969ede}{ovf\+\_\+count}} = 0
 \end{DoxyCompactItemize}
 
 
@@ -358,6 +351,20 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \includegraphics[width=350pt]{carrinho_8c_ac7c0935e24e573b2929d0df7f9e6b82f_icgraph}
 \end{center}
 \end{figure}
+\Hypertarget{carrinho_8c_aca98ea6592036069ef7f48edf7f8c826}\index{carrinho.c@{carrinho.c}!delay\_sec@{delay\_sec}}
+\index{delay\_sec@{delay\_sec}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{delay\_sec()}{delay\_sec()}}
+{\footnotesize\ttfamily \label{carrinho_8c_aca98ea6592036069ef7f48edf7f8c826} 
+void delay\+\_\+sec (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{seconds}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{carrinho_8c_aca98ea6592036069ef7f48edf7f8c826_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2}\index{carrinho.c@{carrinho.c}!hit@{hit}}
 \index{hit@{hit}!carrinho.c@{carrinho.c}}
 \doxysubsubsection{\texorpdfstring{hit()}{hit()}}
@@ -368,11 +375,12 @@ void hit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 Reduz a vida e executa a penalidade de dano. 
 
-Grafo de chamadas desta função\+:\nopagebreak
+Grafo de chamadas desta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=305pt]{carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2_cgraph}
+\includegraphics[width=325pt]{carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2_cgraph}
 \end{center}
 \end{figure}
 Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
@@ -382,38 +390,12 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \includegraphics[width=259pt]{carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51}\index{carrinho.c@{carrinho.c}!isTimerOver@{isTimerOver}}
-\index{isTimerOver@{isTimerOver}!carrinho.c@{carrinho.c}}
-\doxysubsubsection{\texorpdfstring{isTimerOver()}{isTimerOver()}}
-{\footnotesize\ttfamily \label{carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51} 
-bool is\+Timer\+Over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTimer}{Timer}}}]{t}{}\end{DoxyParamCaption})}
+\Hypertarget{carrinho_8c_ab16889ae984b9b798989a0d239283cac}\index{carrinho.c@{carrinho.c}!ISR@{ISR}}
+\index{ISR@{ISR}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}}
+{\footnotesize\ttfamily \label{carrinho_8c_ab16889ae984b9b798989a0d239283cac} 
+ISR (\begin{DoxyParamCaption}\item[{TIMER1\+\_\+\+OVF\+\_\+vect}]{}{}\end{DoxyParamCaption})}
 
-
-
-Verifica se o tempo de um timer acabou. 
-
-
-\begin{DoxyParams}{Parâmetros}
-{\em t} & \doxylink{structTimer}{Timer} a verificar. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-true se o tempo passou. 
-\end{DoxyReturn}
-Grafo de chamadas desta função\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=234pt]{carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51_cgraph}
-\end{center}
-\end{figure}
-Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=305pt]{carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51_icgraph}
-\end{center}
-\end{figure}
 \Hypertarget{carrinho_8c_afe461d27b9c48d5921c00d521181f12f}\index{carrinho.c@{carrinho.c}!loop@{loop}}
 \index{loop@{loop}!carrinho.c@{carrinho.c}}
 \doxysubsubsection{\texorpdfstring{loop()}{loop()}}
@@ -424,7 +406,8 @@ void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 Laço principal contendo toda a lógica do robô. 
 
-Grafo de chamadas desta função\+:\nopagebreak
+Grafo de chamadas desta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -448,31 +431,12 @@ int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
 Função principal\+: inicializa periféricos e roda \doxylink{carrinho_8c_afe461d27b9c48d5921c00d521181f12f}{loop()}. 
 
-Grafo de chamadas desta função\+:\nopagebreak
+Grafo de chamadas desta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{carrinho_8c_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
-\end{center}
-\end{figure}
-\Hypertarget{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}\index{carrinho.c@{carrinho.c}!millis@{millis}}
-\index{millis@{millis}!carrinho.c@{carrinho.c}}
-\doxysubsubsection{\texorpdfstring{millis()}{millis()}}
-{\footnotesize\ttfamily \label{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd} 
-unsigned long millis (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Retorna o valor de millis desde o início do programa. 
-
-\begin{DoxyReturn}{Retorna}
-Tempo em ms. 
-\end{DoxyReturn}
-Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd_icgraph}
 \end{center}
 \end{figure}
 \Hypertarget{carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39}\index{carrinho.c@{carrinho.c}!motor@{motor}}
@@ -508,45 +472,18 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \includegraphics[width=340pt]{carrinho_8c_a83f9abde8522ce95dd4c5ce5ba3d9d39_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{carrinho_8c_a1d20445f4dfe5c6183e929ef7221d4d4}\index{carrinho.c@{carrinho.c}!timer\_tick@{timer\_tick}}
-\index{timer\_tick@{timer\_tick}!carrinho.c@{carrinho.c}}
-\doxysubsubsection{\texorpdfstring{timer\_tick()}{timer\_tick()}}
-{\footnotesize\ttfamily \label{carrinho_8c_a1d20445f4dfe5c6183e929ef7221d4d4} 
-void timer\+\_\+tick (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\Hypertarget{carrinho_8c_a09dd35e11fe4a5c9278847c009477602}\index{carrinho.c@{carrinho.c}!timer1\_setup@{timer1\_setup}}
+\index{timer1\_setup@{timer1\_setup}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{timer1\_setup()}{timer1\_setup()}}
+{\footnotesize\ttfamily \label{carrinho_8c_a09dd35e11fe4a5c9278847c009477602} 
+void timer1\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-
-
-Incrementa o contador de millis. Deve ser chamado a cada 1ms. 
-
-Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=295pt]{carrinho_8c_a1d20445f4dfe5c6183e929ef7221d4d4_icgraph}
-\end{center}
-\end{figure}
-\Hypertarget{carrinho_8c_a8019f056ad898f0e555eb56190617c2b}\index{carrinho.c@{carrinho.c}!timerReset@{timerReset}}
-\index{timerReset@{timerReset}!carrinho.c@{carrinho.c}}
-\doxysubsubsection{\texorpdfstring{timerReset()}{timerReset()}}
-{\footnotesize\ttfamily \label{carrinho_8c_a8019f056ad898f0e555eb56190617c2b} 
-void timer\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTimer}{Timer}} \texorpdfstring{$\ast$}{*}}]{t}{}\end{DoxyParamCaption})}
-
-
-
-Reseta o timer para o valor atual de \doxylink{carrinho_8c_a6ff7f2532a22366f0013bc41397129fd}{millis()}. 
-
-Grafo de chamadas desta função\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=229pt]{carrinho_8c_a8019f056ad898f0e555eb56190617c2b_cgraph}
-\end{center}
-\end{figure}
-Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=300pt]{carrinho_8c_a8019f056ad898f0e555eb56190617c2b_icgraph}
+\includegraphics[width=237pt]{carrinho_8c_a09dd35e11fe4a5c9278847c009477602_icgraph}
 \end{center}
 \end{figure}
 
@@ -560,23 +497,11 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 {\footnotesize\ttfamily \label{carrinho_8c_a0d5aeb028158bc168b01ed3bf2a385be} 
 const uint8\+\_\+t addr\mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}0\textquotesingle{}, \textquotesingle{}1\textquotesingle{}\}}
 
-\Hypertarget{carrinho_8c_aea7da615a218e8633ad839a5d7a6cbb9}\index{carrinho.c@{carrinho.c}!laserTimer@{laserTimer}}
-\index{laserTimer@{laserTimer}!carrinho.c@{carrinho.c}}
-\doxysubsubsection{\texorpdfstring{laserTimer}{laserTimer}}
-{\footnotesize\ttfamily \label{carrinho_8c_aea7da615a218e8633ad839a5d7a6cbb9} 
-\mbox{\hyperlink{structTimer}{Timer}} laser\+Timer = \{1000, 0\}}
-
 \Hypertarget{carrinho_8c_a171c692ff21cffa8f4931841654bf8c7}\index{carrinho.c@{carrinho.c}!ldr\_prev@{ldr\_prev}}
 \index{ldr\_prev@{ldr\_prev}!carrinho.c@{carrinho.c}}
 \doxysubsubsection{\texorpdfstring{ldr\_prev}{ldr\_prev}}
 {\footnotesize\ttfamily \label{carrinho_8c_a171c692ff21cffa8f4931841654bf8c7} 
 bool ldr\+\_\+prev = false}
-
-\Hypertarget{carrinho_8c_adc42314b62dd12e31a24733e3937e42b}\index{carrinho.c@{carrinho.c}!ldrTimer@{ldrTimer}}
-\index{ldrTimer@{ldrTimer}!carrinho.c@{carrinho.c}}
-\doxysubsubsection{\texorpdfstring{ldrTimer}{ldrTimer}}
-{\footnotesize\ttfamily \label{carrinho_8c_adc42314b62dd12e31a24733e3937e42b} 
-\mbox{\hyperlink{structTimer}{Timer}} ldr\+Timer = \{5000, 0\}}
 
 \Hypertarget{carrinho_8c_a5694338c1bcb4455072af4179913d44d}\index{carrinho.c@{carrinho.c}!life@{life}}
 \index{life@{life}!carrinho.c@{carrinho.c}}
@@ -584,17 +509,17 @@ bool ldr\+\_\+prev = false}
 {\footnotesize\ttfamily \label{carrinho_8c_a5694338c1bcb4455072af4179913d44d} 
 uint8\+\_\+t life = 0b1110}
 
-\Hypertarget{carrinho_8c_a6eec37fa85119f43424399f8de909adc}\index{carrinho.c@{carrinho.c}!millis\_count@{millis\_count}}
-\index{millis\_count@{millis\_count}!carrinho.c@{carrinho.c}}
-\doxysubsubsection{\texorpdfstring{millis\_count}{millis\_count}}
-{\footnotesize\ttfamily \label{carrinho_8c_a6eec37fa85119f43424399f8de909adc} 
-unsigned long millis\+\_\+count = 0}
-
 \Hypertarget{carrinho_8c_aaa928c9a62449f7946da1e32f66c70d2}\index{carrinho.c@{carrinho.c}!on@{on}}
 \index{on@{on}!carrinho.c@{carrinho.c}}
 \doxysubsubsection{\texorpdfstring{on}{on}}
 {\footnotesize\ttfamily \label{carrinho_8c_aaa928c9a62449f7946da1e32f66c70d2} 
 bool on =false}
+
+\Hypertarget{carrinho_8c_abbd387e7138a4c76bc186cd5ed969ede}\index{carrinho.c@{carrinho.c}!ovf\_count@{ovf\_count}}
+\index{ovf\_count@{ovf\_count}!carrinho.c@{carrinho.c}}
+\doxysubsubsection{\texorpdfstring{ovf\_count}{ovf\_count}}
+{\footnotesize\ttfamily \label{carrinho_8c_abbd387e7138a4c76bc186cd5ed969ede} 
+volatile uint8\+\_\+t ovf\+\_\+count = 0}
 
 \Hypertarget{carrinho_8c_a132ba96da5ba28448b61e42c019312a9}\index{carrinho.c@{carrinho.c}!pressed@{pressed}}
 \index{pressed@{pressed}!carrinho.c@{carrinho.c}}

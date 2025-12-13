@@ -93,20 +93,18 @@ $(function(){initNavTree('carrinho_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
-<code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &lt;avr/interrupt.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="carrinho_2nrf24__avr_8h_source.html">nrf24_avr.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para carrinho.c:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c__incl.svg" width="455" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c__incl.svg" width="478" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Estruturas de Dados</h2></td></tr>
 <tr class="memitem:Controls" id="r_Controls"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControls.html">Controls</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura recebida do controle remoto contendo eixos e botões.  <a href="structControls.html#details">Mais...</a><br /></td></tr>
-<tr class="memitem:Timer" id="r_Timer"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTimer.html">Timer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura de timer simples baseada em <a class="el" href="#a6ff7f2532a22366f0013bc41397129fd" title="Retorna o valor de millis desde o início do programa.">millis()</a>.  <a href="structTimer.html#details">Mais...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -141,16 +139,11 @@ Enumerações</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:a1d20445f4dfe5c6183e929ef7221d4d4" id="r_a1d20445f4dfe5c6183e929ef7221d4d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d20445f4dfe5c6183e929ef7221d4d4">timer_tick</a> ()</td></tr>
-<tr class="memdesc:a1d20445f4dfe5c6183e929ef7221d4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incrementa o contador de millis. Deve ser chamado a cada 1ms.  <br /></td></tr>
-<tr class="memitem:a6ff7f2532a22366f0013bc41397129fd" id="r_a6ff7f2532a22366f0013bc41397129fd"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ff7f2532a22366f0013bc41397129fd">millis</a> ()</td></tr>
-<tr class="memdesc:a6ff7f2532a22366f0013bc41397129fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o valor de millis desde o início do programa.  <br /></td></tr>
 <tr class="memitem:aaa87dddb1e62142fd07ee17db1b5d673" id="r_aaa87dddb1e62142fd07ee17db1b5d673"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa87dddb1e62142fd07ee17db1b5d673">abs</a> (int num)</td></tr>
 <tr class="memdesc:aaa87dddb1e62142fd07ee17db1b5d673"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o valor absoluto de um inteiro.  <br /></td></tr>
-<tr class="memitem:a77947cc1d2af5b57aa9e7f701e2c1f51" id="r_a77947cc1d2af5b57aa9e7f701e2c1f51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77947cc1d2af5b57aa9e7f701e2c1f51">isTimerOver</a> (<a class="el" href="structTimer.html">Timer</a> t)</td></tr>
-<tr class="memdesc:a77947cc1d2af5b57aa9e7f701e2c1f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o tempo de um timer acabou.  <br /></td></tr>
-<tr class="memitem:a8019f056ad898f0e555eb56190617c2b" id="r_a8019f056ad898f0e555eb56190617c2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8019f056ad898f0e555eb56190617c2b">timerReset</a> (<a class="el" href="structTimer.html">Timer</a> *t)</td></tr>
-<tr class="memdesc:a8019f056ad898f0e555eb56190617c2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reseta o timer para o valor atual de <a class="el" href="#a6ff7f2532a22366f0013bc41397129fd" title="Retorna o valor de millis desde o início do programa.">millis()</a>.  <br /></td></tr>
+<tr class="memitem:a09dd35e11fe4a5c9278847c009477602" id="r_a09dd35e11fe4a5c9278847c009477602"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09dd35e11fe4a5c9278847c009477602">timer1_setup</a> ()</td></tr>
+<tr class="memitem:ab16889ae984b9b798989a0d239283cac" id="r_ab16889ae984b9b798989a0d239283cac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab16889ae984b9b798989a0d239283cac">ISR</a> (TIMER1_OVF_vect)</td></tr>
+<tr class="memitem:aca98ea6592036069ef7f48edf7f8c826" id="r_aca98ea6592036069ef7f48edf7f8c826"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca98ea6592036069ef7f48edf7f8c826">delay_sec</a> (uint8_t seconds)</td></tr>
 <tr class="memitem:a1fc0a8f5b026eb5e606e738ca5434d2d" id="r_a1fc0a8f5b026eb5e606e738ca5434d2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc0a8f5b026eb5e606e738ca5434d2d">analog_setup</a> (void)</td></tr>
 <tr class="memdesc:a1fc0a8f5b026eb5e606e738ca5434d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura o ADC e os PWM usados.  <br /></td></tr>
 <tr class="memitem:a08bebecdd1ca2d6e7ef3f68cd452ccf9" id="r_a08bebecdd1ca2d6e7ef3f68cd452ccf9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08bebecdd1ca2d6e7ef3f68cd452ccf9">analog_read</a> (uint8_t channel)</td></tr>
@@ -174,9 +167,7 @@ Variáveis</h2></td></tr>
 <tr class="memitem:a132ba96da5ba28448b61e42c019312a9" id="r_a132ba96da5ba28448b61e42c019312a9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a132ba96da5ba28448b61e42c019312a9">pressed</a> =false</td></tr>
 <tr class="memitem:af2f56090dc8a3b112529c55e98dd04a7" id="r_af2f56090dc8a3b112529c55e98dd04a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2f56090dc8a3b112529c55e98dd04a7">prev</a> =false</td></tr>
 <tr class="memitem:a171c692ff21cffa8f4931841654bf8c7" id="r_a171c692ff21cffa8f4931841654bf8c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a171c692ff21cffa8f4931841654bf8c7">ldr_prev</a> = false</td></tr>
-<tr class="memitem:adc42314b62dd12e31a24733e3937e42b" id="r_adc42314b62dd12e31a24733e3937e42b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTimer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc42314b62dd12e31a24733e3937e42b">ldrTimer</a> = {5000, 0}</td></tr>
-<tr class="memitem:aea7da615a218e8633ad839a5d7a6cbb9" id="r_aea7da615a218e8633ad839a5d7a6cbb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTimer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea7da615a218e8633ad839a5d7a6cbb9">laserTimer</a> = {1000, 0}</td></tr>
-<tr class="memitem:a6eec37fa85119f43424399f8de909adc" id="r_a6eec37fa85119f43424399f8de909adc"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6eec37fa85119f43424399f8de909adc">millis_count</a> = 0</td></tr>
+<tr class="memitem:abbd387e7138a4c76bc186cd5ed969ede" id="r_abbd387e7138a4c76bc186cd5ed969ede"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbd387e7138a4c76bc186cd5ed969ede">ovf_count</a> = 0</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentação das macros</h2>
 <a id="ad475217c28645ec178b59c745f3fc3ba" name="ad475217c28645ec178b59c745f3fc3ba"></a>
@@ -581,6 +572,28 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 </div>
 </div>
+<a id="aca98ea6592036069ef7f48edf7f8c826" name="aca98ea6592036069ef7f48edf7f8c826"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca98ea6592036069ef7f48edf7f8c826">&#9670;&#160;</a></span>delay_sec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delay_sec </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>seconds</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_aca98ea6592036069ef7f48edf7f8c826_icgraph.svg" width="383" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="ae85c96d8ab4fe9d1b125421eaaef40e2" name="ae85c96d8ab4fe9d1b125421eaaef40e2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae85c96d8ab4fe9d1b125421eaaef40e2">&#9670;&#160;</a></span>hit()</h2>
 
@@ -600,7 +613,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2_cgraph.svg" width="311" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_ae85c96d8ab4fe9d1b125421eaaef40e2_cgraph.svg" width="338" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
@@ -610,39 +623,20 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 </div>
 </div>
-<a id="a77947cc1d2af5b57aa9e7f701e2c1f51" name="a77947cc1d2af5b57aa9e7f701e2c1f51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77947cc1d2af5b57aa9e7f701e2c1f51">&#9670;&#160;</a></span>isTimerOver()</h2>
+<a id="ab16889ae984b9b798989a0d239283cac" name="ab16889ae984b9b798989a0d239283cac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab16889ae984b9b798989a0d239283cac">&#9670;&#160;</a></span>ISR()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool isTimerOver </td>
+          <td class="memname">ISR </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structTimer.html">Timer</a></td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td class="paramtype">TIMER1_OVF_vect</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Verifica se o tempo de um timer acabou. </p>
-<dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td><a class="el" href="structTimer.html" title="Estrutura de timer simples baseada em millis().">Timer</a> a verificar. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se o tempo passou. </dd></dl>
-<div class="dynheader">
-Grafo de chamadas desta função:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51_cgraph.svg" width="216" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a77947cc1d2af5b57aa9e7f701e2c1f51_icgraph.svg" width="311" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -665,7 +659,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="100%" height="542"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
@@ -695,31 +689,6 @@ Este é o diagrama das funções que utilizam esta função:</div>
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a6ff7f2532a22366f0013bc41397129fd" name="a6ff7f2532a22366f0013bc41397129fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ff7f2532a22366f0013bc41397129fd">&#9670;&#160;</a></span>millis()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned long millis </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retorna o valor de millis desde o início do programa. </p>
-<dl class="section return"><dt>Retorna</dt><dd>Tempo em ms. </dd></dl>
-<div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a6ff7f2532a22366f0013bc41397129fd_icgraph.svg" width="416" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -770,55 +739,24 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 </div>
 </div>
-<a id="a1d20445f4dfe5c6183e929ef7221d4d4" name="a1d20445f4dfe5c6183e929ef7221d4d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d20445f4dfe5c6183e929ef7221d4d4">&#9670;&#160;</a></span>timer_tick()</h2>
+<a id="a09dd35e11fe4a5c9278847c009477602" name="a09dd35e11fe4a5c9278847c009477602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09dd35e11fe4a5c9278847c009477602">&#9670;&#160;</a></span>timer1_setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void timer_tick </td>
+          <td class="memname">void timer1_setup </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Incrementa o contador de millis. Deve ser chamado a cada 1ms. </p>
 <div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a1d20445f4dfe5c6183e929ef7221d4d4_icgraph.svg" width="298" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a8019f056ad898f0e555eb56190617c2b" name="a8019f056ad898f0e555eb56190617c2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8019f056ad898f0e555eb56190617c2b">&#9670;&#160;</a></span>timerReset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void timerReset </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structTimer.html">Timer</a> *</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reseta o timer para o valor atual de <a class="el" href="#a6ff7f2532a22366f0013bc41397129fd" title="Retorna o valor de millis desde o início do programa.">millis()</a>. </p>
-<div class="dynheader">
-Grafo de chamadas desta função:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a8019f056ad898f0e555eb56190617c2b_cgraph.svg" width="210" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a8019f056ad898f0e555eb56190617c2b_icgraph.svg" width="304" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="carrinho_8c_a09dd35e11fe4a5c9278847c009477602_icgraph.svg" width="220" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -832,20 +770,6 @@ Este é o diagrama das funções que utilizam esta função:</div>
       <table class="memname">
         <tr>
           <td class="memname">const uint8_t addr[5] = {'0', '0', '0', '0', '1'}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aea7da615a218e8633ad839a5d7a6cbb9" name="aea7da615a218e8633ad839a5d7a6cbb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea7da615a218e8633ad839a5d7a6cbb9">&#9670;&#160;</a></span>laserTimer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structTimer.html">Timer</a> laserTimer = {1000, 0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -866,20 +790,6 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 </div>
 </div>
-<a id="adc42314b62dd12e31a24733e3937e42b" name="adc42314b62dd12e31a24733e3937e42b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc42314b62dd12e31a24733e3937e42b">&#9670;&#160;</a></span>ldrTimer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structTimer.html">Timer</a> ldrTimer = {5000, 0}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a5694338c1bcb4455072af4179913d44d" name="a5694338c1bcb4455072af4179913d44d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5694338c1bcb4455072af4179913d44d">&#9670;&#160;</a></span>life</h2>
 
@@ -894,20 +804,6 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 </div>
 </div>
-<a id="a6eec37fa85119f43424399f8de909adc" name="a6eec37fa85119f43424399f8de909adc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6eec37fa85119f43424399f8de909adc">&#9670;&#160;</a></span>millis_count</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned long millis_count = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aaa928c9a62449f7946da1e32f66c70d2" name="aaa928c9a62449f7946da1e32f66c70d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaa928c9a62449f7946da1e32f66c70d2">&#9670;&#160;</a></span>on</h2>
 
@@ -916,6 +812,20 @@ Este é o diagrama das funções que utilizam esta função:</div>
       <table class="memname">
         <tr>
           <td class="memname">bool on =false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbd387e7138a4c76bc186cd5ed969ede" name="abbd387e7138a4c76bc186cd5ed969ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd387e7138a4c76bc186cd5ed969ede">&#9670;&#160;</a></span>ovf_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t ovf_count = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">

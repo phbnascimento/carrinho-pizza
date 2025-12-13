@@ -1,9 +1,10 @@
 \doxysection{Referência ao ficheiro controle/controle.c}
 \hypertarget{controle_8c}{}\label{controle_8c}\index{controle/controle.c@{controle/controle.c}}
 {\ttfamily \#include $<$avr/io.\+h$>$}\newline
-{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
 {\ttfamily \#include "{}nrf24\+\_\+avr.\+h"{}}\newline
-Diagrama de dependências de inclusão para controle.\+c\+:\nopagebreak
+Diagrama de dependências de inclusão para controle.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,6 +24,8 @@ struct \mbox{\hyperlink{structControls}{Controls}}
 \#define \mbox{\hyperlink{controle_8c_a5bb885982ff66a2e0a0a45a8ee9c35e2}{HIGH}}~1
 \item 
 \#define \mbox{\hyperlink{controle_8c_ab811d8c6ff3a505312d3276590444289}{LOW}}~0
+\item 
+\#define \mbox{\hyperlink{controle_8c_a08308e05fa7bbbfcf4ffb7a08aa68fa1}{DEADZONE}}~60
 \item 
 \#define \mbox{\hyperlink{controle_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{LED1}}~3
 \item 
@@ -51,6 +54,12 @@ void \mbox{\hyperlink{controle_8c_a0bf689abd3a20724062e39ce568130b1}{pwm\+\_\+wr
 \begin{DoxyCompactList}\small\item\em Escreve valor PWM em LED1 ou LED2. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{controle_8c_a3785cfdfc42be12ee699c8b8b4e4d01f}{abs\+\_\+int}} (int n)
 \begin{DoxyCompactList}\small\item\em Retorna valor absoluto de um inteiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{controle_8c_a4f423fe45bf39bb0e907e6287b57eb55}{timer0\+\_\+setup}} ()
+\item 
+\mbox{\hyperlink{controle_8c_add2d7cdddfb682dcc0391e60cf42c7d6}{ISR}} (TIMER0\+\_\+\+OVF\+\_\+vect)
+\item 
+void \mbox{\hyperlink{controle_8c_a2d443dafac1b8dfb9be2bc8b797d6820}{delay20ms}} ()
+\item 
 void \mbox{\hyperlink{controle_8c_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
 \begin{DoxyCompactList}\small\item\em Inicializações principais (ADC, PWM, entradas e rádio). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{controle_8c_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
@@ -61,12 +70,20 @@ int \mbox{\hyperlink{controle_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \begin{DoxyCompactItemize}
 \item 
 const uint8\+\_\+t \mbox{\hyperlink{controle_8c_a4f926beded94616414d611d5c8099424}{address}} \mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}1\textquotesingle{}\}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{controle_8c_abbd387e7138a4c76bc186cd5ed969ede}{ovf\+\_\+count}} = 0
 \end{DoxyCompactItemize}
 
 
 \label{doc-define-members}
 \Hypertarget{controle_8c_doc-define-members}
 \doxysubsection{Documentação das macros}
+\Hypertarget{controle_8c_a08308e05fa7bbbfcf4ffb7a08aa68fa1}\index{controle.c@{controle.c}!DEADZONE@{DEADZONE}}
+\index{DEADZONE@{DEADZONE}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{DEADZONE}{DEADZONE}}
+{\footnotesize\ttfamily \label{controle_8c_a08308e05fa7bbbfcf4ffb7a08aa68fa1} 
+\#define DEADZONE~60}
+
 \Hypertarget{controle_8c_a43bafb28b29491ec7f871319b5a3b2f8}\index{controle.c@{controle.c}!F\_CPU@{F\_CPU}}
 \index{F\_CPU@{F\_CPU}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
@@ -185,6 +202,26 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \includegraphics[width=301pt]{controle_8c_af5e0a217880b6f6976ff1c2b1297f7a3_icgraph}
 \end{center}
 \end{figure}
+\Hypertarget{controle_8c_a2d443dafac1b8dfb9be2bc8b797d6820}\index{controle.c@{controle.c}!delay20ms@{delay20ms}}
+\index{delay20ms@{delay20ms}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{delay20ms()}{delay20ms()}}
+{\footnotesize\ttfamily \label{controle_8c_a2d443dafac1b8dfb9be2bc8b797d6820} 
+void delay20ms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{controle_8c_a2d443dafac1b8dfb9be2bc8b797d6820_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{controle_8c_add2d7cdddfb682dcc0391e60cf42c7d6}\index{controle.c@{controle.c}!ISR@{ISR}}
+\index{ISR@{ISR}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}}
+{\footnotesize\ttfamily \label{controle_8c_add2d7cdddfb682dcc0391e60cf42c7d6} 
+ISR (\begin{DoxyParamCaption}\item[{TIMER0\+\_\+\+OVF\+\_\+vect}]{}{}\end{DoxyParamCaption})}
+
 \Hypertarget{controle_8c_afe461d27b9c48d5921c00d521181f12f}\index{controle.c@{controle.c}!loop@{loop}}
 \index{loop@{loop}!controle.c@{controle.c}}
 \doxysubsubsection{\texorpdfstring{loop()}{loop()}}
@@ -195,7 +232,8 @@ void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 Loop principal\+: lê controles, aplica deadzone, envia por RF e atualiza LEDs. 
 
-Grafo de chamadas desta função\+:\nopagebreak
+Grafo de chamadas desta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -219,7 +257,8 @@ int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
 Função principal do firmware. 
 
-Grafo de chamadas desta função\+:\nopagebreak
+Grafo de chamadas desta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -310,7 +349,8 @@ void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 Inicializações principais (ADC, PWM, entradas e rádio). 
 
-Grafo de chamadas desta função\+:\nopagebreak
+Grafo de chamadas desta função\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -324,6 +364,20 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \includegraphics[width=200pt]{controle_8c_a4fc01d736fe50cf5b977f755b675f11d_icgraph}
 \end{center}
 \end{figure}
+\Hypertarget{controle_8c_a4f423fe45bf39bb0e907e6287b57eb55}\index{controle.c@{controle.c}!timer0\_setup@{timer0\_setup}}
+\index{timer0\_setup@{timer0\_setup}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{timer0\_setup()}{timer0\_setup()}}
+{\footnotesize\ttfamily \label{controle_8c_a4f423fe45bf39bb0e907e6287b57eb55} 
+void timer0\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{controle_8c_a4f423fe45bf39bb0e907e6287b57eb55_icgraph}
+\end{center}
+\end{figure}
 
 
 \label{doc-var-members}
@@ -334,4 +388,10 @@ Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{address}{address}}
 {\footnotesize\ttfamily \label{controle_8c_a4f926beded94616414d611d5c8099424} 
 const uint8\+\_\+t address\mbox{[}5\mbox{]} = \{\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}1\textquotesingle{}\}}
+
+\Hypertarget{controle_8c_abbd387e7138a4c76bc186cd5ed969ede}\index{controle.c@{controle.c}!ovf\_count@{ovf\_count}}
+\index{ovf\_count@{ovf\_count}!controle.c@{controle.c}}
+\doxysubsubsection{\texorpdfstring{ovf\_count}{ovf\_count}}
+{\footnotesize\ttfamily \label{controle_8c_abbd387e7138a4c76bc186cd5ed969ede} 
+volatile uint8\+\_\+t ovf\+\_\+count = 0}
 

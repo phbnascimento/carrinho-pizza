@@ -93,12 +93,12 @@ $(function(){initNavTree('controle_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
-<code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &lt;avr/interrupt.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="controle_2nrf24__avr_8h_source.html">nrf24_avr.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Diagrama de dependências de inclusão para controle.c:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c__incl.svg" width="455" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c__incl.svg" width="478" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -111,6 +111,7 @@ Macros</h2></td></tr>
 <tr class="memitem:a43bafb28b29491ec7f871319b5a3b2f8" id="r_a43bafb28b29491ec7f871319b5a3b2f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>&#160;&#160;&#160;16000000UL</td></tr>
 <tr class="memitem:a5bb885982ff66a2e0a0a45a8ee9c35e2" id="r_a5bb885982ff66a2e0a0a45a8ee9c35e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memitem:ab811d8c6ff3a505312d3276590444289" id="r_ab811d8c6ff3a505312d3276590444289"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab811d8c6ff3a505312d3276590444289">LOW</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a08308e05fa7bbbfcf4ffb7a08aa68fa1" id="r_a08308e05fa7bbbfcf4ffb7a08aa68fa1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08308e05fa7bbbfcf4ffb7a08aa68fa1">DEADZONE</a>&#160;&#160;&#160;60</td></tr>
 <tr class="memitem:a8aa85ae9867fabf70ec72cd3bf6fb6b9" id="r_a8aa85ae9867fabf70ec72cd3bf6fb6b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a>&#160;&#160;&#160;3</td></tr>
 <tr class="memitem:ad09fe5bf321b9a2de26bd5e5b9af6424" id="r_ad09fe5bf321b9a2de26bd5e5b9af6424"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad09fe5bf321b9a2de26bd5e5b9af6424">LED2</a>&#160;&#160;&#160;5</td></tr>
 <tr class="memitem:ab03428ee7292eb7bc1f40c08b91f49ab" id="r_ab03428ee7292eb7bc1f40c08b91f49ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab03428ee7292eb7bc1f40c08b91f49ab">JY</a>&#160;&#160;&#160;0</td></tr>
@@ -132,6 +133,9 @@ Funções</h2></td></tr>
 <tr class="memdesc:a0bf689abd3a20724062e39ce568130b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escreve valor PWM em LED1 ou LED2.  <br /></td></tr>
 <tr class="memitem:a3785cfdfc42be12ee699c8b8b4e4d01f" id="r_a3785cfdfc42be12ee699c8b8b4e4d01f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3785cfdfc42be12ee699c8b8b4e4d01f">abs_int</a> (int n)</td></tr>
 <tr class="memdesc:a3785cfdfc42be12ee699c8b8b4e4d01f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna valor absoluto de um inteiro.  <br /></td></tr>
+<tr class="memitem:a4f423fe45bf39bb0e907e6287b57eb55" id="r_a4f423fe45bf39bb0e907e6287b57eb55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f423fe45bf39bb0e907e6287b57eb55">timer0_setup</a> ()</td></tr>
+<tr class="memitem:add2d7cdddfb682dcc0391e60cf42c7d6" id="r_add2d7cdddfb682dcc0391e60cf42c7d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add2d7cdddfb682dcc0391e60cf42c7d6">ISR</a> (TIMER0_OVF_vect)</td></tr>
+<tr class="memitem:a2d443dafac1b8dfb9be2bc8b797d6820" id="r_a2d443dafac1b8dfb9be2bc8b797d6820"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d443dafac1b8dfb9be2bc8b797d6820">delay20ms</a> ()</td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
 <tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializações principais (ADC, PWM, entradas e rádio).  <br /></td></tr>
 <tr class="memitem:afe461d27b9c48d5921c00d521181f12f" id="r_afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
@@ -142,8 +146,23 @@ Funções</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variáveis</h2></td></tr>
 <tr class="memitem:a4f926beded94616414d611d5c8099424" id="r_a4f926beded94616414d611d5c8099424"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f926beded94616414d611d5c8099424">address</a> [5] = {'0','0','0','0','1'}</td></tr>
+<tr class="memitem:abbd387e7138a4c76bc186cd5ed969ede" id="r_abbd387e7138a4c76bc186cd5ed969ede"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbd387e7138a4c76bc186cd5ed969ede">ovf_count</a> = 0</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentação das macros</h2>
+<a id="a08308e05fa7bbbfcf4ffb7a08aa68fa1" name="a08308e05fa7bbbfcf4ffb7a08aa68fa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08308e05fa7bbbfcf4ffb7a08aa68fa1">&#9670;&#160;</a></span>DEADZONE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEADZONE&#160;&#160;&#160;60</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a43bafb28b29491ec7f871319b5a3b2f8" name="a43bafb28b29491ec7f871319b5a3b2f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43bafb28b29491ec7f871319b5a3b2f8">&#9670;&#160;</a></span>F_CPU</h2>
 
@@ -350,6 +369,45 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 </div>
 </div>
+<a id="a2d443dafac1b8dfb9be2bc8b797d6820" name="a2d443dafac1b8dfb9be2bc8b797d6820"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d443dafac1b8dfb9be2bc8b797d6820">&#9670;&#160;</a></span>delay20ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delay20ms </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c_a2d443dafac1b8dfb9be2bc8b797d6820_icgraph.svg" width="304" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="add2d7cdddfb682dcc0391e60cf42c7d6" name="add2d7cdddfb682dcc0391e60cf42c7d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add2d7cdddfb682dcc0391e60cf42c7d6">&#9670;&#160;</a></span>ISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISR </td>
+          <td>(</td>
+          <td class="paramtype">TIMER0_OVF_vect</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afe461d27b9c48d5921c00d521181f12f" name="afe461d27b9c48d5921c00d521181f12f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&#160;</a></span>loop()</h2>
 
@@ -369,7 +427,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
 <div class="dynheader">
 Grafo de chamadas desta função:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="100%" height="560"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c_afe461d27b9c48d5921c00d521181f12f_cgraph.svg" width="100%" height="599"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Este é o diagrama das funções que utilizam esta função:</div>
@@ -545,6 +603,28 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 </div>
 </div>
+<a id="a4f423fe45bf39bb0e907e6287b57eb55" name="a4f423fe45bf39bb0e907e6287b57eb55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f423fe45bf39bb0e907e6287b57eb55">&#9670;&#160;</a></span>timer0_setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer0_setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="controle_8c_a4f423fe45bf39bb0e907e6287b57eb55_icgraph.svg" width="326" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentação das variáveis</h2>
 <a id="a4f926beded94616414d611d5c8099424" name="a4f926beded94616414d611d5c8099424"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f926beded94616414d611d5c8099424">&#9670;&#160;</a></span>address</h2>
@@ -554,6 +634,20 @@ Este é o diagrama das funções que utilizam esta função:</div>
       <table class="memname">
         <tr>
           <td class="memname">const uint8_t address[5] = {'0','0','0','0','1'}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbd387e7138a4c76bc186cd5ed969ede" name="abbd387e7138a4c76bc186cd5ed969ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd387e7138a4c76bc186cd5ed969ede">&#9670;&#160;</a></span>ovf_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t ovf_count = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">

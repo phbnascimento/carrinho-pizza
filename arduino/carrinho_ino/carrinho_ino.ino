@@ -117,7 +117,21 @@ void hit() {
   life <<= 1;
   PORTC = life; // garantindo que todos os leds apagarão, senão não atualiza até o fim de gameover.
 
-  if (life == 0b01110000) gameOver();
+  if (life == 0b01110000) {
+    gameOver();
+    return;
+  }
+
+  // Desliga o laser
+  PORTB &= ~(1<<0);
+
+  // Gira 180 e desliga por 5s
+  motor(LEFT,  FORWARD,   220);
+  motor(RIGHT, BACKWARDS, 220);
+  delay(1000);
+  motor(LEFT,  FORWARD,   0);
+  motor(RIGHT, BACKWARDS, 0);
+  delay(4000);
 }
 
 Controls gamepad = {0, 0, 0, 0};

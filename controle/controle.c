@@ -124,7 +124,7 @@ void delay20ms() {
     while (ovf_count < 1);
     while (TCNT0 < 56);
 }
-
+    
 /**
  * @brief Inicializações principais (ADC, PWM, entradas e rádio).
  */

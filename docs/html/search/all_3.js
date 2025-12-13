@@ -13,7 +13,7 @@ var searchData=
   ['controle_2ec_10',['controle.c',['../controle_8c.html',1,'']]],
   ['controle_5fino_2eino_11',['controle_ino.ino',['../controle__ino_8ino.html',1,'']]],
   ['controls_12',['Controls',['../structControls.html',1,'']]],
-  ['count_13',['count',['../structTimer.html#ae4991a745c62a2919e8be3d17f14fbf1',1,'Timer::count'],['../structTimer.html#a37a2a0ce03e0cfe3180159e35eebf60e',1,'Timer::count']]],
+  ['count_13',['count',['../structTimer.html#ae4991a745c62a2919e8be3d17f14fbf1',1,'Timer']]],
   ['crco_14',['CRCO',['../carrinho_2nRF24L01_8h.html#a253dd73b17f0ea7f71e55f52e796836a',1,'CRCO:&#160;nRF24L01.h'],['../controle_2nRF24L01_8h.html#a253dd73b17f0ea7f71e55f52e796836a',1,'CRCO:&#160;nRF24L01.h']]],
   ['csn_5fhigh_15',['csn_high',['../carrinho_2nrf24__avr_8c.html#adaef88bc02a8e805de3b3a82bf317549',1,'csn_high(void):&#160;nrf24_avr.c'],['../controle_2nrf24__avr_8c.html#adaef88bc02a8e805de3b3a82bf317549',1,'csn_high(void):&#160;nrf24_avr.c']]],
   ['csn_5flow_16',['csn_low',['../carrinho_2nrf24__avr_8c.html#a42f8c1120431b7c37e116a4e1eac1cc2',1,'csn_low(void):&#160;nrf24_avr.c'],['../controle_2nrf24__avr_8c.html#a42f8c1120431b7c37e116a4e1eac1cc2',1,'csn_low(void):&#160;nrf24_avr.c']]],

@@ -1,6 +1,7 @@
 var controle_8c =
 [
     [ "Controls", "structControls.html", "structControls" ],
+    [ "DEADZONE", "controle_8c.html#a08308e05fa7bbbfcf4ffb7a08aa68fa1", null ],
     [ "F_CPU", "controle_8c.html#a43bafb28b29491ec7f871319b5a3b2f8", null ],
     [ "HIGH", "controle_8c.html#a5bb885982ff66a2e0a0a45a8ee9c35e2", null ],
     [ "JS", "controle_8c.html#aea65463ec80bbae979a30002d5aa8558", null ],
@@ -13,11 +14,15 @@ var controle_8c =
     [ "abs_int", "controle_8c.html#a3785cfdfc42be12ee699c8b8b4e4d01f", null ],
     [ "adc_read", "controle_8c.html#a7c3d687942e3acba4e53cac61d9e71ea", null ],
     [ "adc_setup", "controle_8c.html#af5e0a217880b6f6976ff1c2b1297f7a3", null ],
+    [ "delay20ms", "controle_8c.html#a2d443dafac1b8dfb9be2bc8b797d6820", null ],
+    [ "ISR", "controle_8c.html#add2d7cdddfb682dcc0391e60cf42c7d6", null ],
     [ "loop", "controle_8c.html#afe461d27b9c48d5921c00d521181f12f", null ],
     [ "main", "controle_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4", null ],
     [ "map", "controle_8c.html#aada2d75bc8a8c6eb845bd940eadfa3fd", null ],
     [ "pwm_setup", "controle_8c.html#a6b11f55ddc2f9d1125c97a47e4a799f6", null ],
     [ "pwm_write", "controle_8c.html#a0bf689abd3a20724062e39ce568130b1", null ],
     [ "setup", "controle_8c.html#a4fc01d736fe50cf5b977f755b675f11d", null ],
-    [ "address", "controle_8c.html#a4f926beded94616414d611d5c8099424", null ]
+    [ "timer0_setup", "controle_8c.html#a4f423fe45bf39bb0e907e6287b57eb55", null ],
+    [ "address", "controle_8c.html#a4f926beded94616414d611d5c8099424", null ],
+    [ "ovf_count", "controle_8c.html#abbd387e7138a4c76bc186cd5ed969ede", null ]
 ];

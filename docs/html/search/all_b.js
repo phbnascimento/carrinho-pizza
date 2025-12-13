@@ -1,10 +1,10 @@
 var searchData=
 [
   ['laser_0',['LASER',['../carrinho__ino_8ino.html#a7ec8393e9445109104fd54119e06fc08',1,'LASER:&#160;carrinho_ino.ino'],['../carrinho_8c.html#a7ec8393e9445109104fd54119e06fc08',1,'LASER:&#160;carrinho.c']]],
-  ['lasertimer_1',['laserTimer',['../carrinho__ino_8ino.html#aea7da615a218e8633ad839a5d7a6cbb9',1,'laserTimer:&#160;carrinho_ino.ino'],['../carrinho_8c.html#aea7da615a218e8633ad839a5d7a6cbb9',1,'laserTimer:&#160;carrinho.c']]],
+  ['lasertimer_1',['laserTimer',['../carrinho__ino_8ino.html#aea7da615a218e8633ad839a5d7a6cbb9',1,'carrinho_ino.ino']]],
   ['ldr_2',['LDR',['../carrinho__ino_8ino.html#a9fa6f083fd9b05ac8a6b94f34322661e',1,'LDR:&#160;carrinho_ino.ino'],['../carrinho_8c.html#a9fa6f083fd9b05ac8a6b94f34322661e',1,'LDR:&#160;carrinho.c']]],
-  ['ldr_5fprev_3',['ldr_prev',['../carrinho__ino_8ino.html#a171c692ff21cffa8f4931841654bf8c7',1,'ldr_prev:&#160;carrinho_ino.ino'],['../carrinho_8c.html#a171c692ff21cffa8f4931841654bf8c7',1,'ldr_prev:&#160;carrinho.c']]],
-  ['ldrtimer_4',['ldrTimer',['../carrinho__ino_8ino.html#adc42314b62dd12e31a24733e3937e42b',1,'ldrTimer:&#160;carrinho_ino.ino'],['../carrinho_8c.html#adc42314b62dd12e31a24733e3937e42b',1,'ldrTimer:&#160;carrinho.c']]],
+  ['ldr_5fprev_3',['ldr_prev',['../carrinho_8c.html#a171c692ff21cffa8f4931841654bf8c7',1,'carrinho.c']]],
+  ['ldrtimer_4',['ldrTimer',['../carrinho__ino_8ino.html#adc42314b62dd12e31a24733e3937e42b',1,'carrinho_ino.ino']]],
   ['led_5',['LED',['../carrinho_8c.html#a94180201817e497ad4f773021adf385b',1,'carrinho.c']]],
   ['led1_6',['LED1',['../carrinho__ino_8ino.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9',1,'LED1:&#160;carrinho_ino.ino'],['../controle__ino_8ino.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9',1,'LED1:&#160;controle_ino.ino'],['../carrinho_8c.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9',1,'LED1:&#160;carrinho.c'],['../controle_8c.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9',1,'LED1:&#160;controle.c']]],
   ['led2_7',['LED2',['../carrinho__ino_8ino.html#ad09fe5bf321b9a2de26bd5e5b9af6424',1,'LED2:&#160;carrinho_ino.ino'],['../controle__ino_8ino.html#ad09fe5bf321b9a2de26bd5e5b9af6424',1,'LED2:&#160;controle_ino.ino'],['../carrinho_8c.html#ad09fe5bf321b9a2de26bd5e5b9af6424',1,'LED2:&#160;carrinho.c'],['../controle_8c.html#ad09fe5bf321b9a2de26bd5e5b9af6424',1,'LED2:&#160;controle.c']]],
