@@ -202,7 +202,7 @@ void loop() {
   }
 
   // Vida
-  // PORTC = life;
+  PORTC = life;
 
   // Controle do Motor
   if (gamepad.x < -100) {
